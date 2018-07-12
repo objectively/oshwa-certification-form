@@ -1,0 +1,15 @@
+* {
+  box-sizing: border-box; }
+
+.footer {
+  padding-top: 40px; }
+  .footer h2 {
+    margin: 1em 0; }
+  .footer__nav > a {
+    text-align: left;
+    display: block;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    padding: 5px; }
+    .footer__nav > a:hover {
+      text-decoration: none;
+      background-color: rgba(0, 0, 0, 0.1); }
