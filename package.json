@@ -10,6 +10,7 @@
     "dev": "nodemon ./bin/www",
     "test": "mocha $(find spec -name '*.js')",
     "lint": "eslint ./client/**/*.js",
+    "lint-server": "eslint ./app.js ./**/*.js",
     "prettier": "prettier --config ./.prettierrc --write ./client/**/*.js"
   },
   "dependencies": {

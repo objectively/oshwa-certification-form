@@ -12,6 +12,7 @@ const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const browserSync = require('browser-sync');
+const connectBrowserSync = require('browser-sync');
 
 const index = require('./routes/index');
 
@@ -26,8 +27,8 @@ app.set('view engine', 'hbs');
 // Use sass
 app.use(
   sassMiddleware({
-    src: __dirname + '/sass',
-    dest: __dirname + '/public'
+    src: path.join(__dirname, '/sass'),
+    dest: path.join(__dirname, '/public')
     // debug: true
   })
 );
@@ -57,7 +58,7 @@ app.use(
 );
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+// app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -67,14 +68,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use((req, res, next) => {
   const err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use((err, req, res, next) => {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
@@ -86,7 +87,7 @@ app.use(function(err, req, res, next) {
 
 // automatic reloading with browserSync
 const bsConfig = {
-  proxy: 'localhost:' + port,
+  proxy: `localhost:${port}`,
   open: false,
   files: ['public/**/*.{js,css}', 'client/*.js', 'sass/**/*.scss', 'views/**/*.hbs'],
   port: 7000
@@ -94,7 +95,7 @@ const bsConfig = {
 
 if (app.get('env') === 'development') {
   const bs = browserSync.create().init(bsConfig);
-  app.use(require('connect-browser-sync')(bs));
+  app.use(connectBrowserSync(bs));
 }
 
 module.exports = app;
