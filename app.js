@@ -12,7 +12,7 @@ const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const browserSync = require('browser-sync');
-const connectBrowserSync = require('browser-sync');
+const connectBrowserSync = require('connect-browser-sync');
 
 const index = require('./routes/index');
 
