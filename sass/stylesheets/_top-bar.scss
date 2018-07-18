@@ -1,0 +1,14 @@
+.top-bar {
+  background-color: rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 3;
+  &__button {
+    background-color: $purple !important;
+    &--purple {
+      color: $white;
+      &:hover {
+        background-color: darken($purple, 10);
+      }
+    }
+  }
+}

@@ -28,8 +28,8 @@ app.set('view engine', 'hbs');
 app.use(
   sassMiddleware({
     src: path.join(__dirname, '/sass'),
-    dest: path.join(__dirname, '/public')
-    // debug: true
+    dest: path.join(__dirname, '/public'),
+    debug: true
   })
 );
 

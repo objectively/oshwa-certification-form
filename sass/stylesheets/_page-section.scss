@@ -1,0 +1,39 @@
+#certify,
+#apply {
+  .page-section {
+    color: $gray;
+    h2 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: $purple;
+    }
+    h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: $purple;
+    }
+    p {
+      font-size: 0.9rem;
+    }
+    .button-container {
+      text-align: right;
+    }
+    .button {
+      padding: 0.9rem 2rem;
+      &--purple {
+        background-color: $purple;
+        color: #fff;
+        font-size: 1rem;
+        font-weight: 800;
+        @include breakpoint($medium-only) {
+          font-size: 0.8rem;
+        }
+        &:hover {
+          background-color: darken($purple, 10);
+          color: #fff;
+          @extend .u-transition;
+        }
+      }
+    }
+  }
+}
