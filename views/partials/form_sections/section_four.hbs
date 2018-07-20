@@ -1,0 +1,37 @@
+<section class="page-section" id="form-4">
+  <div class="row align-justify">
+    <div class="columns">
+      <h2>Certification</h2>
+      <span>Part 4 of 5<span>
+    </div>
+  </div>
+
+  <div>
+    {{!-- 45 --}}
+    {{{createLabel sectionFour.field.certificationmarkTerms}}}
+    {{{createCheckboxes sectionFour.field.certificationmarkTerms certificationMarkChecklist}}}
+
+    {{!-- 46 --}}
+    {{{createLabel sectionFour.field.explanationCertificationTerms}}}
+    {{{createTextArea sectionFour.field.explanationCertificationTerms}}}
+
+    {{!-- 47 --}}
+    {{{createLabel sectionFour.field.relationship}}}
+    {{{createInput sectionFour.field.relationship}}}
+
+    {{!-- 48 --}}
+    {{{createLabel sectionFour.field.agreementTerms}}}
+    {{{createCheckbox sectionFour.field.agreementTerms}}}
+
+    {{!-- 49 --}}
+    {{{createLabel sectionFour.field.parentName}}}
+    {{{createInput sectionFour.field.parentName}}}
+
+    {{!-- 50 --}}
+    {{{createLabel sectionFour.field.parentalAgreement}}}
+    {{{createCheckbox sectionFour.field.parentalAgreement}}}
+
+    <input type="submit" value="Submit">
+
+  </div>
+</section>

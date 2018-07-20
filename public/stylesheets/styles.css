@@ -311,3 +311,6 @@ body {
       font-weight: 700;
       text-transform: uppercase;
       text-decoration: none; }
+
+form input[type='checkbox'] {
+  display: inline-block; }
