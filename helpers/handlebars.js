@@ -1,37 +1,10 @@
-const createLabel = field => `
-  ${field.formOrder}.
-  <label for="${field.contentfulFieldName}">${field.title}</label>
-`;
-
-const createInput = field => `
-  <input type="text"
-    id="${field.contentfulFieldName}"
-    name="${field.contentfulFieldName}"
-    placeholder="${field.formPlaceholder}"
-  >
-`;
-
-const createDropdownSelect = (field, options) => {
-  let allOptions = '';
-  options.forEach(option => {
-    allOptions += `
-    <option value="${option}">${option}</option>
-    `;
-  });
-
-  return `
-    <select id="${field.contentfulFieldName}">
-      <option value="">${field.formPlaceholder}</option>
-      ${allOptions}
+const createBooleanDropdown = field => `
+  <div class="select">
+    <select id="${field.contentfulFieldName}" type="text" name="${field.contentfulFieldName}">
+      <option value="true">Yes</option>
+      <option value="false">No</option>
     </select>
-  `;
-};
-
-const createTextArea = field => `
-  <textarea id="${field.contentfulFieldName}"
-  name="${field.contentfulFieldName}"
-  placeholder="${field.formPlaceholder}">
-  </textarea>
+  </div>
 `;
 
 const createCheckbox = field => `
@@ -40,7 +13,7 @@ const createCheckbox = field => `
       type="checkbox"
       id="${field.contentfulFieldName}"
       name="${field.contentfulFieldName}"
-      value="${field.contentfulFieldName}"
+      value="true"
     />
     <label for="${field.contentfulFieldName}">${field.contentfulFieldName}</label>
   </div>
@@ -50,9 +23,9 @@ const createCheckboxes = (field, options) => {
   let allCheckboxes = '';
   options.forEach(option => {
     allCheckboxes += `
-      <div>
+      <div class="checkbox">
         <input
-          type="checkbox" id="${option}" name="${option}" value="${option}" />
+          type="checkbox" id="${option}" name="${field.contentfulFieldName}" value="${option}"/>
         <label for="${option}">${option}</label>
       </div>
     `;
@@ -65,27 +38,62 @@ const createCheckboxes = (field, options) => {
 `;
 };
 
-const createBooleanDropdown = field => `
-  <select id="${field.contentfulFieldName}">
-    <option value="true">Yes</option>
-    <option value="false">No</option>
-  </select>
+const createDropdownSelect = (field, options) => {
+  let allOptions = '';
+  options.forEach(option => {
+    allOptions += `
+    <option value="${option}">${option}</option>
+    `;
+  });
+
+  return `
+    <div class="select">
+      <select id="${field.contentfulFieldName}" type="text" name="${field.contentfulFieldName}">
+        <option value="" disabled selected>${field.formPlaceholder}</option>
+        ${allOptions}
+      </select>
+    </div>
+  `;
+};
+
+const createInput = field => `
+  <input type="text"
+    id="${field.contentfulFieldName}"
+    name="${field.contentfulFieldName}"
+    placeholder="${field.formPlaceholder}"
+  >
+`;
+
+const createLabel = field => `
+  ${field.formOrder}.
+  <label for="${field.contentfulFieldName}">${field.title}</label>
+`;
+
+const createTextArea = field => `
+  <textarea id="${field.contentfulFieldName}"
+  type="text"
+  name="${field.contentfulFieldName}"
+  placeholder="${field.formPlaceholder}"></textarea>
 `;
 
 const createUrlInputs = field => `
-  <div>
-    <input type="text" name="${field.contentfulFieldName}Title" placeholder="title" />
-    <input type="text" name="${field.contentfulFieldName}Url" placeholder="url" />
+  <div class="url_fields">
+    <input type="text" class="url_title" name="${field.contentfulFieldName}" placeholder="title" />
+    <input type="text" class="url_address" name="${field.contentfulFieldName}" placeholder="url" />
+  </div>
+    <div class="url_fields">
+    <input type="text" name="${field.contentfulFieldName}" placeholder="title" />
+    <input type="text" name="${field.contentfulFieldName}" placeholder="url" />
   </div>
 `;
 
 module.exports = {
-  createDropdownSelect,
-  createLabel,
-  createInput,
-  createTextArea,
+  createBooleanDropdown,
   createCheckbox,
   createCheckboxes,
-  createBooleanDropdown,
+  createDropdownSelect,
+  createInput,
+  createLabel,
+  createTextArea,
   createUrlInputs
 };
