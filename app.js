@@ -1,3 +1,4 @@
+const dotenv = require('dotenv');
 const express = require('express');
 const exphbs = require('express-handlebars');
 const sassMiddleware = require('node-sass-middleware');
@@ -13,6 +14,8 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const browserSync = require('browser-sync');
 const connectBrowserSync = require('connect-browser-sync');
+
+dotenv.config();
 
 const index = require('./routes/index');
 
@@ -75,7 +78,7 @@ app.use((req, res, next) => {
 });
 
 // error handler
-app.use((err, req, res, next) => {
+app.use((err, req, res) => {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
