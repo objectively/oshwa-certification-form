@@ -81,10 +81,6 @@ const createUrlInputs = field => `
     <input type="text" class="url_title" name="${field.contentfulFieldName}" placeholder="title" />
     <input type="text" class="url_address" name="${field.contentfulFieldName}" placeholder="url" />
   </div>
-    <div class="url_fields">
-    <input type="text" name="${field.contentfulFieldName}" placeholder="title" />
-    <input type="text" name="${field.contentfulFieldName}" placeholder="url" />
-  </div>
 `;
 
 module.exports = {

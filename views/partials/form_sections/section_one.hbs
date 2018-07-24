@@ -3,58 +3,116 @@
     <div class="columns">
       <h2>Basic Information</h2>
       <span>Part 1 of 5<span>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet culpa omnis nulla tenetur veritatis iure, eius expedita. Non, exercitationem, officia?.</p>
     </div>
   </div>
 
   <div>
     {{!-- 1 --}}
-    {{{createLabel sectionOne.field.oshwaUid}}}
-    {{{createInput sectionOne.field.oshwaUid}}}
+{{!--     {{{createLabel sectionOne.field.oshwaUid}}}
+    {{{createInput sectionOne.field.oshwaUid}}} --}}
 
     {{!-- 2 --}}
-    {{{createLabel sectionOne.field.responsibleParty}}}
-    {{{createInput sectionOne.field.responsibleParty}}}
+    <div class="row">
+      <div class="columns large-6 medium-6 small-12">
+        {{{createLabel sectionOne.field.responsibleParty}}}
+      </div>
+      <div class="columns large-6 medium-6 small-12">
+        {{{createInput sectionOne.field.responsibleParty}}}
+      </div>
+    </div>
 
     {{!-- 3 --}}
-    {{{createLabel sectionOne.field.responsiblePartyType}}}
-    {{{createDropdownSelect sectionOne.field.responsiblePartyType responsiblePartyTypeOptions}}}
+    <div class="row">
+      <div class="columns large-6 medium-6 small-12">
+        {{{createLabel sectionOne.field.responsiblePartyType}}}
+      </div>
+      <div class="columns large-6 medium-6 small-12">
+        {{{createDropdownSelect sectionOne.field.responsiblePartyType responsiblePartyTypeOptions}}}
+      </div>
+    </div>
 
     {{!-- 4 --}}
-    {{{createLabel sectionOne.field.bindingParty}}}
-    {{{createInput sectionOne.field.bindingParty}}}
+    <div class="row">
+      <div class="columns large-6 medium-6 small-12">
+        {{{createLabel sectionOne.field.bindingParty}}}
+      </div>
+      <div class="columns large-6 medium-6 small-12">
+        {{{createInput sectionOne.field.bindingParty}}}
+      </div>
+    </div>
 
     {{!-- 5 --}}
-    {{{createLabel sectionOne.field.country}}}
-    {{{createDropdownSelect sectionOne.field.country countryOptions}}}
+    <div class="row">
+      <div class="columns large-12">
+        {{{createLabel sectionOne.field.country}}}
+      </div>
+      <div class="columns large-12 medium-12 small-12">
+        {{{createDropdownSelect sectionOne.field.country countryOptions}}}
+      </div>
+    </div>
 
     {{!-- 6 --}}
-    {{{createLabel sectionOne.field.streetAddress1}}}
-    {{{createInput sectionOne.field.streetAddress1}}}
+    <div class="row">
+      <div class="columns large-12 medium-12 small-12">
+        {{{createLabel sectionOne.field.streetAddress1}}}
+      </div>
+      <div class="columns large-12 medium-12 small-12">
+        {{{createInput sectionOne.field.streetAddress1}}}
+      </div>
+    </div>
 
-    7
-    {{{createLabel sectionOne.field.streetAddress2}}}
-    {{{createInput sectionOne.field.streetAddress2}}}
+    {{!-- 7 --}}
+    <div class="row">
+      <div class="columns large-12 medium-12 small-12">
+        {{{createLabel sectionOne.field.streetAddress2}}}
+      </div>
+      <div class="columns large-12 medium-12 small-12">
+        {{{createInput sectionOne.field.streetAddress2}}}
+      </div>
+    </div>
 
+    <div class="row">
     {{!-- 8 --}}
-    {{{createLabel sectionOne.field.city}}}
-    {{{createInput sectionOne.field.city}}}
-
+      <div class="columns large-5 medium-6 small-12">
+        {{{createLabel sectionOne.field.city}}}
+        {{{createInput sectionOne.field.city}}}
+      </div>
     {{!-- 9 --}}
-    {{{createLabel sectionOne.field.state}}}
-    {{{createInput sectionOne.field.state}}}
-
+      <div class="columns large-4 medium-6 small-12">
+        {{{createLabel sectionOne.field.state}}}
+        {{{createInput sectionOne.field.state}}}
+      </div>
     {{!-- 10 --}}
-    {{{createLabel sectionOne.field.postalCode}}}
-    {{{createInput sectionOne.field.postalCode}}}
+      <div class="columns large-3 medium-6 small-12">
+        {{{createLabel sectionOne.field.postalCode}}}
+        {{{createInput sectionOne.field.postalCode}}}
+      </div>
+
+
+    </div>
+
+
+
 
     {{!-- 11 --}}
-
-    {{{createLabel sectionOne.field.privateContact}}}
-    {{{createInput sectionOne.field.privateContact}}}
+    <div class="row">
+      <div class="columns large-6 medium-6 small-12">
+        {{{createLabel sectionOne.field.privateContact}}}
+      </div>
+      <div class="columns large-6 medium-6 small-12">
+        {{{createInput sectionOne.field.privateContact}}}
+      </div>
+    </div>
 
     {{!-- 12 --}}
-    {{{createLabel sectionOne.field.publicContact}}}
-    {{{createInput sectionOne.field.publicContact}}}
+    <div class="row">
+      <div class="columns large-6 medium-6 small-12">
+        {{{createLabel sectionOne.field.publicContact}}}
+      </div>
+      <div class="columns large-6 medium-6 small-12">
+        {{{createInput sectionOne.field.publicContact}}}
+      </div>
   </div>
 </section>
 
