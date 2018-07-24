@@ -1,5 +1,23 @@
 form {
+  input[type='text'],
+  textarea {
+    border-bottom: solid 2px rgba($gray, 0.3);
+    background-color: rgba($gray, 0.1);
+    &::placeholder {
+      color: rgba($gray, 0.5);
+      font-style: italic;
+      font-weight: 500;
+    }
+  }
   input[type='checkbox'] {
+  }
+  .checkbox {
+    padding: 1rem;
+    // margin: 1rem;
     display: inline-block;
+    width: 25%;
+  }
+  label {
+    font-size: 0.9rem;
   }
 }
