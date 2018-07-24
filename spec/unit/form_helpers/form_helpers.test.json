@@ -1,0 +1,39 @@
+{
+  "field": {
+    "testInputStringField": {
+      "title": "Test Input String Field",
+      "type": "string",
+      "fieldType": "input"
+    },
+    "testReferenceArrayField": {
+      "title": "Test Reference Array Field",
+      "type": "array",
+      "fieldType": "reference"
+    },
+    "testTextAreaField": {
+      "title": "Test Text Area Field",
+      "type": "string",
+      "fieldType": "textarea"
+    },
+    "testSingleSelectField": {
+      "title": "Test Single Select Field",
+      "type": "string",
+      "fieldType": "single_select"
+    },
+    "testCheckboxArrayField": {
+      "title": "Test Checkbox Array Field",
+      "type": "array",
+      "fieldType": "checkbox_array"
+    },
+    "testStringArrayField": {
+      "title": "Test String Array Field",
+      "type": "array",
+      "fieldType": "string_array"
+    },
+    "testJSONField": {
+      "title": "Test JSON Field",
+      "type": "json",
+      "fieldType": "add_url"
+    }
+  }
+}

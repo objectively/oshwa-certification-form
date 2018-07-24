@@ -77,9 +77,13 @@ const createTextArea = field => `
 `;
 
 const createUrlInputs = field => `
-  <div>
-    <input type="text" name="${field.contentfulFieldName}Title" placeholder="title" />
-    <input type="text" name="${field.contentfulFieldName}Url" placeholder="url" />
+  <div class="url_fields">
+    <input type="text" class="url_title" name="${field.contentfulFieldName}" placeholder="title" />
+    <input type="text" class="url_address" name="${field.contentfulFieldName}" placeholder="url" />
+  </div>
+    <div class="url_fields">
+    <input type="text" name="${field.contentfulFieldName}" placeholder="title" />
+    <input type="text" name="${field.contentfulFieldName}" placeholder="url" />
   </div>
 `;
 

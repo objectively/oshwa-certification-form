@@ -1,10 +1,16 @@
 const {
-  returnBooleanFromCheckbox,
-  returnArrayFromCheckbox,
+  isAddUrlField,
+  returnUrlToObj,
+  isReferenceField,
+  returnReferences,
   isBoolean,
+  returnBooleanFromCheckbox,
   isCheckboxArray,
+  returnArrayFromCheckbox,
   isBooleanSelect,
-  returnBooleanFromSelect
+  returnBooleanFromSelect,
+  isArrayField,
+  returnArrayFromTextField
 } = require('../helpers/form_helpers.js');
 
 function Project(data) {
@@ -66,12 +72,20 @@ Project.prototype.mapFieldsToContentful = function mapFieldsToContentful() {
   const fields = {};
   keys.forEach(key => {
     let keyValue;
-    if (isBoolean(key)) {
+    if (isAddUrlField(key)) {
+      keyValue = returnUrlToObj(this[key]);
+    } else if (isBoolean(key)) {
       keyValue = returnBooleanFromCheckbox(this[key]);
     } else if (isCheckboxArray(key)) {
       keyValue = returnArrayFromCheckbox(this[key]);
     } else if (isBooleanSelect(key)) {
       keyValue = returnBooleanFromSelect(this[key]);
+    } else if (isReferenceField(key)) {
+      keyValue = returnReferences(this[key]);
+    } else if (isArrayField(key)) {
+      keyValue = returnArrayFromTextField(this[key]);
+    } else if (isReferenceField(key)) {
+      keyValue = returnReferences();
     } else {
       keyValue = this[key] || '';
     }

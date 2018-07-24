@@ -1,66 +1,18 @@
-const formQuestions1 = require('../config/form_fields/section-1-questions');
-const formQuestions2 = require('../config/form_fields/section-2-questions');
-const formQuestions3 = require('../config/form_fields/section-3-questions');
-const formQuestions4 = require('../config/form_fields/section-4-questions');
-
-const booleanFormFields = Object.keys(formQuestions1.field)
-  .filter(item => formQuestions1.field[item].type === 'boolean' && formQuestions1.field[item].fieldType === 'checkbox')
-  .concat(
-    Object.keys(formQuestions2.field).filter(
-      item => formQuestions2.field[item].type === 'boolean' && formQuestions2.field[item].fieldType === 'checkbox'
-    )
-  )
-  .concat(
-    Object.keys(formQuestions3.field).filter(
-      item => formQuestions3.field[item].type === 'boolean' && formQuestions3.field[item].fieldType === 'checkbox'
-    )
-  )
-  .concat(
-    Object.keys(formQuestions4.field).filter(
-      item => formQuestions4.field[item].type === 'boolean' && formQuestions4.field[item].fieldType === 'checkbox'
-    )
-  );
-
-const arrayCheckboxFormFields = Object.keys(formQuestions1.field)
-  .filter(item => formQuestions1.field[item].type === 'array' && formQuestions1.field[item].fieldType === 'checkbox')
-  .concat(
-    Object.keys(formQuestions2.field).filter(
-      item => formQuestions2.field[item].type === 'array' && formQuestions2.field[item].fieldType === 'checkbox'
-    )
-  )
-  .concat(
-    Object.keys(formQuestions3.field).filter(
-      item => formQuestions3.field[item].type === 'array' && formQuestions3.field[item].fieldType === 'checkbox'
-    )
-  )
-  .concat(
-    Object.keys(formQuestions4.field).filter(
-      item => formQuestions4.field[item].type === 'array' && formQuestions4.field[item].fieldType === 'checkbox'
-    )
-  );
-
-const booleanSelectFields = Object.keys(formQuestions1.field)
-  .filter(item => formQuestions1.field[item].type === 'boolean' && formQuestions1.field[item].fieldType === 'select')
-  .concat(
-    Object.keys(formQuestions2.field).filter(
-      item => formQuestions2.field[item].type === 'boolean' && formQuestions2.field[item].fieldType === 'select'
-    )
-  )
-  .concat(
-    Object.keys(formQuestions3.field).filter(
-      item => formQuestions3.field[item].type === 'boolean' && formQuestions3.field[item].fieldType === 'select'
-    )
-  )
-  .concat(
-    Object.keys(formQuestions4.field).filter(
-      item => formQuestions4.field[item].type === 'boolean' && formQuestions4.field[item].fieldType === 'select'
-    )
-  );
+const {
+  addUrlFields,
+  arrayCheckboxFormFields,
+  arrayFields,
+  booleanFormFields,
+  booleanSelectFields,
+  referenceFields
+} = require('./form_parsers');
 
 const isCheckboxArray = key => arrayCheckboxFormFields.indexOf(key) !== -1;
-
 const isBoolean = key => booleanFormFields.indexOf(key) !== -1;
-
+const isBooleanSelect = key => booleanSelectFields.indexOf(key) !== -1;
+const isAddUrlField = key => addUrlFields.indexOf(key) !== -1;
+const isArrayField = key => arrayFields.indexOf(key) !== -1;
+const isReferenceField = key => referenceFields.indexOf(key) !== -1;
 const returnBooleanFromCheckbox = value => !!value;
 
 const returnArrayFromCheckbox = values => {
@@ -70,8 +22,6 @@ const returnArrayFromCheckbox = values => {
   return values;
 };
 
-const isBooleanSelect = key => booleanSelectFields.indexOf(key) !== -1;
-
 const returnBooleanFromSelect = values => {
   if (values === 'true') {
     return true;
@@ -79,13 +29,52 @@ const returnBooleanFromSelect = values => {
   return false;
 };
 
+const returnReferences = referenceIDs => {
+  const references = [];
+  if (!referenceIDs) {
+    return [];
+  }
+  if (typeof referenceIDs === 'string') {
+    references.push({ sys: { type: 'Link', linkType: 'Entry', id: referenceIDs } });
+  } else {
+    referenceIDs.forEach(id => {
+      references.push({ sys: { type: 'Link', linkType: 'Entry', id } });
+    });
+  }
+
+  return references;
+};
+
+const returnArrayFromTextField = str => {
+  const arr = str.split(',');
+  const results = [];
+
+  arr.forEach(item => {
+    results.push(decodeURI(item.trim()));
+  });
+
+  return arr;
+};
+
+const returnUrlToObj = urls => {
+  const urlsArr = [];
+  for (let i = 0; i < urls.length; i += 2) {
+    urlsArr.push({ title: urls[i], url: urls[i + 1] });
+  }
+  return urlsArr;
+};
+
 module.exports = {
-  booleanFormFields,
-  booleanSelectFields,
-  returnArrayFromCheckbox,
-  returnBooleanFromCheckbox,
-  isBoolean,
+  isAddUrlField,
+  returnUrlToObj,
+  isReferenceField,
+  returnReferences,
+  isArrayField,
+  returnArrayFromTextField,
   isCheckboxArray,
+  returnArrayFromCheckbox,
+  isBoolean,
+  returnBooleanFromCheckbox,
   isBooleanSelect,
   returnBooleanFromSelect
 };
