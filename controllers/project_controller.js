@@ -1,4 +1,7 @@
+const contentfulDelivery = require('contentful');
 const contentfulManagement = require('contentful-management');
+
+const contentfulDeliveryApiKey = process.env.OSHWA_CONTENTFUL_DELIVERY_KEY;
 
 const spaceID = process.env.OSHWA_CONTENTFUL_SPACE_ID;
 const environmentID = process.env.OSHWA_CONTENTFUL_ENVIRONMENT_ID;
@@ -8,10 +11,25 @@ const contentfulClient = contentfulManagement.createClient({
   accessToken: process.env.OSHWA_CONTENTFUL_MANAGEMENT_KEY
 });
 
+const contentfulDeliveryClient = contentfulDelivery.createClient({
+  space: spaceID,
+  accessToken: contentfulDeliveryApiKey,
+  environment: process.env.OSHWA_CONTENTFUL_ENVIRONMENT_ID
+});
+
 const getValidationDropdownItems = (contentType, id) =>
   contentType.fields.filter(item => item.id === id)[0].validations[0].in;
 const getValidationCheckboxItems = (contentType, id) =>
   contentType.fields.filter(item => item.id === id)[0].items.validations[0].in;
+
+const getProjectsList = () =>
+  contentfulDeliveryClient
+    .getEntries({
+      content_type: 'project',
+      select: ['fields.oshwaUid', 'fields.responsibleParty', 'fields.projectName']
+    })
+    .then(response => response.items)
+    .catch(console.error);
 
 const getValidations = () =>
   contentfulClient
@@ -52,5 +70,6 @@ const submitFormToContentful = fields =>
 
 module.exports = {
   getValidations,
-  submitFormToContentful
+  submitFormToContentful,
+  getProjectsList
 };

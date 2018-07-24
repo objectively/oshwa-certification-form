@@ -24,9 +24,10 @@ router.get('/', (req, res) => {
 
 /* GET /apply. */
 router.get('/apply', (req, res) => {
-  projectController
-    .getValidations()
-    .then(validations => {
+  Promise.all([projectController.getProjectsList(), projectController.getValidations()])
+    .then(contentfulValues => {
+      const [projectsList, validations] = contentfulValues;
+
       res.render('apply', {
         ...apply,
         sectionOne,
@@ -36,6 +37,7 @@ router.get('/apply', (req, res) => {
         helpers: {
           ...helpers
         },
+        projectsList,
         ...validations[0]
       });
     })
