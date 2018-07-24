@@ -31,11 +31,11 @@
     <div class="columns large-6 medium-6 small-12">
       {{{createLabel sectionTwo.field.previousVersions}}}
     </div>
-    <div class="columns large-6 medium-6 small-12">
-      {{{createInput sectionTwo.field.previousVersions}}}
-          {{!-- {{{createDropdownSelect sectionTwo.field.projectVersions projectsOptions}}} --}}
-      <span><i class="material-icons">add_circle</i>Add another previous version</span>
+    <div class="columns large-6 medium-6 small-12 field-wrapper" data-field-name="previousVersions" data-target="select">
+      {{{createPreviousVersionsDropdown sectionTwo.field.previousVersions projectsList}}}
     </div>
+
+
   </div>
 
   {{!-- 16 --}}

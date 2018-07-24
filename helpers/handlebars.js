@@ -56,6 +56,28 @@ const createDropdownSelect = (field, options) => {
   `;
 };
 
+const createPreviousVersionsDropdown = (field, optionsObj) => {
+  let allOptions = '';
+  optionsObj.forEach(option => {
+    allOptions += `
+    <option value="${option.sys.id}">${option.fields.oshwaUid}: ${option.fields.responsibleParty} - ${
+      option.fields.projectName
+    } </option>
+    `;
+  });
+
+  return `
+    <div class="select select-previous-versions form-field-wrapper" data-field-type="select">
+      <select  multiple="multiple" placeholder=""  data-value="select" class="${
+        field.contentfulFieldName
+      }" type="text" name="${field.contentfulFieldName}">
+        <option></option>
+        ${allOptions}
+      </select>
+    </div>
+  `;
+};
+
 const createInput = field => `
   <input type="text"
     id="${field.contentfulFieldName}"
@@ -90,6 +112,7 @@ module.exports = {
   createDropdownSelect,
   createInput,
   createLabel,
+  createPreviousVersionsDropdown,
   createTextArea,
   createUrlInputs
 };
