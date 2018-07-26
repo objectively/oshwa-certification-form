@@ -1,3 +1,4 @@
+const DynamicForms = require('./dynamic_forms');
 const Modal = require('./modal');
 const Nav = require('./nav');
 const Overlay = require('./overlay');
@@ -6,6 +7,7 @@ const Search = require('./search');
 const Select2 = require('./select_2');
 const Sticky = require('./sticky');
 
+DynamicForms.init();
 Modal.init();
 Nav.init();
 Overlay.init();

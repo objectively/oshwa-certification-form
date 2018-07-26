@@ -27,3 +27,27 @@ form {
     display: none;
   }
 }
+
+.url_title,
+.url_address {
+  display: inline-block;
+  width: 50px;
+}
+
+.js-remove-field {
+  font-size: 1rem;
+  margin: auto;
+}
+
+.js-add-url-inputs-field {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 0.8rem;
+  &::after {
+    content: 'Add another citation';
+    vertical-align: 0.35rem;
+  }
+  i {
+    padding-right: 1rem;
+  }
+}

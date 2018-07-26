@@ -1,8 +1,9 @@
 const Select2 = {
   previousVersions() {
     $('.previousVersions').select2({
-      placeholder: 'Enter an existing OSHWA UID',
-      multiple: true
+      multiple: true,
+      width: '100%'
+      // minimumInputLength: 3
     });
   },
   init() {

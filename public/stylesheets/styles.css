@@ -1,7 +1,7 @@
 * {
   box-sizing: border-box; }
 
-.u-material-icons {
+.u-material-icons, .select2-selection__choice__remove::before {
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
@@ -335,12 +335,28 @@ form label {
   .select-previous-versions::before {
     display: none; }
 
+.url_title,
+.url_address {
+  display: inline-block;
+  width: 50px; }
+
+.js-remove-field {
+  font-size: 1rem;
+  margin: auto; }
+
+.js-add-url-inputs-field {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 0.8rem; }
+  .js-add-url-inputs-field::after {
+    content: 'Add another citation';
+    vertical-align: 0.35rem; }
+  .js-add-url-inputs-field i {
+    padding-right: 1rem; }
+
 .select-previous-versions {
   padding: 0;
   border-radius: 0; }
-
-.select2-container {
-  width: 100%; }
 
 .select2-container--default .select2-selection--multiple {
   background-color: rgba(77, 77, 77, 0.1);
@@ -363,3 +379,17 @@ form label {
 .select2-dropdown {
   background-color: white;
   border: 1px solid rgba(77, 77, 77, 0.1); }
+
+.select2-selection__choice__remove {
+  color: transparent !important; }
+  .select2-selection__choice__remove::before {
+    content: 'remove_circle';
+    display: inline-block;
+    color: #4d4d4d;
+    font-size: 0.9rem; }
+
+.select2-search::before,
+.select2-search--inline::before {
+  content: 'Enter an existing OSHWA UID: ';
+  font-style: italic;
+  color: rgba(77, 77, 77, 0.5); }

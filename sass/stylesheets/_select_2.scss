@@ -3,7 +3,6 @@
   border-radius: 0;
 }
 .select2-container {
-  width: 100%;
 }
 .select2-container--default .select2-selection--multiple {
   background-color: rgba($gray, 0.1);
@@ -28,4 +27,24 @@
 .select2-dropdown {
   background-color: white;
   border: 1px solid rgba($gray, 0.1);
+}
+
+.select2-selection__choice__remove {
+  color: transparent !important;
+  &::before {
+    content: 'remove_circle';
+    @extend .u-material-icons;
+    display: inline-block;
+    color: $gray;
+    font-size: 0.9rem;
+  }
+}
+
+.select2-search,
+.select2-search--inline {
+  &::before {
+    content: 'Enter an existing OSHWA UID: ';
+    font-style: italic;
+    color: rgba($gray, 0.5);
+  }
 }

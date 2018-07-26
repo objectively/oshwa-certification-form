@@ -67,10 +67,8 @@ const createPreviousVersionsDropdown = (field, optionsObj) => {
   });
 
   return `
-    <div class="select select-previous-versions form-field-wrapper" data-field-type="select">
-      <select  multiple="multiple" placeholder=""  data-value="select" class="${
-        field.contentfulFieldName
-      }" type="text" name="${field.contentfulFieldName}">
+    <div class="select select-previous-versions" >
+      <select  multiple="multiple" class="${field.contentfulFieldName}" type="text" name="${field.contentfulFieldName}">
         <option></option>
         ${allOptions}
       </select>
@@ -99,10 +97,22 @@ const createTextArea = field => `
 `;
 
 const createUrlInputs = field => `
-  <div class="url_fields">
-    <input type="text" class="url_title" name="${field.contentfulFieldName}" placeholder="title" />
-    <input type="text" class="url_address" name="${field.contentfulFieldName}" placeholder="url" />
-  </div>
+    <div class="url_fields field-wrapper" data-template-target="url-inputs">
+      <div data-template-value='url-inputs' class="form-field-wrapper row">
+        <i class="columns small-1 js-remove-field material-icons">remove_circle</i>
+        <div class="columns small-11 medium-expand large-expand">
+        <label for="${field.contentfulFieldName}-title">Citation Name</label>
+        <input type="text" class="url_title" name="${field.contentfulFieldName}" placeholder="title" />
+        </div>
+        <div class="columns small-11 small-offset-1 medium-expand">
+        <label for="${field.contentfulFieldName}-title">Citation URL</label>
+        <input type="text" class="url_address" name="${field.contentfulFieldName}" placeholder="url" />
+        </div>
+
+      </div>
+      <span class="js-add-url-inputs-field"><i class="material-icons">add_circle</i></span>
+    </div>
+
 `;
 
 module.exports = {
