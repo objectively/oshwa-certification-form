@@ -1,4 +1,5 @@
 const express = require('express');
+const auth = require('../auth');
 
 const router = express.Router();
 
@@ -18,12 +19,12 @@ const sectionThree = require('../config/form_fields/section-3-questions.json');
 const sectionFour = require('../config/form_fields/section-4-questions.json');
 
 /* GET home page. */
-router.get('/', (req, res) => {
+router.get('/', auth, (req, res) => {
   res.render('index', { ...index });
 });
 
 /* GET /apply. */
-router.get('/apply', (req, res) => {
+router.get('/apply', auth, (req, res) => {
   Promise.all([projectController.getProjectsList(), projectController.getValidations()])
     .then(contentfulValues => {
       const [projectsList, validations] = contentfulValues;
@@ -64,7 +65,7 @@ router.post('/apply', (req, res) => {
 });
 
 /* GET /confirmation. */
-router.get('/confirmation', (req, res) => {
+router.get('/confirmation', auth, (req, res) => {
   res.render('confirmation', { title: 'Confirmation', message: 'Your application has been received.' });
 });
 
