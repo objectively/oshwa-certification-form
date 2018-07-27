@@ -18,7 +18,7 @@
 
     {{!-- 46 --}}
     <div class="row">
-      <div class="columns large-3 small-12">
+      <div class="columns large-3 small-12 ">
         {{{createLabel sectionFour.field.explanationCertificationTerms}}}
       </div>
       <div class="columns">
@@ -38,7 +38,7 @@
 
     {{!-- 48 --}}
     <div class="row">
-      <div class="columns large-12">
+      <div class="columns large-12 single-checkbox-field">
         {{{createCheckbox sectionFour.field.agreementTerms}}}
         {{{createLabel sectionFour.field.agreementTerms}}}
       </div>
@@ -54,19 +54,10 @@
       </div>
     </div>
 
-    {{!-- 50 --}}
-    <div class="row">
-      <div class="columns large-12">
-        {{{createCheckbox sectionFour.field.parentalAgreement}}}
-        {{{createLabel sectionFour.field.parentalAgreement}}}
-      </div>
-    </div>
-
     <div class="row align-right">
       <div class="columns button-container">
         <input type="submit" class="button button--purple" value="submit"/>
       </div>
     </div>
-
   </div>
 </section>

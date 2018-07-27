@@ -15,21 +15,21 @@
 
     {{!-- 2 --}}
     <div class="row">
+      <div class="columns large-4 medium-4 small-12">
+        {{{createLabel sectionOne.field.responsiblePartyType}}}
+      </div>
+      <div class="columns large-6 medium-6 small-12">
+        {{{createDropdownSelect sectionOne.field.responsiblePartyType responsiblePartyTypeOptions}}}
+      </div>
+    </div>
+
+        {{!-- 3 --}}
+    <div class="row">
       <div class="columns large-6 medium-6 small-12">
         {{{createLabel sectionOne.field.responsibleParty}}}
       </div>
       <div class="columns large-6 medium-6 small-12">
         {{{createInput sectionOne.field.responsibleParty}}}
-      </div>
-    </div>
-
-    {{!-- 3 --}}
-    <div class="row">
-      <div class="columns large-6 medium-6 small-12">
-        {{{createLabel sectionOne.field.responsiblePartyType}}}
-      </div>
-      <div class="columns large-6 medium-6 small-12">
-        {{{createDropdownSelect sectionOne.field.responsiblePartyType responsiblePartyTypeOptions}}}
       </div>
     </div>
 
@@ -44,11 +44,10 @@
     </div>
 
     {{!-- 5 --}}
+    <p>Contact Information</p>
     <div class="row">
-      <div class="columns large-12">
+      <div class="columns large-5 medium-6 small-12">
         {{{createLabel sectionOne.field.country}}}
-      </div>
-      <div class="columns large-12 medium-12 small-12">
         {{{createDropdownSelect sectionOne.field.country countryOptions}}}
       </div>
     </div>

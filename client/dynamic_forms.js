@@ -28,9 +28,21 @@ const DynamicForm = {
         .remove();
     });
   },
+  renderExplanationFields() {
+    $('.explanation-select > .select > select').on('change', e => {
+      const explanationTarget = e.currentTarget.getAttribute('data-target');
+      const explanationField = document.querySelector(`[data-value="${explanationTarget}"]`);
+      if (e.target.value === 'true') {
+        explanationField.classList.add('hide');
+      } else {
+        explanationField.classList.remove('hide');
+      }
+    });
+  },
   init() {
     this.addFormField();
     this.deleteFormField();
+    this.renderExplanationFields();
   }
 };
 

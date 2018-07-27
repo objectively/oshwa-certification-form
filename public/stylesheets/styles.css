@@ -184,9 +184,6 @@ body {
     font-size: 1rem;
     font-weight: 700;
     color: #9255bf; }
-  #certify .page-section p,
-  #apply .page-section p {
-    font-size: 0.9rem; }
   #certify .page-section .button-container,
   #apply .page-section .button-container {
     text-align: right; }
@@ -322,13 +319,39 @@ form textarea {
     font-style: italic;
     font-weight: 500; }
 
-form .checkbox {
-  padding: 1rem;
-  display: inline-block;
-  width: 25%; }
+form input[type='checkbox'] {
+  display: initial;
+  visibility: hidden;
+  width: 0; }
 
-form label {
-  font-size: 0.9rem; }
+form .checkbox {
+  display: block; }
+  form .checkbox label {
+    margin: 0;
+    padding: 0 0 0 20px;
+    text-indent: -20px;
+    font-size: 0.8rem; }
+
+.additional-project-types .checkbox {
+  width: 25%;
+  display: inline-block; }
+  .additional-project-types .checkbox label {
+    display: block;
+    margin: 0;
+    padding: 0 0 0 20px;
+    text-indent: -20px;
+    font-size: 0.8rem; }
+
+.project-version-label {
+  display: flex; }
+
+.single-checkbox-field .checkbox {
+  display: inline-block; }
+  .single-checkbox-field .checkbox label {
+    margin: 0;
+    padding: 0 0 0 20px;
+    text-indent: -20px;
+    font-size: 0.8rem; }
 
 .select-previous-versions {
   background: none !important; }
@@ -353,6 +376,11 @@ form label {
     vertical-align: 0.35rem; }
   .js-add-url-inputs-field i {
     padding-right: 1rem; }
+
+.hide {
+  position: absolute !important;
+  top: -9999px !important;
+  left: -9999px !important; }
 
 .select-previous-versions {
   padding: 0;

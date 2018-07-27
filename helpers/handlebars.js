@@ -1,6 +1,8 @@
 const createBooleanDropdown = field => `
   <div class="select">
-    <select id="${field.contentfulFieldName}" type="text" name="${field.contentfulFieldName}">
+    <select id="${field.contentfulFieldName}" type="text" name="${field.contentfulFieldName}" data-target="${
+  field.contentfulFieldName
+}">
       <option value="true">Yes</option>
       <option value="false">No</option>
     </select>
@@ -8,14 +10,14 @@ const createBooleanDropdown = field => `
 `;
 
 const createCheckbox = field => `
-  <div>
+  <div class="checkbox">
     <input
       type="checkbox"
       id="${field.contentfulFieldName}"
       name="${field.contentfulFieldName}"
       value="true"
     />
-    <label for="${field.contentfulFieldName}">${field.contentfulFieldName}</label>
+    <label for="${field.contentfulFieldName}"></label>
   </div>
 `;
 

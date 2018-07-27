@@ -19,7 +19,6 @@
     </div>
   </div>
 
-
   {{!-- 25 --}}
   <div class="row">
     <div class="columns large-6 medium-6 small-12">
@@ -41,198 +40,203 @@
   </div>
 
   {{!-- 27 --}}
-  <div class="row">
-    <div class="columns large-10 medium-10 small-12">
-      {{{createLabel sectionThree.field.noCommercialRestriction}}}
+  <div class="explanation-wrapper">
+    <div class="row">
+      <div class="columns large-10 medium-10 small-12">
+        {{{createLabel sectionThree.field.noCommercialRestriction}}}
+      </div>
+      <div class="columns explanation-select">
+        {{{createBooleanDropdown sectionThree.field.noCommercialRestriction}}}
+      </div>
     </div>
-    <div class="columns">
-      {{{createBooleanDropdown sectionThree.field.noCommercialRestriction}}}
+
+    {{!-- 28 --}}
+    <div class="row explanation-field hide" data-value="noCommercialRestriction">
+      <div class="columns large-3 small-12">
+        {{{createLabel sectionThree.field.explanationNcr}}}
+      </div>
+      <div class="columns">
+        {{{createTextArea sectionThree.field.explanationNcr}}}
+      </div>
     </div>
   </div>
-
-  {{!-- 28 --}}
-  <div class="row">
-    <div class="columns large-3 small-12">
-      {{{createLabel sectionThree.field.explanationNcr}}}
-    </div>
-    <div class="columns">
-      {{{createTextArea sectionThree.field.explanationNcr}}}
-    </div>
-  </div>
-
 
   {{!-- 29 --}}
-  <div class="row">
-    <div class="columns large-10 medium-10 small-12">
-      {{{createLabel sectionThree.field.noDocumentationRestriction}}}
+  <div class="explanation-wrapper">
+    <div class="row">
+      <div class="columns large-10 medium-10 small-12">
+        {{{createLabel sectionThree.field.noDocumentationRestriction}}}
+      </div>
+      <div class="columns explanation-select">
+        {{{createBooleanDropdown sectionThree.field.noDocumentationRestriction}}}
+      </div>
     </div>
-    <div class="columns">
-      {{{createBooleanDropdown sectionThree.field.noDocumentationRestriction}}}
+
+    {{!-- 30 --}}
+    <div class="row explanation-field hide" data-value="noDocumentationRestriction">
+      <div class="columns large-3 small-12">
+        {{{createLabel sectionThree.field.explanationNdr}}}
+      </div>
+      <div class="columns">
+        {{{createTextArea sectionThree.field.explanationNdr}}}
+      </div>
     </div>
   </div>
-
-
-  {{!-- 30 --}}
-  <div class="row">
-    <div class="columns large-3 small-12">
-      {{{createLabel sectionThree.field.explanationNdr}}}
-    </div>
-    <div class="columns">
-      {{{createTextArea sectionThree.field.explanationNdr}}}
-    </div>
-  </div>
-
 
   {{!-- 31 --}}
-  <div class="row">
-    <div class="columns large-10 medium-10 small-12">
-      {{{createLabel sectionThree.field.openHardwareComponents}}}
+  <div class="explanation-wrapper">
+    <div class="row">
+      <div class="columns large-10 medium-10 small-12">
+        {{{createLabel sectionThree.field.openHardwareComponents}}}
+      </div>
+      <div class="columns explanation-select">
+        {{{createBooleanDropdown sectionThree.field.openHardwareComponents}}}
+      </div>
     </div>
-    <div class="columns">
-      {{{createBooleanDropdown sectionThree.field.openHardwareComponents}}}
-    </div>
-  </div>
 
 
-  {{!-- 32 --}}
-  <div class="row">
-    <div class="columns large-3 small-12">
+    {{!-- 32 --}}
+    <div class="row explanation-field hide" data-value="openHardwareComponents">
+      <div class="columns large-3 small-12">
       {{{createLabel sectionThree.field.explanationOhwc}}}
-    </div>
-    <div class="columns">
+      </div>
+      <div class="columns">
       {{{createTextArea sectionThree.field.explanationOhwc}}}
+      </div>
     </div>
   </div>
-
 
   {{!-- 33 --}}
-  <div class="row">
-    <div class="columns large-10 medium-10 small-12">
+  <div class="explanation-wrapper">
+    <div class="row">
+      <div class="columns large-10 medium-10 small-12">
       {{{createLabel sectionThree.field.creatorContribution}}}
-    </div>
-    <div class="columns">
+      </div>
+      <div class="columns explanation-select">
       {{{createBooleanDropdown sectionThree.field.creatorContribution}}}
+      </div>
     </div>
-  </div>
-
 
   {{!-- 34 --}}
-  <div class="row">
-    <div class="columns large-3 small-12">
+    <div class="row explanation-field hide" data-value="creatorContribution">
+      <div class="columns large-3 small-12">
       {{{createLabel sectionThree.field.explanationCcr}}}
-    </div>
-    <div class="columns">
+      </div>
+      <div class="columns">
       {{{createTextArea sectionThree.field.explanationCcr}}}
+      </div>
     </div>
   </div>
-
 
   {{!-- 35 --}}
-  <div class="row">
-    <div class="columns large-10 medium-10 small-12">
-      {{{createLabel sectionThree.field.noUseRestriction}}}
-    </div>
-    <div class="columns">
-      {{{createBooleanDropdown sectionThree.field.noUseRestriction}}}
+  <div class="explanation-wrapper">
+    <div class="row">
+      <div class="columns large-10 medium-10 small-12">
+        {{{createLabel sectionThree.field.noUseRestriction}}}
+      </div>
+      <div class="columns explanation-select">
+        {{{createBooleanDropdown sectionThree.field.noUseRestriction}}}
 
+      </div>
+    </div>
+
+    {{!-- 36 --}}
+    <div class="row explanation-field hide" data-value="noUseRestriction">
+      <div class="columns large-3 small-12">
+        {{{createLabel sectionThree.field.explanationNur}}}
+      </div>
+      <div class="columns">
+        {{{createTextArea sectionThree.field.explanationNur}}}
+      </div>
     </div>
   </div>
-
-  {{!-- 36 --}}
-  <div class="row">
-    <div class="columns large-3 small-12">
-      {{{createLabel sectionThree.field.explanationNur}}}
-    </div>
-    <div class="columns">
-      {{{createTextArea sectionThree.field.explanationNur}}}
-    </div>
-  </div>
-
 
   {{!-- 37 --}}
-  <div class="row">
-    <div class="columns large-10 medium-10 small-12">
-      {{{createLabel sectionThree.field.redistributedWork}}}
+  <div class="explanation-wrapper">
+    <div class="row">
+      <div class="columns large-10 medium-10 small-12">
+        {{{createLabel sectionThree.field.redistributedWork}}}
+      </div>
+      <div class="columns explanation-select">
+        {{{createBooleanDropdown sectionThree.field.redistributedWork}}}
+      </div>
     </div>
-    <div class="columns">
-      {{{createBooleanDropdown sectionThree.field.redistributedWork}}}
+
+
+    {{!-- 38 --}}
+    <div class="row explanation-field hide" data-value="redistributedWork">
+      <div class="columns large-3 small-12">
+        {{{createLabel sectionThree.field.explanationRwr}}}
+      </div>
+      <div class="columns">
+        {{{createTextArea sectionThree.field.explanationRwr}}}
+      </div>
     </div>
   </div>
 
-
-  {{!-- 38 --}}
-  <div class="row">
-    <div class="columns large-3 small-12">
-      {{{createLabel sectionThree.field.explanationRwr}}}
+    {{!-- 39 --}}
+  <div class="explanation-wrapper">
+    <div class="row">
+      <div class="columns large-10 medium-10 small-12">
+        {{{createLabel sectionThree.field.noSpecificProduct}}}
+      </div>
+      <div class="columns explanation-select">
+        {{{createBooleanDropdown sectionThree.field.noSpecificProduct}}}
+      </div>
     </div>
-    <div class="columns">
-      {{{createTextArea sectionThree.field.explanationRwr}}}
-    </div>
-  </div>
 
-
-  {{!-- 39 --}}
-  <div class="row">
-    <div class="columns large-10 medium-10 small-12">
-      {{{createLabel sectionThree.field.noSpecificProduct}}}
-    </div>
-    <div class="columns">
-      {{{createBooleanDropdown sectionThree.field.noSpecificProduct}}}
-    </div>
-  </div>
-
-
-  {{!-- 40 --}}
-  <div class="row">
-    <div class="columns large-3 small-12">
-      {{{createLabel sectionThree.field.explanationNsp}}}
-    </div>
-    <div class="columns">
-      {{{createTextArea sectionThree.field.explanationNsp}}}
+    {{!-- 40 --}}
+    <div class="row explanation-field hide" data-value="noSpecificProduct">
+      <div class="columns large-3 small-12">
+        {{{createLabel sectionThree.field.explanationNsp}}}
+      </div>
+      <div class="columns">
+        {{{createTextArea sectionThree.field.explanationNsp}}}
+      </div>
     </div>
   </div>
 
-
-  {{!-- 41 --}}
-  <div class="row">
-    <div class="columns large-10 medium-10 small-12">
-      {{{createLabel sectionThree.field.noComponentRestriction}}}
+    {{!-- 41 --}}
+  <div class="explanation-wrapper">
+    <div class="row">
+      <div class="columns large-10 medium-10 small-12">
+        {{{createLabel sectionThree.field.noComponentRestriction}}}
+      </div>
+      <div class="columns explanation-select">
+        {{{createBooleanDropdown sectionThree.field.noComponentRestriction}}}
+      </div>
     </div>
-    <div class="columns">
-      {{{createBooleanDropdown sectionThree.field.noComponentRestriction}}}
+
+    {{!-- 42 --}}
+    <div class="row explanation-field hide" data-value="noComponentRestriction">
+      <div class="columns large-3 small-12">
+        {{{createLabel sectionThree.field.explanationNor}}}
+      </div>
+      <div class="columns">
+        {{{createTextArea sectionThree.field.explanationNor}}}
+      </div>
     </div>
   </div>
-
-
-  {{!-- 42 --}}
-  <div class="row">
-    <div class="columns large-3 small-12">
-      {{{createLabel sectionThree.field.explanationNor}}}
-    </div>
-    <div class="columns">
-      {{{createTextArea sectionThree.field.explanationNor}}}
-    </div>
-  </div>
-
 
   {{!-- 43 --}}
-  <div class="row">
-    <div class="columns large-10 medium-10 small-12">
-      {{{createLabel sectionThree.field.technologyNeutral}}}
+  <div class="explanation-wrapper">
+    <div class="row">
+      <div class="columns large-10 medium-10 small-12">
+          {{{createLabel sectionThree.field.technologyNeutral}}}
+      </div>
+      <div class="columns explanation-select">
+          {{{createBooleanDropdown sectionThree.field.technologyNeutral}}}
+      </div>
     </div>
-    <div class="columns">
-      {{{createBooleanDropdown sectionThree.field.technologyNeutral}}}
-    </div>
-  </div>
 
-
-  {{!-- 44 --}}
-  <div class="row">
-    <div class="columns large-3 small-12">
-      {{{createLabel sectionThree.field.explanationTn}}}
-    </div>
-    <div class="columns">
-      {{{createTextArea sectionThree.field.explanationTn}}}
+      {{!-- 44 --}}
+    <div class="row explanation-field hide" data-value="technologyNeutral">
+      <div class="columns large-3 small-12">
+        {{{createLabel sectionThree.field.explanationTn}}}
+      </div>
+      <div class="columns large-9">
+        {{{createTextArea sectionThree.field.explanationTn}}}
+      </div>
     </div>
   </div>
 

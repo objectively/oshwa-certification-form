@@ -18,11 +18,11 @@
     {{{createInput sectionTwo.field.projectName}}}
     </div>
     {{!-- 14 --}}
-    <div class="columns large-2 medium-2 small-12">
+    <div class="columns large-3 medium-3 small-12">
     {{{createLabel sectionTwo.field.projectVersion}}}
     </div>
-    <div class="columns large-3 medium-3 small-12">
-    {{{createInput sectionTwo.field.projectVersion}}}
+    <div class="columns large-2 medium-2 small-12 project-version-label">
+    <span>v. </span>{{{createInput sectionTwo.field.projectVersion}}}
     </div>
   </div>
 
@@ -51,6 +51,17 @@
   {{!-- 17 --}}
   <div class="row">
     <div class="columns large-3 small-12">
+      {{{createLabel sectionTwo.field.projectWebsite}}}
+    </div>
+    <div class="columns">
+      {{{createInput sectionTwo.field.projectWebsite}}}
+    </div>
+  </div>
+
+  {{!-- 18 --}}
+
+  <div class="row">
+    <div class="columns large-3 small-12">
       {{{createLabel sectionTwo.field.primaryType}}}
     </div>
     <div class="columns">
@@ -58,16 +69,16 @@
     </div>
   </div>
 
-  {{!-- 18 --}}
+  {{!-- 19 --}}
   <div class="row">
-    <div class="columns">
+    <div class="columns additional-project-types">
       {{{createLabel sectionTwo.field.additionalType}}}
 
       {{{createCheckboxes sectionTwo.field.additionalType additionalProjectTypes}}}
     </div>
   </div>
 
-  {{!-- 19 --}}
+  {{!-- 20 --}}
   <div class="row">
     <div class="columns large-3 small-12">
       {{{createLabel sectionTwo.field.projectKeywords}}}
@@ -77,9 +88,9 @@
     </div>
   </div>
 
-  {{!-- 20 --}}
+  {{!-- 21 --}}
   <div class="row">
-    <div class="columns large-3 small-12">
+    <div class="columns large-4 small-12">
       {{{createLabel sectionTwo.field.documentationUrl}}}
     </div>
     <div class="columns">
@@ -87,21 +98,11 @@
     </div>
   </div>
 
-  {{!-- 21 --}}
-  <div class="row">
-    <div class="columns">
-      {{{createLabel sectionTwo.field.availableFileFormat}}}
-      {{{createCheckbox sectionTwo.field.availableFileFormat}}}
-    </div>
-  </div>
-
   {{!-- 22 --}}
   <div class="row">
-    <div class="columns large-3 small-12">
-      {{{createLabel sectionTwo.field.projectWebsite}}}
-    </div>
-    <div class="columns">
-      {{{createInput sectionTwo.field.projectWebsite}}}
+    <div class="columns single-checkbox-field">
+      {{{createCheckbox sectionTwo.field.availableFileFormat}}}
+      {{{createLabel sectionTwo.field.availableFileFormat}}}
     </div>
   </div>
 

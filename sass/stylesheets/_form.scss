@@ -10,14 +10,48 @@ form {
     }
   }
   input[type='checkbox'] {
+    display: initial;
+    visibility: hidden;
+    width: 0;
   }
   .checkbox {
-    padding: 1rem;
-    display: inline-block;
-    width: 25%;
+    display: block;
+    label {
+      margin: 0;
+      padding: 0 0 0 20px;
+      text-indent: -20px;
+      font-size: 0.8rem;
+    }
   }
-  label {
-    font-size: 0.9rem;
+}
+
+.additional-project-types {
+  .checkbox {
+    width: 25%;
+    display: inline-block;
+    label {
+      display: block;
+      margin: 0;
+      padding: 0 0 0 20px;
+      text-indent: -20px;
+      font-size: 0.8rem;
+    }
+  }
+}
+
+.project-version-label {
+  display: flex;
+}
+
+.single-checkbox-field {
+  .checkbox {
+    display: inline-block;
+    label {
+      margin: 0;
+      padding: 0 0 0 20px;
+      text-indent: -20px;
+      font-size: 0.8rem;
+    }
   }
 }
 
@@ -50,4 +84,10 @@ form {
   i {
     padding-right: 1rem;
   }
+}
+
+.hide {
+  position: absolute !important;
+  top: -9999px !important;
+  left: -9999px !important;
 }
