@@ -7,57 +7,61 @@
     </div>
   </div>
 
-  <div>
-    {{!-- 45 --}}
-    <div class="row">
-      <div class="columns">
-        {{{createLabel sectionFour.field.certificationmarkTerms}}}
-        {{{createCheckboxes sectionFour.field.certificationmarkTerms certificationMarkChecklist}}}
-      </div>
-    </div>
+  <div class="row align-center">
+    <div class="columns large-11 small-12">
+        {{!-- 45 --}}
+        <div class="row">
+          <div class="columns certificate-mark">
+            {{{createLabel sectionFour.field.certificationmarkTerms}}}
+            {{{createCheckboxRows sectionFour.field.certificationmarkTerms certificationMarkChecklist}}}
+          </div>
+        </div>
 
-    {{!-- 46 --}}
-    <div class="row">
-      <div class="columns large-3 small-12 ">
-        {{{createLabel sectionFour.field.explanationCertificationTerms}}}
-      </div>
-      <div class="columns">
-        {{{createTextArea sectionFour.field.explanationCertificationTerms}}}
-      </div>
-    </div>
+        {{!-- 46 --}}
+        <div class="row">
+          <div class="columns large-3 small-12 ">
+            {{{createLabel sectionFour.field.explanationCertificationTerms}}}
+          </div>
+          <div class="columns">
+            {{{createTextArea sectionFour.field.explanationCertificationTerms}}}
+          </div>
+        </div>
 
-    {{!-- 47 --}}
-    <div class="row">
-      <div class="columns large-3 small-12">
-        {{{createLabel sectionFour.field.relationship}}}
-      </div>
-      <div class="columns">
-        {{{createInput sectionFour.field.relationship}}}
-      </div>
-    </div>
+        {{!-- 47 --}}
+        <div class="row">
+          <div class="columns large-3 small-12">
+            {{{createLabel sectionFour.field.relationship}}}
+          </div>
+          <div class="columns">
+            {{{createTextArea sectionFour.field.relationship}}}
+          </div>
+        </div>
 
-    {{!-- 48 --}}
-    <div class="row">
-      <div class="columns large-12 single-checkbox-field">
-        {{{createCheckbox sectionFour.field.agreementTerms}}}
-        {{{createLabel sectionFour.field.agreementTerms}}}
-      </div>
-    </div>
+        {{!-- 48 --}}
+        <div class="row">
+          <div class="columns small-1 single-checkbox-field">
+            {{{createCheckbox sectionFour.field.agreementTerms}}}
+          </div>
+          <div class="columns single-checkbox-field">
+            {{{createLabel sectionFour.field.agreementTerms}}}
+          </div>
+        </div>
 
-    {{!-- 49 --}}
-    <div class="row">
-      <div class="columns large-6 small-12">
-        {{{createLabel sectionFour.field.parentName}}}
-      </div>
-      <div class="columns large-6 small-12">
-        {{{createInput sectionFour.field.parentName}}}
-      </div>
-    </div>
+        {{!-- 49 --}}
+        <div class="row">
+          <div class="columns large-6 small-12">
+            {{{createLabel sectionFour.field.parentName}}}
+          </div>
+          <div class="columns large-6 small-12">
+            {{{createInput sectionFour.field.parentName}}}
+          </div>
+        </div>
 
-    <div class="row align-right">
-      <div class="columns button-container">
-        <input type="submit" class="button button--purple" value="submit"/>
+        <div class="row align-right">
+          <div class="columns button-container">
+            <input type="submit" class="button button--purple" value="submit"/>
+          </div>
+        </div>
       </div>
-    </div>
   </div>
 </section>

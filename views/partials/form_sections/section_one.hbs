@@ -1,117 +1,117 @@
 <section class="page-section" id="form-1">
+
   <div class="row align-justify">
     <div class="columns">
       <h2>Basic Information</h2>
       <span>Part 1 of 5<span>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet culpa omnis nulla tenetur veritatis iure, eius expedita. Non, exercitationem, officia?.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet culpa omnis nulla tenetur veritatis iure, eius expedita. Non, exercitationem, officia?.</p>
     </div>
   </div>
 
-  <div>
+  <div class="row align-center">
+    <div class="columns large-11 small-12">
+      {{!-- 1 --}}
+      {{!--     {{{createLabel sectionOne.field.oshwaUid}}}
+      {{{createInput sectionOne.field.oshwaUid}}} --}}
 
-    {{!-- 1 --}}
-{{!--     {{{createLabel sectionOne.field.oshwaUid}}}
-    {{{createInput sectionOne.field.oshwaUid}}} --}}
+      {{!-- 2 --}}
+      <div class="row align-middle expanded">
+        <div class="columns large-4 medium-4 small-12">
+          {{{createLabel sectionOne.field.responsiblePartyType}}}
+        </div>
+        <div class="columns large-5 medium-5 small-12">
+          {{{createDropdownSelect sectionOne.field.responsiblePartyType responsiblePartyTypeOptions}}}
+        </div>
+      </div>
 
-    {{!-- 2 --}}
-    <div class="row">
-      <div class="columns large-4 medium-4 small-12">
-        {{{createLabel sectionOne.field.responsiblePartyType}}}
+      {{!-- 3 --}}
+      <div class="row align-middle">
+        <div class="columns large-6 medium-6 small-12">
+          {{{createLabel sectionOne.field.responsibleParty}}}
+        </div>
+        <div class="columns large-6 medium-6 small-12">
+          {{{createInput sectionOne.field.responsibleParty}}}
+        </div>
       </div>
-      <div class="columns large-6 medium-6 small-12">
-        {{{createDropdownSelect sectionOne.field.responsiblePartyType responsiblePartyTypeOptions}}}
-      </div>
-    </div>
 
-        {{!-- 3 --}}
-    <div class="row">
-      <div class="columns large-6 medium-6 small-12">
-        {{{createLabel sectionOne.field.responsibleParty}}}
+      {{!-- 4 --}}
+      <div class="row align-middle">
+        <div class="columns large-6 medium-6 small-12">
+          {{{createLabel sectionOne.field.bindingParty}}}
+        </div>
+        <div class="columns large-6 medium-6 small-12">
+          {{{createInput sectionOne.field.bindingParty}}}
+        </div>
       </div>
-      <div class="columns large-6 medium-6 small-12">
-        {{{createInput sectionOne.field.responsibleParty}}}
-      </div>
-    </div>
 
-    {{!-- 4 --}}
-    <div class="row">
-      <div class="columns large-6 medium-6 small-12">
-        {{{createLabel sectionOne.field.bindingParty}}}
-      </div>
-      <div class="columns large-6 medium-6 small-12">
-        {{{createInput sectionOne.field.bindingParty}}}
-      </div>
-    </div>
-
-    {{!-- 5 --}}
-    <p>Contact Information</p>
-    <div class="row">
-      <div class="columns large-5 medium-6 small-12">
+      {{!-- 5 --}}
+      <div class="form-heading">Contact Information</div>
+      <div class="row align-middle">
+        <div class="columns large-5 medium-6 small-12">
         {{{createLabel sectionOne.field.country}}}
         {{{createDropdownSelect sectionOne.field.country countryOptions}}}
+        </div>
       </div>
+
+      {{!-- 6 --}}
+      <div class="row align-middle">
+        <div class="columns large-12 medium-12 small-12">
+          {{{createLabel sectionOne.field.streetAddress1}}}
+        </div>
+        <div class="columns large-12 medium-12 small-12">
+          {{{createInput sectionOne.field.streetAddress1}}}
+        </div>
+      </div>
+
+      {{!-- 7 --}}
+      <div class="row align-middle">
+        <div class="columns large-12 medium-12 small-12">
+          {{{createLabel sectionOne.field.streetAddress2}}}
+        </div>
+        <div class="columns large-12 medium-12 small-12">
+          {{{createInput sectionOne.field.streetAddress2}}}
+        </div>
+      </div>
+
+      <div class="row align-middle">
+        {{!-- 8 --}}
+        <div class="columns large-5 medium-6 small-12">
+          {{{createLabel sectionOne.field.city}}}
+          {{{createInput sectionOne.field.city}}}
+        </div>
+        {{!-- 9 --}}
+        <div class="columns large-4 medium-6 small-12">
+          {{{createLabel sectionOne.field.state}}}
+          {{{createInput sectionOne.field.state}}}
+        </div>
+        {{!-- 10 --}}
+        <div class="columns large-3 medium-6 small-12">
+          {{{createLabel sectionOne.field.postalCode}}}
+          {{{createInput sectionOne.field.postalCode}}}
+        </div>
+      </div>
+
+      {{!-- 11 --}}
+      <div class="row align-middle">
+        <div class="columns large-6 medium-6 small-12">
+          {{{createLabel sectionOne.field.privateContact}}}
+        </div>
+        <div class="columns large-6 medium-6 small-12">
+          {{{createInput sectionOne.field.privateContact}}}
+        </div>
+      </div>
+
+      {{!-- 12 --}}
+      <div class="row align-middle">
+        <div class="columns large-6 medium-6 small-12">
+          {{{createLabel sectionOne.field.publicContact}}}
+        </div>
+        <div class="columns large-6 medium-6 small-12">
+          {{{createInput sectionOne.field.publicContact}}}
+        </div>
+      </div>
+
     </div>
-
-    {{!-- 6 --}}
-    <div class="row">
-      <div class="columns large-12 medium-12 small-12">
-        {{{createLabel sectionOne.field.streetAddress1}}}
-      </div>
-      <div class="columns large-12 medium-12 small-12">
-        {{{createInput sectionOne.field.streetAddress1}}}
-      </div>
-    </div>
-
-    {{!-- 7 --}}
-    <div class="row">
-      <div class="columns large-12 medium-12 small-12">
-        {{{createLabel sectionOne.field.streetAddress2}}}
-      </div>
-      <div class="columns large-12 medium-12 small-12">
-        {{{createInput sectionOne.field.streetAddress2}}}
-      </div>
-    </div>
-
-    <div class="row">
-    {{!-- 8 --}}
-      <div class="columns large-5 medium-6 small-12">
-        {{{createLabel sectionOne.field.city}}}
-        {{{createInput sectionOne.field.city}}}
-      </div>
-    {{!-- 9 --}}
-      <div class="columns large-4 medium-6 small-12">
-        {{{createLabel sectionOne.field.state}}}
-        {{{createInput sectionOne.field.state}}}
-      </div>
-    {{!-- 10 --}}
-      <div class="columns large-3 medium-6 small-12">
-        {{{createLabel sectionOne.field.postalCode}}}
-        {{{createInput sectionOne.field.postalCode}}}
-      </div>
-
-    </div>
-
-
-
-
-    {{!-- 11 --}}
-    <div class="row">
-      <div class="columns large-6 medium-6 small-12">
-        {{{createLabel sectionOne.field.privateContact}}}
-      </div>
-      <div class="columns large-6 medium-6 small-12">
-        {{{createInput sectionOne.field.privateContact}}}
-      </div>
-    </div>
-
-    {{!-- 12 --}}
-    <div class="row">
-      <div class="columns large-6 medium-6 small-12">
-        {{{createLabel sectionOne.field.publicContact}}}
-      </div>
-      <div class="columns large-6 medium-6 small-12">
-        {{{createInput sectionOne.field.publicContact}}}
-      </div>
   </div>
 </section>
 

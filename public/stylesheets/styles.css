@@ -1,7 +1,7 @@
 * {
   box-sizing: border-box; }
 
-.u-material-icons {
+.u-material-icons, .select2-selection__choice__remove::before {
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
@@ -173,6 +173,7 @@ body {
 
 #certify .page-section,
 #apply .page-section {
+  padding-top: 0;
   color: #4d4d4d; }
   #certify .page-section h2,
   #apply .page-section h2 {
@@ -184,6 +185,9 @@ body {
     font-size: 1rem;
     font-weight: 700;
     color: #9255bf; }
+  #certify .page-section p,
+  #apply .page-section p {
+    font-size: 0.9rem; }
   #certify .page-section .button-container,
   #apply .page-section .button-container {
     text-align: right; }
@@ -309,49 +313,117 @@ body {
       text-transform: uppercase;
       text-decoration: none; }
 
-form input[type='text'],
-form textarea {
-  border-bottom: solid 2px rgba(77, 77, 77, 0.3);
-  background-color: rgba(77, 77, 77, 0.1); }
-  form input[type='text']::placeholder,
-  form textarea::placeholder {
-    color: rgba(77, 77, 77, 0.5);
-    font-style: italic;
-    font-weight: 500; }
-
-form input[type='checkbox'] {
-  display: initial;
-  visibility: hidden;
-  width: 0; }
-
-form .checkbox {
-  display: block; }
-  form .checkbox label {
-    margin: 0;
-    padding: 0 0 0 20px;
-    text-indent: -20px;
-    font-size: 0.8rem; }
+form {
+  font-weight: 500;
+  font-size: 0.9rem; }
+  form .row {
+    padding: 0.5rem; }
+  form textarea {
+    min-height: 9rem; }
+  form input[type='text'] {
+    height: 2.5rem; }
+  form input[type='text'],
+  form textarea {
+    background-color: rgba(0, 0, 0, 0.02);
+    border-bottom: solid 1px rgba(77, 77, 77, 0.8);
+    border-radius: 0;
+    margin-bottom: 0; }
+    form input[type='text']::placeholder,
+    form textarea::placeholder {
+      color: rgba(77, 77, 77, 0.5);
+      font-style: italic;
+      font-weight: 500; }
+  form input[type='checkbox'] {
+    display: initial;
+    visibility: hidden;
+    width: 0; }
+  form .radio {
+    padding: 7px 10px;
+    margin-bottom: 0; }
+  form .checkbox {
+    display: block;
+    margin-bottom: 0;
+    padding: 0; }
+    form .checkbox label {
+      font-size: 0.8rem;
+      margin: 0;
+      padding: 0 0 0 20px;
+      text-indent: -20px; }
 
 .additional-project-types .checkbox {
-  width: 25%;
-  display: inline-block; }
+  padding-left: 4rem; }
+  @media (max-width: 39.9375em) {
+    .additional-project-types .checkbox {
+      padding-left: 2rem; } }
   .additional-project-types .checkbox label {
     display: block;
+    font-size: 0.8rem;
     margin: 0;
     padding: 0 0 0 20px;
-    text-indent: -20px;
-    font-size: 0.8rem; }
+    text-indent: -20px; }
 
-.project-version-label {
-  display: flex; }
+.certificate-mark .checkbox {
+  padding-left: 4rem; }
+  @media (max-width: 39.9375em) {
+    .certificate-mark .checkbox {
+      padding-left: 2rem; } }
+  .certificate-mark .checkbox label {
+    display: block;
+    font-size: 0.8rem;
+    margin: 0;
+    padding: 0 0 0 20px;
+    text-indent: -20px; }
+
+@media (min-width: 40em) {
+  .explanation-select .select {
+    text-indent: 0; } }
+
+@media (min-width: 64em) {
+  .explanation-select .select {
+    text-indent: 1.5rem; } }
+
+.form-heading {
+  font-weight: 600;
+  padding: 1rem 0; }
+
+.hide {
+  left: -9999px !important;
+  position: absolute !important;
+  top: -9999px !important; }
+
+.js-add-url-inputs-field {
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding-left: 0.6rem;
+  text-transform: uppercase; }
+  .js-add-url-inputs-field::after {
+    content: 'Add another citation';
+    vertical-align: 0.35rem; }
+  .js-add-url-inputs-field i {
+    padding-right: 1rem; }
+
+.js-remove-field {
+  font-size: 1rem;
+  margin: auto; }
+
+@media (max-width: 39.9375em) {
+  .project-version-label {
+    padding-top: 0.5rem; } }
+
+@media (max-width: 63.9375em) {
+  .project-version-label {
+    padding-top: 0.5rem; } }
+
+#relationship {
+  min-height: 2rem; }
 
 .single-checkbox-field .checkbox {
   display: inline-block; }
   .single-checkbox-field .checkbox label {
+    font-size: 0.8rem;
     margin: 0;
     padding: 0 0 0 20px;
-    text-indent: -20px;
-    font-size: 0.8rem; }
+    text-indent: -20px; }
 
 .select-previous-versions {
   background: none !important; }
@@ -363,39 +435,62 @@ form .checkbox {
   display: inline-block;
   width: 50px; }
 
-.js-remove-field {
-  font-size: 1rem;
-  margin: auto; }
-
-.js-add-url-inputs-field {
-  text-transform: uppercase;
-  font-weight: 700;
-  font-size: 0.8rem; }
-  .js-add-url-inputs-field::after {
-    content: 'Add another citation';
-    vertical-align: 0.35rem; }
-  .js-add-url-inputs-field i {
-    padding-right: 1rem; }
-
-.hide {
-  position: absolute !important;
-  top: -9999px !important;
-  left: -9999px !important; }
-
 .select {
   appearance: none;
   -o-appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
+  background-color: rgba(0, 0, 0, 0.02);
   background-image: url("/images/baseline-arrow_drop_down_circle-24px.svg");
   background-position: right 10px center;
   background-repeat: no-repeat;
   background-size: 1.2rem;
-  text-indent: 0.01px;
-  text-overflow: '';
-  padding-right: 1rem !important; }
+  border-bottom: solid 1px rgba(77, 77, 77, 0.8);
+  margin-bottom: 0;
+  min-height: 2.5rem;
+  text-overflow: ''; }
   .select::before {
     display: none !important; }
   .select option {
     background-color: white;
     color: black; }
+
+.select-previous-versions {
+  padding: 0;
+  border-radius: 0; }
+
+.select2-container--default .select2-selection--multiple {
+  background-color: rgba(0, 0, 0, 0.02);
+  border: none;
+  border-radius: 0;
+  cursor: text;
+  padding: 0.5rem 0 0 0; }
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  border-bottom: solid 1px rgba(77, 77, 77, 0.3);
+  width: 100%; }
+
+.select2-container--default.select2-container--focus .select2-selection--multiple {
+  border: none;
+  outline: 0; }
+
+.select2-dropdown {
+  background-color: white;
+  border: 1px solid rgba(77, 77, 77, 0.1); }
+
+.select2-selection__choice__remove {
+  color: transparent !important; }
+  .select2-selection__choice__remove::before {
+    content: 'remove_circle';
+    display: inline-block;
+    color: #4d4d4d;
+    font-size: 0.9rem; }
+
+.select2-search::before,
+.select2-search--inline::before {
+  content: 'Enter an existing OSHWA UID: ';
+  font-style: italic;
+  color: rgba(77, 77, 77, 0.5); }

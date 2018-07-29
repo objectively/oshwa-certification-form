@@ -1,6 +1,7 @@
 #certify,
 #apply {
   .page-section {
+    padding-top: 0;
     color: $gray;
     h2 {
       font-size: 1.6rem;
@@ -13,7 +14,7 @@
       color: $purple;
     }
     p {
-      // font-size: 0.9rem;
+      font-size: 0.9rem;
     }
     .button-container {
       text-align: right;

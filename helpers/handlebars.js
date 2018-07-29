@@ -25,7 +25,7 @@ const createCheckboxes = (field, options) => {
   let allCheckboxes = '';
   options.forEach(option => {
     allCheckboxes += `
-      <div class="checkbox">
+      <div class="columns large-3 medium-4 small-6 checkbox">
         <input
           type="checkbox" id="${option}" name="${field.contentfulFieldName}" value="${option}"/>
         <label for="${option}">${option}</label>
@@ -33,10 +33,29 @@ const createCheckboxes = (field, options) => {
     `;
   });
   return `
-  <fieldset>
-    <legend>${field.formPlaceholder}</legend>
+
+  <div class="row">
     ${allCheckboxes}
-  </fieldset>
+  </div>
+`;
+};
+
+const createCheckboxRows = (field, options) => {
+  let allCheckboxes = '';
+  options.forEach(option => {
+    allCheckboxes += `
+      <div class="columns small-12 checkbox">
+        <input
+          type="checkbox" id="${option}" name="${field.contentfulFieldName}" value="${option}"/>
+        <label for="${option}">${option}</label>
+      </div>
+    `;
+  });
+  return `
+
+  <div class="row">
+    ${allCheckboxes}
+  </div>
 `;
 };
 
@@ -102,11 +121,11 @@ const createUrlInputs = field => `
     <div class="url_fields field-wrapper" data-template-target="url-inputs">
       <div data-template-value='url-inputs' class="form-field-wrapper row">
         <i class="columns small-1 js-remove-field material-icons">remove_circle</i>
-        <div class="columns small-11 medium-expand large-expand">
+        <div class="columns">
         <label for="${field.contentfulFieldName}-title">Citation Name</label>
         <input type="text" class="url_title" name="${field.contentfulFieldName}" placeholder="title" />
         </div>
-        <div class="columns small-11 small-offset-1 medium-expand">
+        <div class="columns">
         <label for="${field.contentfulFieldName}-title">Citation URL</label>
         <input type="text" class="url_address" name="${field.contentfulFieldName}" placeholder="url" />
         </div>
@@ -121,6 +140,7 @@ module.exports = {
   createBooleanDropdown,
   createCheckbox,
   createCheckboxes,
+  createCheckboxRows,
   createDropdownSelect,
   createInput,
   createLabel,

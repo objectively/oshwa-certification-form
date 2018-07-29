@@ -7,127 +7,118 @@
     </div>
   </div>
 
-  <div>
+  <div class="row align-center">
+    <div class="columns large-11 small-12">
 
-  <div class="row">
-    {{!-- 13 --}}
-    <div class="columns large-2 medium-2 small-12">
-      {{{createLabel sectionTwo.field.projectName}}}
-    </div>
-    <div class="columns large-5 medium-5 small-12">
-    {{{createInput sectionTwo.field.projectName}}}
-    </div>
-    {{!-- 14 --}}
-    <div class="columns large-3 medium-3 small-12">
-    {{{createLabel sectionTwo.field.projectVersion}}}
-    </div>
-    <div class="columns large-2 medium-2 small-12 project-version-label">
-    <span>v. </span>{{{createInput sectionTwo.field.projectVersion}}}
-    </div>
-  </div>
+      <div class="row align-middle">
+        {{!-- 13 --}}
+        <div class="columns large-2 medium-12 small-12">
+          {{{createLabel sectionTwo.field.projectName}}}
+        </div>
+        <div class="columns large-5 medium-12 small-12">
+          {{{createInput sectionTwo.field.projectName}}}
+        </div>
+        {{!-- 14 --}}
+        <div class="columns large-3 medium-6 small-6">
+          {{{createLabel sectionTwo.field.projectVersion}}}
+        </div>
+        <span>v. </span>
+        <div class="columns project-version-label">
+          {{{createInput sectionTwo.field.projectVersion}}}
+        </div>
+      </div>
 
-  {{!-- 15 --}}
-  <div class="row">
-    <div class="columns large-6 medium-6 small-12">
-      {{{createLabel sectionTwo.field.previousVersions}}}
-    </div>
-    <div class="columns large-6 medium-6 small-12 field-wrapper" data-field-name="previousVersions" data-target="select">
-      {{{createPreviousVersionsDropdown sectionTwo.field.previousVersions projectsList}}}
-    </div>
+      {{!-- 15 --}}
+      <div class="row align-middle">
+        <div class="columns large-6 medium-6 small-12">
+          {{{createLabel sectionTwo.field.previousVersions}}}
+        </div>
+        <div class="columns large-6 medium-6 small-12 field-wrapper" data-field-name="previousVersions" data-target="select">
+          {{{createPreviousVersionsDropdown sectionTwo.field.previousVersions projectsList}}}
+        </div>
+      </div>
 
+      {{!-- 16 --}}
+      <div class="row">
+        <div class="columns large-3 small-12">
+          {{{createLabel sectionTwo.field.projectDescription}}}
+        </div>
+        <div class="columns">
+          {{{createTextArea sectionTwo.field.projectDescription}}}
+        </div>
+      </div>
 
-  </div>
+      {{!-- 17 --}}
+      <div class="row align-middle">
+        <div class="columns large-3 small-12">
+          {{{createLabel sectionTwo.field.projectWebsite}}}
+        </div>
+        <div class="columns">
+          {{{createInput sectionTwo.field.projectWebsite}}}
+        </div>
+      </div>
 
-  {{!-- 16 --}}
-  <div class="row">
-    <div class="columns large-3 small-12">
-      {{{createLabel sectionTwo.field.projectDescription}}}
-    </div>
-    <div class="columns">
-      {{{createTextArea sectionTwo.field.projectDescription}}}
-    </div>
-  </div>
+      {{!-- 18 --}}
+      <div class="row align-middle">
+        <div class="columns large-3 small-12">
+          {{{createLabel sectionTwo.field.primaryType}}}
+        </div>
+        <div class="columns">
+          {{{createDropdownSelect sectionTwo.field.primaryType primaryProjectTypes}}}
+        </div>
+      </div>
 
-  {{!-- 17 --}}
-  <div class="row">
-    <div class="columns large-3 small-12">
-      {{{createLabel sectionTwo.field.projectWebsite}}}
-    </div>
-    <div class="columns">
-      {{{createInput sectionTwo.field.projectWebsite}}}
-    </div>
-  </div>
+      {{!-- 19 --}}
+      <div class="row align-middle">
+        <div class="columns additional-project-types">
+        {{{createLabel sectionTwo.field.additionalType}}}
+        {{{createCheckboxes sectionTwo.field.additionalType additionalProjectTypes}}}
+        </div>
+      </div>
 
-  {{!-- 18 --}}
+      {{!-- 20 --}}
+      <div class="row align-middle">
+        <div class="columns large-3 small-12">
+          {{{createLabel sectionTwo.field.projectKeywords}}}
+        </div>
+        <div class="columns">
+          {{{createInput sectionTwo.field.projectKeywords}}}
+        </div>
+      </div>
 
-  <div class="row">
-    <div class="columns large-3 small-12">
-      {{{createLabel sectionTwo.field.primaryType}}}
-    </div>
-    <div class="columns">
-      {{{createDropdownSelect sectionTwo.field.primaryType primaryProjectTypes}}}
-    </div>
-  </div>
+      {{!-- 21 --}}
+      <div class="row align-middle">
+        <div class="columns large-4 small-12">
+          {{{createLabel sectionTwo.field.documentationUrl}}}
+        </div>
+        <div class="columns">
+          {{{createInput sectionTwo.field.documentationUrl}}}
+        </div>
+      </div>
 
-  {{!-- 19 --}}
-  <div class="row">
-    <div class="columns additional-project-types">
-      {{{createLabel sectionTwo.field.additionalType}}}
+      {{!-- 22 --}}
+      <div class="row align-middle">
+        <div class="columns small-1">
+          {{{createCheckbox sectionTwo.field.availableFileFormat}}}
+        </div>
+        <div class="columns single-checkbox-field">
+          {{{createLabel sectionTwo.field.availableFileFormat}}}
+        </div>
+      </div>
 
-      {{{createCheckboxes sectionTwo.field.additionalType additionalProjectTypes}}}
-    </div>
-  </div>
+      {{!-- 23 --}}
+      <div class="row align-middle">
+        <div class="columns large-3 small-12">
+          {{{createLabel sectionTwo.field.citations}}}
+        </div>
+        <div class="columns large-9 small-12">
+          {{{createUrlInputs sectionTwo.field.citations}}}
+        </div>
+      </div>
 
-  {{!-- 20 --}}
-  <div class="row">
-    <div class="columns large-3 small-12">
-      {{{createLabel sectionTwo.field.projectKeywords}}}
     </div>
-    <div class="columns">
-      {{{createTextArea sectionTwo.field.projectKeywords}}}
-    </div>
-  </div>
-
-  {{!-- 21 --}}
-  <div class="row">
-    <div class="columns large-4 small-12">
-      {{{createLabel sectionTwo.field.documentationUrl}}}
-    </div>
-    <div class="columns">
-      {{{createInput sectionTwo.field.documentationUrl}}}
-    </div>
-  </div>
-
-  {{!-- 22 --}}
-  <div class="row">
-    <div class="columns single-checkbox-field">
-      {{{createCheckbox sectionTwo.field.availableFileFormat}}}
-      {{{createLabel sectionTwo.field.availableFileFormat}}}
-    </div>
-  </div>
-
-  {{!-- 23 --}}
-  <div class="row">
-    <div class="columns large-3 small-12">
-      {{{createLabel sectionTwo.field.citations}}}
-    </div>
-    <div class="columns large-9 small-12">
-      {{{createUrlInputs sectionTwo.field.citations}}}
-    </div>
-  </div>
-
-
   </div>
 </section>
-
-
-
-
-
-
-
-
-
 
 
 

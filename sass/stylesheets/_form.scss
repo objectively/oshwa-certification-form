@@ -1,56 +1,141 @@
 form {
+  .row {
+    padding: 0.5rem;
+  }
+  font-weight: 500;
+  font-size: 0.9rem;
+  textarea {
+    min-height: 9rem;
+  }
+  input[type='text'] {
+    height: 2.5rem;
+  }
   input[type='text'],
   textarea {
-    border-bottom: solid 2px rgba($gray, 0.3);
-    background-color: rgba($gray, 0.1);
+    background-color: rgba(0, 0, 0, 0.02);
+    border-bottom: solid 1px rgba($gray, 0.8);
+    border-radius: 0;
     &::placeholder {
       color: rgba($gray, 0.5);
       font-style: italic;
       font-weight: 500;
     }
+    margin-bottom: 0;
   }
   input[type='checkbox'] {
     display: initial;
     visibility: hidden;
     width: 0;
   }
+  .radio {
+    padding: 7px 10px;
+    margin-bottom: 0;
+  }
   .checkbox {
     display: block;
+    margin-bottom: 0;
+    padding: 0;
     label {
+      font-size: 0.8rem;
       margin: 0;
       padding: 0 0 0 20px;
       text-indent: -20px;
-      font-size: 0.8rem;
     }
   }
 }
 
 .additional-project-types {
   .checkbox {
-    width: 25%;
-    display: inline-block;
+    padding-left: 4rem;
+    @include breakpoint($small-only) {
+      padding-left: 2rem;
+    }
     label {
       display: block;
+      font-size: 0.8rem;
       margin: 0;
       padding: 0 0 0 20px;
       text-indent: -20px;
+    }
+  }
+}
+.certificate-mark {
+  .checkbox {
+    padding-left: 4rem;
+    @include breakpoint($small-only) {
+      padding-left: 2rem;
+    }
+    label {
+      display: block;
       font-size: 0.8rem;
+      margin: 0;
+      padding: 0 0 0 20px;
+      text-indent: -20px;
     }
   }
 }
 
+.explanation-select {
+  .select {
+    @include breakpoint($medium) {
+      text-indent: 0;
+    }
+    @include breakpoint($large) {
+      text-indent: 1.5rem;
+    }
+  }
+}
+
+.form-heading {
+  font-weight: 600;
+  padding: 1rem 0;
+}
+
+.hide {
+  left: -9999px !important;
+  position: absolute !important;
+  top: -9999px !important;
+}
+.js-add-url-inputs-field {
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding-left: 0.6rem;
+  text-transform: uppercase;
+  &::after {
+    content: 'Add another citation';
+    vertical-align: 0.35rem;
+  }
+  i {
+    padding-right: 1rem;
+  }
+}
+
+.js-remove-field {
+  font-size: 1rem;
+  margin: auto;
+}
+
 .project-version-label {
-  display: flex;
+  @include breakpoint($small-only) {
+    padding-top: 0.5rem;
+  }
+  @include breakpoint($medium-only) {
+    padding-top: 0.5rem;
+  }
+}
+
+#relationship {
+  min-height: 2rem;
 }
 
 .single-checkbox-field {
   .checkbox {
     display: inline-block;
     label {
+      font-size: 0.8rem;
       margin: 0;
       padding: 0 0 0 20px;
       text-indent: -20px;
-      font-size: 0.8rem;
     }
   }
 }
@@ -66,28 +151,4 @@ form {
 .url_address {
   display: inline-block;
   width: 50px;
-}
-
-.js-remove-field {
-  font-size: 1rem;
-  margin: auto;
-}
-
-.js-add-url-inputs-field {
-  text-transform: uppercase;
-  font-weight: 700;
-  font-size: 0.8rem;
-  &::after {
-    content: 'Add another citation';
-    vertical-align: 0.35rem;
-  }
-  i {
-    padding-right: 1rem;
-  }
-}
-
-.hide {
-  position: absolute !important;
-  top: -9999px !important;
-  left: -9999px !important;
 }
