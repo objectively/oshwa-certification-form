@@ -1,0 +1,25 @@
+select {
+}
+
+.select {
+  &::before {
+    display: none !important;
+  }
+  appearance: none;
+  -o-appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url('/images/baseline-arrow_drop_down_circle-24px.svg');
+  background-position: right 10px center;
+  background-repeat: no-repeat;
+  background-size: 1.2rem;
+  text-indent: 0.01px;
+  text-overflow: '';
+
+  padding-right: 1rem !important;
+  option {
+    background-color: white;
+    color: black;
+  }
+}
+

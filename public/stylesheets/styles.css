@@ -1,7 +1,7 @@
 * {
   box-sizing: border-box; }
 
-.u-material-icons, .select2-selection__choice__remove::before {
+.u-material-icons {
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
@@ -382,42 +382,20 @@ form .checkbox {
   top: -9999px !important;
   left: -9999px !important; }
 
-.select-previous-versions {
-  padding: 0;
-  border-radius: 0; }
-
-.select2-container--default .select2-selection--multiple {
-  background-color: rgba(77, 77, 77, 0.1);
-  border: none;
-  border-bottom: solid 2px rgba(77, 77, 77, 0.3);
-  border-radius: 0;
-  cursor: text; }
-
-.select2-container--default .select2-selection--multiple .select2-selection__choice {
-  background-color: transparent;
-  border: none;
-  border-radius: 0;
-  border-bottom: solid 2px rgba(77, 77, 77, 0.3);
-  width: 100%; }
-
-.select2-container--default.select2-container--focus .select2-selection--multiple {
-  border: none;
-  outline: 0; }
-
-.select2-dropdown {
-  background-color: white;
-  border: 1px solid rgba(77, 77, 77, 0.1); }
-
-.select2-selection__choice__remove {
-  color: transparent !important; }
-  .select2-selection__choice__remove::before {
-    content: 'remove_circle';
-    display: inline-block;
-    color: #4d4d4d;
-    font-size: 0.9rem; }
-
-.select2-search::before,
-.select2-search--inline::before {
-  content: 'Enter an existing OSHWA UID: ';
-  font-style: italic;
-  color: rgba(77, 77, 77, 0.5); }
+.select {
+  appearance: none;
+  -o-appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("/images/baseline-arrow_drop_down_circle-24px.svg");
+  background-position: right 10px center;
+  background-repeat: no-repeat;
+  background-size: 1.2rem;
+  text-indent: 0.01px;
+  text-overflow: '';
+  padding-right: 1rem !important; }
+  .select::before {
+    display: none !important; }
+  .select option {
+    background-color: white;
+    color: black; }
