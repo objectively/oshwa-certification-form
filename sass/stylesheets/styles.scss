@@ -19,6 +19,9 @@ $white: #fff;
 
 $light-blue: transparentize($blue, 0.99);
 
+$success: #3c763d;
+$error: #cc0000;
+
 @import 'breakpoint';
 @import 'mixins';
 @import 'base';
@@ -32,3 +35,4 @@ $light-blue: transparentize($blue, 0.99);
 @import 'form';
 @import 'select';
 @import 'select_2';
+@import 'messages';

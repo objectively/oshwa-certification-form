@@ -5,6 +5,7 @@ const Overlay = require('./overlay');
 const Scroll = require('./scroll');
 const Search = require('./search');
 const Sticky = require('./sticky');
+const Validations = require('./validations');
 
 DynamicForms.init();
 Modal.init();
@@ -13,3 +14,4 @@ Overlay.init();
 Scroll.init();
 Search.init();
 Sticky.init();
+Validations.init();

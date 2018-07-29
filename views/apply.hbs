@@ -12,6 +12,10 @@
   <section class="page-section">
     <div class="row">
       <div class="column large-12">
+        {{#if errors}}
+          {{> errors errors=errors}}
+        {{/if}}
+
         <form autocomplete="off" method="POST" action="/apply">
         {{> form_sections/section_one sectionOne=sectionOne}}
         {{> form_sections/section_two sectionTwo=sectionTwo}}

@@ -115,6 +115,7 @@ const createTextArea = field => `
   type="text"
   name="${field.contentfulFieldName}"
   placeholder="${field.formPlaceholder}"></textarea>
+  <div id="textarea-message"></div>
 `;
 
 const createUrlInputs = field => `

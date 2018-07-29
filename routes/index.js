@@ -1,11 +1,13 @@
 const express = require('express');
+const { validationResult } = require('express-validator/check');
 const auth = require('../auth');
 
 const router = express.Router();
 
 const Project = require('../models/project');
-
 const projectController = require('../controllers/project_controller');
+
+const validateProjectFields = require('../controllers/project_validations');
 
 const siteMetadata = require('../config/site_metadata');
 
@@ -47,21 +49,51 @@ router.get('/apply', auth, (req, res) => {
     });
 });
 
-router.post('/apply', (req, res) => {
+router.post('/apply', auth, validateProjectFields, (req, res) => {
   const project = new Project(req.body);
-  const fields = project.mapFieldsToContentful();
-  projectController
-    .submitFormToContentful(fields)
-    .then(data => {
-      if (data.name === 'InvalidEntry') {
-        throw new Error('Invalid Entry');
-      } else {
-        res.redirect('/confirmation');
-      }
-    })
-    .catch(err => {
-      console.log(err);
-    });
+  // server side validations
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    // return res.status(422).json({ errors: errors.array() });
+    Promise.all([projectController.getProjectsList(), projectController.getValidations()])
+      .then(contentfulValues => {
+        const [projectsList, validations] = contentfulValues;
+        res.render('apply', {
+          ...apply,
+          sectionOne,
+          sectionTwo,
+          sectionThree,
+          sectionFour,
+          helpers: {
+            ...helpers
+          },
+          projectsList,
+          ...validations[0],
+          project,
+          errors: errors.array()
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  } else {
+    // return res.status(200).json({ body: req.body });
+    // const project = new Project(req.body);
+
+    const fields = project.mapFieldsToContentful();
+    projectController
+      .submitFormToContentful(fields)
+      .then(data => {
+        if (data.name === 'InvalidEntry') {
+          throw new Error('Invalid Entry');
+        } else {
+          res.redirect('/confirmation');
+        }
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
 });
 
 /* GET /confirmation. */
