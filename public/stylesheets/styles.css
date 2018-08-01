@@ -179,7 +179,12 @@ body {
   #apply .page-section h2 {
     font-size: 1.6rem;
     font-weight: 700;
-    color: #9255bf; }
+    color: #9255bf;
+    display: inline-block; }
+    @media (max-width: 39.9375em) {
+      #certify .page-section h2,
+      #apply .page-section h2 {
+        display: block; } }
   #certify .page-section h3,
   #apply .page-section h3 {
     font-size: 1rem;
@@ -188,6 +193,19 @@ body {
   #certify .page-section p,
   #apply .page-section p {
     font-size: 0.9rem; }
+  #certify .page-section .section-header,
+  #apply .page-section .section-header {
+    margin: 1.3rem 0;
+    color: #9255bf;
+    font-size: 1.6rem;
+    font-weight: 700;
+    float: right;
+    text-transform: uppercase; }
+    @media (max-width: 39.9375em) {
+      #certify .page-section .section-header,
+      #apply .page-section .section-header {
+        display: block;
+        float: none; } }
   #certify .page-section .button-container,
   #apply .page-section .button-container {
     text-align: right; }

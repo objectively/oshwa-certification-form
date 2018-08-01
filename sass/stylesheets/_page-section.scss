@@ -7,6 +7,11 @@
       font-size: 1.6rem;
       font-weight: 700;
       color: $purple;
+
+      display: inline-block;
+      @include breakpoint($small-only) {
+        display: block;
+      }
     }
     h3 {
       font-size: 1rem;
@@ -15,6 +20,18 @@
     }
     p {
       font-size: 0.9rem;
+    }
+    .section-header {
+      margin: 1.3rem 0;
+      color: $purple;
+      font-size: 1.6rem;
+      font-weight: 700;
+      float: right;
+      @include breakpoint($small-only) {
+        display: block;
+        float: none;
+      }
+      text-transform: uppercase;
     }
     .button-container {
       text-align: right;
