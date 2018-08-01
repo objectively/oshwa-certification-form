@@ -494,3 +494,17 @@ form {
   content: 'Enter an existing OSHWA UID: ';
   font-style: italic;
   color: rgba(77, 77, 77, 0.5); }
+
+label.error {
+  color: #cc0000; }
+
+#textarea-message {
+  color: #3c763d; }
+
+#textarea-message.error-message {
+  color: #cc0000; }
+
+ul.error-messages {
+  color: #cc0000;
+  list-style: none;
+  margin: 0; }

@@ -1,0 +1,17 @@
+label.error {
+  color: $error;
+}
+
+#textarea-message {
+  color: $success;
+}
+
+#textarea-message.error-message {
+  color: $error;
+}
+
+ul.error-messages {
+  color: $error;
+  list-style: none;
+  margin: 0;
+}
