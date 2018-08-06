@@ -96,23 +96,39 @@ form {
   position: absolute !important;
   top: -9999px !important;
 }
+
 .js-add-url-inputs-field {
+  display: block;
   font-size: 0.8rem;
   font-weight: 700;
-  padding-left: 0.6rem;
+  @include breakpoint($small-only) {
+    margin-left: -0.5rem;
+  }
+  &:hover {
+    color: rgba($gray, 0.85);
+    cursor: pointer;
+  }
+  @extend .u-transition;
   text-transform: uppercase;
   &::after {
     content: 'Add another citation';
+    padding-left: 2rem;
     vertical-align: 0.35rem;
   }
   i {
-    padding-right: 1rem;
   }
 }
 
 .js-remove-field {
+  &:hover {
+    color: rgba($gray, 0.85);
+    cursor: pointer;
+  }
   font-size: 1rem;
-  margin: auto;
+  margin: 1.5rem 0.9rem;
+  @include breakpoint($small-only) {
+    margin: auto;
+  }
 }
 
 .project-version-label {
@@ -149,6 +165,7 @@ form {
 
 .url_title,
 .url_address {
-  display: inline-block;
   width: 50px;
 }
+
+

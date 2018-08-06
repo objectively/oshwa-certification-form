@@ -24,7 +24,7 @@
   font-feature-settings: 'liga'; }
 
 .u-transition, .top-section--certify .button--purple:hover, .top-section--apply .button--purple:hover, #certify .page-section .button--purple:hover,
-#apply .page-section .button--purple:hover {
+#apply .page-section .button--purple:hover, .js-add-url-inputs-field {
   transition: all 0.4s ease; }
 
 body {
@@ -410,19 +410,30 @@ form {
   top: -9999px !important; }
 
 .js-add-url-inputs-field {
+  display: block;
   font-size: 0.8rem;
   font-weight: 700;
-  padding-left: 0.6rem;
   text-transform: uppercase; }
+  @media (max-width: 39.9375em) {
+    .js-add-url-inputs-field {
+      margin-left: -0.5rem; } }
+  .js-add-url-inputs-field:hover {
+    color: rgba(77, 77, 77, 0.85);
+    cursor: pointer; }
   .js-add-url-inputs-field::after {
     content: 'Add another citation';
+    padding-left: 2rem;
     vertical-align: 0.35rem; }
-  .js-add-url-inputs-field i {
-    padding-right: 1rem; }
 
 .js-remove-field {
   font-size: 1rem;
-  margin: auto; }
+  margin: 1.5rem 0.9rem; }
+  .js-remove-field:hover {
+    color: rgba(77, 77, 77, 0.85);
+    cursor: pointer; }
+  @media (max-width: 39.9375em) {
+    .js-remove-field {
+      margin: auto; } }
 
 @media (max-width: 39.9375em) {
   .project-version-label {
@@ -450,7 +461,6 @@ form {
 
 .url_title,
 .url_address {
-  display: inline-block;
   width: 50px; }
 
 .select {
@@ -526,3 +536,10 @@ ul.error-messages {
   color: #cc0000;
   list-style: none;
   margin: 0; }
+
+label[id^='citations['] {
+  display: block; }
+
+.citation-error {
+  display: block;
+  width: 100%; }

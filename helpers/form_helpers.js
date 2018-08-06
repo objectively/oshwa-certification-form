@@ -10,10 +10,15 @@ const {
 const isCheckboxArray = key => arrayCheckboxFormFields.indexOf(key) !== -1;
 const isBoolean = key => booleanFormFields.indexOf(key) !== -1;
 const isBooleanSelect = key => booleanSelectFields.indexOf(key) !== -1;
-const isAddUrlField = key => addUrlFields.indexOf(key) !== -1;
 const isArrayField = key => arrayFields.indexOf(key) !== -1;
 const isReferenceField = key => referenceFields.indexOf(key) !== -1;
 const returnBooleanFromCheckbox = value => !!value;
+
+const isAddUrlField = key => {
+  // citations come from dynamically generated  form fields with names 'citations[x]'
+  const citationsKeyRegex = /^citations\[\d+\]$/;
+  return citationsKeyRegex.test(key);
+};
 
 const returnArrayFromCheckbox = values => {
   if (typeof values === 'string') {
@@ -59,7 +64,9 @@ const returnArrayFromTextField = str => {
 const returnUrlToObj = urls => {
   const urlsArr = [];
   for (let i = 0; i < urls.length; i += 2) {
-    urlsArr.push({ title: urls[i], url: urls[i + 1] });
+    if (urls[i] && urls[i + 1]) {
+      urlsArr.push({ title: urls[i], url: urls[i + 1] });
+    }
   }
   return urlsArr;
 };

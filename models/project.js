@@ -70,10 +70,12 @@ function Project(data) {
 Project.prototype.mapFieldsToContentful = function mapFieldsToContentful() {
   const keys = Object.keys(this);
   const fields = {};
+  let citations = [];
   keys.forEach(key => {
     let keyValue;
     if (isAddUrlField(key)) {
-      keyValue = returnUrlToObj(this[key]);
+      // create a single array of created url values from form elements with name 'citations[x]'
+      citations = citations.concat(this[key]);
     } else if (isBoolean(key)) {
       keyValue = returnBooleanFromCheckbox(this[key]);
     } else if (isCheckboxArray(key)) {
@@ -89,10 +91,14 @@ Project.prototype.mapFieldsToContentful = function mapFieldsToContentful() {
     } else {
       keyValue = this[key] || '';
     }
-    fields[key] = {
-      'en-US': keyValue
-    };
+    if (!isAddUrlField(key)) {
+      fields[key] = {
+        'en-US': keyValue
+      };
+    }
   });
+  // add citations input values to contentful field name
+  fields.citations = { 'en-US': returnUrlToObj(citations) };
   return fields;
 };
 

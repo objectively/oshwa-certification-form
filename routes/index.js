@@ -49,12 +49,12 @@ router.get('/apply', auth, (req, res) => {
     });
 });
 
+/* POST /apply. */
 router.post('/apply', auth, validateProjectFields, (req, res) => {
   const project = new Project(req.body);
   // server side validations
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
-    // return res.status(422).json({ errors: errors.array() });
     Promise.all([projectController.getProjectsList(), projectController.getValidations()])
       .then(contentfulValues => {
         const [projectsList, validations] = contentfulValues;
@@ -77,10 +77,8 @@ router.post('/apply', auth, validateProjectFields, (req, res) => {
         console.log(err);
       });
   } else {
-    // return res.status(200).json({ body: req.body });
-    // const project = new Project(req.body);
-
     const fields = project.mapFieldsToContentful();
+
     projectController
       .submitFormToContentful(fields)
       .then(data => {

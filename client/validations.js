@@ -1,11 +1,29 @@
 const Validations = {
+  scriptsRegex: /[\s<>]/,
+  urlRegex: /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([/\w@.-]*).*?\/?$/,
   setupDOMElements() {
     this.$form = $('form');
   },
   validateForm() {
+    $.validator.addMethod(
+      'checkCreatedUrls',
+      function(value, element) {
+        const elName = element.name;
+        const urlPair = $(`input[name="${elName}"]`);
+        const titleIsValid = urlPair[0].value.length > 0;
+        const urlIsValid =
+          !Validations.scriptsRegex.test(urlPair[1].value) && Validations.urlRegex.test(urlPair[1].value);
+        if (titleIsValid && urlIsValid) {
+          return true;
+        } else {
+          return false;
+        }
+      },
+      $.validator.format('Citations must have a title and valid url.')
+    );
     this.$form.validate({
       rules: {
-        ignore: '.ignore',
+        ignore: ['.ignore'],
         responsiblePartyType: { required: true },
         oshwaUid: { required: true },
         responsibleParty: { required: true },
@@ -48,7 +66,10 @@ const Validations = {
           validUrl: true
         },
         availableFileFormat: {},
-        citations: {},
+        'citations[]': {
+          checkCreatedUrls: true,
+          required: false
+        },
         hardwareLicense: { required: true },
         softwareLicense: { required: true },
         documentationLicense: { required: true },
@@ -124,7 +145,7 @@ const Validations = {
             }
           }
         },
-        certificationmarkTermss: {},
+        certificationmarkTerms: {},
         explanationCertificationTerms: {
           required: {
             depends() {
@@ -196,6 +217,13 @@ const Validations = {
           error.insertAfter(element.parent());
         } else if (element.attr('name') === 'agreementTerms') {
           error.insertAfter(element.parent().parent());
+        } else if (element.hasClass('url_create')) {
+          error.appendTo(
+            element
+              .parent()
+              .parent()
+              .find('.citation-error')
+          );
         } else {
           error.insertAfter(element);
         }
@@ -203,15 +231,13 @@ const Validations = {
     });
   },
   addUrlValidation() {
-    const scriptsRegex = /[\s<>]/;
-    const urlRegex = /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([/\w@.-]*).*?\/?$/;
     $.validator.addMethod(
       'validUrl',
       function(value, element) {
         if (value.length === 0) {
           return true;
         }
-        return this.optional(element) || (!scriptsRegex.test(value) && urlRegex.test(value));
+        return this.optional(element) || (!Validations.scriptsRegex.test(value) && Validations.urlRegex.test(value));
       },
       'Please enter a valid URL'
     );
@@ -231,6 +257,15 @@ const Validations = {
   certificationCheckboxMessages() {
     $("input[name='certificationmarkTerms']").on('change', () => {
       $("textarea[name='explanationCertificationTerms']").valid();
+    });
+  },
+  urlCitationMessages() {
+    // on field creation, add rules
+    $('body').on('change', '.url_create', () => {
+      $('.url_create').each((idx, input) => {
+        $(input).rules('add', { checkCreatedUrls: true });
+        $(input).valid();
+      });
     });
   },
   dependentSelectMessages() {
@@ -269,6 +304,7 @@ const Validations = {
     this.textAreaMessaging();
     this.certificationCheckboxMessages();
     this.dependentSelectMessages();
+    this.urlCitationMessages();
   }
 };
 

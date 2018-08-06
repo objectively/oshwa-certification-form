@@ -118,24 +118,31 @@ const createTextArea = field => `
   <div id="textarea-message"></div>
 `;
 
-const createUrlInputs = field => `
+const createUrlInputs = field =>
+  // dynamically added inputs are created in DynamicForm.generateUrlField
+  `
     <div class="url_fields field-wrapper" data-template-target="url-inputs">
-      <div data-template-value='url-inputs' class="form-field-wrapper row">
-        <i class="columns small-1 js-remove-field material-icons">remove_circle</i>
-        <div class="columns">
-        <label for="${field.contentfulFieldName}-title">Citation Name</label>
-        <input type="text" class="url_title" name="${field.contentfulFieldName}" placeholder="title" />
+      <div data-template-value="url-inputs" class="form-field-wrapper row">
+        <div class="row">
+          <i class="js-remove-field material-icons">remove_circle</i>
+          <div class="columns small-11 medium-5 large-5 ">
+            <label for="${field.contentfulFieldName}[1]">Citation Name</label>
+            <input type="text" class="url_create url_title" name="${
+              field.contentfulFieldName
+            }[1]" placeholder="title" />
+          </div>
+          <div class="columns small-11 small-offset-1 medium-5 large-5">
+            <label for="${field.contentfulFieldName}[1]">Citation URL</label>
+            <input type="text" class="url_create url_address" name="${
+              field.contentfulFieldName
+            }[1]" placeholder="url" />
+          </div>
+          <div class="columns small-offset-1 small-11 citation-error"></div>
         </div>
-        <div class="columns">
-        <label for="${field.contentfulFieldName}-title">Citation URL</label>
-        <input type="text" class="url_address" name="${field.contentfulFieldName}" placeholder="url" />
-        </div>
-
       </div>
-      <span class="js-add-url-inputs-field"><i class="material-icons">add_circle</i></span>
+      <div class="js-add-url-inputs-field"><i class="material-icons">add_circle</i></div>
     </div>
-
-`;
+  `;
 
 module.exports = {
   createBooleanDropdown,
