@@ -11,36 +11,36 @@
   <div class="row align-center">
     <div class="columns large-11 small-12">
       {{!-- 1 --}}
-      {{!--     {{{createLabel sectionOne.field.oshwaUid}}}
-      {{{createInput sectionOne.field.oshwaUid}}} --}}
+      {{!--     {{{createLabel formValues=sectionOne.field.oshwaUid}}}
+      {{{createInput formValues=sectionOne.field.oshwaUid inputValue=project.oshwaUid}}} --}}
 
       {{!-- 2 --}}
       <div class="row align-middle expanded">
         <div class="columns large-4 medium-4 small-12">
-          {{{createLabel sectionOne.field.responsiblePartyType}}}
+          {{{createLabel formValues=sectionOne.field.responsiblePartyType}}}
         </div>
         <div class="columns large-5 medium-5 small-12">
-          {{{createDropdownSelect sectionOne.field.responsiblePartyType responsiblePartyTypeOptions}}}
+          {{{createDropdownSelect formValues=sectionOne.field.responsiblePartyType options=responsiblePartyTypeOptions selection=project.responsiblePartyType}}}
         </div>
       </div>
 
       {{!-- 3 --}}
       <div class="row align-middle">
         <div class="columns large-6 medium-6 small-12">
-          {{{createLabel sectionOne.field.responsibleParty}}}
+          {{{createLabel formValues=sectionOne.field.responsibleParty}}}
         </div>
         <div class="columns large-6 medium-6 small-12">
-          {{{createInput sectionOne.field.responsibleParty}}}
+          {{{createInput formValues=sectionOne.field.responsibleParty inputValue=project.responsibleParty}}}
         </div>
       </div>
 
       {{!-- 4 --}}
       <div class="row align-middle">
         <div class="columns large-6 medium-6 small-12">
-          {{{createLabel sectionOne.field.bindingParty}}}
+          {{{createLabel formValues=sectionOne.field.bindingParty}}}
         </div>
         <div class="columns large-6 medium-6 small-12">
-          {{{createInput sectionOne.field.bindingParty}}}
+          {{{createInput formValues=sectionOne.field.bindingParty inputValue=project.bindingParty}}}
         </div>
       </div>
 
@@ -48,66 +48,66 @@
       <div class="form-heading">Contact Information</div>
       <div class="row align-middle">
         <div class="columns large-5 medium-6 small-12">
-        {{{createLabel sectionOne.field.country}}}
-        {{{createDropdownSelect sectionOne.field.country countryOptions}}}
+        {{{createLabel formValues=sectionOne.field.country}}}
+        {{{createDropdownSelect formValues=sectionOne.field.country options=countryOptions selection=project.country}}}
         </div>
       </div>
 
       {{!-- 6 --}}
       <div class="row align-middle">
         <div class="columns large-12 medium-12 small-12">
-          {{{createLabel sectionOne.field.streetAddress1}}}
+          {{{createLabel formValues=sectionOne.field.streetAddress1}}}
         </div>
         <div class="columns large-12 medium-12 small-12">
-          {{{createInput sectionOne.field.streetAddress1}}}
+          {{{createInput formValues=sectionOne.field.streetAddress1 inputValue=project.streetAddress1 inputValue=project.streetAddress1}}}
         </div>
       </div>
 
       {{!-- 7 --}}
       <div class="row align-middle">
         <div class="columns large-12 medium-12 small-12">
-          {{{createLabel sectionOne.field.streetAddress2}}}
+          {{{createLabel formValues=sectionOne.field.streetAddress2}}}
         </div>
         <div class="columns large-12 medium-12 small-12">
-          {{{createInput sectionOne.field.streetAddress2}}}
+          {{{createInput formValues=sectionOne.field.streetAddress2 inputValue=project.streetAddress2 inputValue=project.streetAddress2}}}
         </div>
       </div>
 
       <div class="row align-middle">
         {{!-- 8 --}}
         <div class="columns large-5 medium-6 small-12">
-          {{{createLabel sectionOne.field.city}}}
-          {{{createInput sectionOne.field.city}}}
+          {{{createLabel formValues=sectionOne.field.city}}}
+          {{{createInput formValues=sectionOne.field.city inputValue=project.city}}}
         </div>
         {{!-- 9 --}}
         <div class="columns large-4 medium-6 small-12">
-          {{{createLabel sectionOne.field.state}}}
-          {{{createInput sectionOne.field.state}}}
+          {{{createLabel formValues=sectionOne.field.state}}}
+          {{{createInput formValues=sectionOne.field.state inputValue=project.state}}}
         </div>
         {{!-- 10 --}}
         <div class="columns large-3 medium-6 small-12">
-          {{{createLabel sectionOne.field.postalCode}}}
-          {{{createInput sectionOne.field.postalCode}}}
+          {{{createLabel formValues=sectionOne.field.postalCode}}}
+          {{{createInput formValues=sectionOne.field.postalCode inputValue=project.postalCode}}}
         </div>
       </div>
 
       {{!-- 11 --}}
       <div class="row align-middle">
         <div class="columns large-6 medium-6 small-12">
-          {{{createLabel sectionOne.field.privateContact}}}
+          {{{createLabel formValues=sectionOne.field.privateContact}}}
         </div>
         <div class="columns large-6 medium-6 small-12">
-          {{{createInput sectionOne.field.privateContact}}}
+          {{{createInput formValues=sectionOne.field.privateContact inputValue=project.privateContact}}}
         </div>
       </div>
 
       {{!-- 12 --}}
       <div class="row align-middle">
         <div class="columns large-6 medium-6 small-12">
-          {{{createLabel sectionOne.field.publicContact}}}
+          {{{createLabel formValues=sectionOne.field.publicContact}}}
         </div>
         <div class="columns large-6 medium-6 small-12">
-          {{{createInput sectionOne.field.publicContact}}}
+          {{{createInput formValues=sectionOne.field.publicContact inputValue=project.publicContact}}}
         </div>
       </div>
 

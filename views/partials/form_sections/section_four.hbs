@@ -12,48 +12,48 @@
         {{!-- 45 --}}
         <div class="row">
           <div class="columns certificate-mark">
-            {{{createLabel sectionFour.field.certificationmarkTerms}}}
-            {{{createCheckboxRows sectionFour.field.certificationmarkTerms certificationMarkChecklist}}}
+            {{{createLabel formValues=sectionFour.field.certificationmarkTerms}}}
+            {{{createCheckboxRows formValues=sectionFour.field.certificationmarkTerms options=certificationMarkChecklist checkedOptions=project.certificationmarkTerms}}}
           </div>
         </div>
 
         {{!-- 46 --}}
         <div class="row">
           <div class="columns large-3 small-12 ">
-            {{{createLabel sectionFour.field.explanationCertificationTerms}}}
+            {{{createLabel formValues=sectionFour.field.explanationCertificationTerms}}}
           </div>
           <div class="columns">
-            {{{createTextArea sectionFour.field.explanationCertificationTerms}}}
+            {{{createTextArea formValues=sectionFour.field.explanationCertificationTerms inputValue=project.explanationCertificationTerms}}}
           </div>
         </div>
 
         {{!-- 47 --}}
         <div class="row">
           <div class="columns large-3 small-12">
-            {{{createLabel sectionFour.field.relationship}}}
+            {{{createLabel formValues=sectionFour.field.relationship}}}
           </div>
           <div class="columns">
-            {{{createTextArea sectionFour.field.relationship}}}
+            {{{createTextArea formValues=sectionFour.field.relationship inputValue=project.relationship}}}
           </div>
         </div>
 
         {{!-- 48 --}}
         <div class="row">
           <div class="columns small-1 single-checkbox-field">
-            {{{createCheckbox sectionFour.field.agreementTerms}}}
+            {{{createCheckbox formValues=sectionFour.field.agreementTerms checked=project.agreementTerms}}}
           </div>
           <div class="columns single-checkbox-field">
-            {{{createLabel sectionFour.field.agreementTerms}}}
+            {{{createLabel formValues=sectionFour.field.agreementTerms}}}
           </div>
         </div>
 
         {{!-- 49 --}}
         <div class="row">
           <div class="columns large-6 small-12">
-            {{{createLabel sectionFour.field.parentName}}}
+            {{{createLabel formValues=sectionFour.field.parentName}}}
           </div>
           <div class="columns large-6 small-12">
-            {{{createInput sectionFour.field.parentName}}}
+            {{{createInput formValues=sectionFour.field.parentName inputValue=project.parentName}}}
           </div>
         </div>
 

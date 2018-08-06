@@ -543,3 +543,11 @@ label[id^='citations['] {
 .citation-error {
   display: block;
   width: 100%; }
+
+.error-messages {
+  border-left: 0.5rem #cc0000 solid;
+  padding: 1rem 2rem;
+  background-color: rgba(204, 0, 0, 0.2);
+  margin-top: 1rem !important; }
+  .error-messages li {
+    font-size: 1rem; }

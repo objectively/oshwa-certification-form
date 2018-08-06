@@ -12,30 +12,30 @@
       {{!-- 24 --}}
       <div class="row">
         <div class="columns large-6 medium-6 small-12">
-          {{{createLabel sectionThree.field.hardwareLicense}}}
+          {{{ createLabel formValues=sectionThree.field.hardwareLicense }}}
         </div>
         <div class="columns large-6 medium-6 small-12">
-          {{{createDropdownSelect sectionThree.field.hardwareLicense hardwareLicenses}}}
+          {{{ createDropdownSelect formValues=sectionThree.field.hardwareLicense options=hardwareLicenses selection=project.hardwareLicense }}}
         </div>
       </div>
 
       {{!-- 25 --}}
       <div class="row">
         <div class="columns large-6 medium-6 small-12">
-          {{{createLabel sectionThree.field.softwareLicense}}}
+          {{{ createLabel formValues=sectionThree.field.softwareLicense }}}
         </div>
         <div class="columns large-6 medium-6 small-12">
-          {{{createDropdownSelect sectionThree.field.softwareLicense softwareLicenses}}}
+          {{{ createDropdownSelect formValues=sectionThree.field.softwareLicense options=softwareLicenses selection=project.softwareLicense }}}
         </div>
       </div>
 
       {{!-- 26 --}}
       <div class="row">
         <div class="columns large-6 medium-6 small-12">
-          {{{createLabel sectionThree.field.documentationLicense}}}
+          {{{createLabel formValues=sectionThree.field.documentationLicense}}}
         </div>
         <div class="columns large-6 medium-6 small-12">
-          {{{createDropdownSelect sectionThree.field.documentationLicense documentationLicenses}}}
+          {{{createDropdownSelect formValues=sectionThree.field.documentationLicense options=documentationLicenses selection=project.documentationLicense}}}
         </div>
       </div>
 
@@ -43,201 +43,127 @@
       <div class="explanation-wrapper">
         <div class="row">
           <div class="columns large-10 medium-10 small-12">
-            {{{createLabel sectionThree.field.noCommercialRestriction}}}
+            {{{createLabel formValues=sectionThree.field.noCommercialRestriction}}}
           </div>
           <div class="columns explanation-select">
-            {{{createBooleanDropdown sectionThree.field.noCommercialRestriction}}}
+            {{{createBooleanDropdown formValues=sectionThree.field.noCommercialRestriction selection=project.noCommercialRestriction}}}
           </div>
         </div>
-
-        {{!-- 28 --}}
-        <div class="row explanation-field hide" data-value="noCommercialRestriction">
-          <div class="columns large-3 small-12">
-            {{{createLabel sectionThree.field.explanationNcr}}}
-          </div>
-          <div class="columns">
-            {{{createTextArea sectionThree.field.explanationNcr}}}
-          </div>
-        </div>
+      {{!-- 28 --}}
+        {{{createExplanationTextArea formValues=sectionThree.field.explanationNcr hide=project.noCommercialRestriction inputValue=project.explanationNcr}}}
       </div>
 
       {{!-- 29 --}}
       <div class="explanation-wrapper">
         <div class="row">
           <div class="columns large-10 medium-10 small-12">
-            {{{createLabel sectionThree.field.noDocumentationRestriction}}}
+            {{{createLabel formValues=sectionThree.field.noDocumentationRestriction}}}
           </div>
           <div class="columns explanation-select">
-            {{{createBooleanDropdown sectionThree.field.noDocumentationRestriction}}}
+            {{{createBooleanDropdown formValues=sectionThree.field.noDocumentationRestriction selection=project.noDocumentationRestriction}}}
           </div>
         </div>
-
-        {{!-- 30 --}}
-        <div class="row explanation-field hide" data-value="noDocumentationRestriction">
-          <div class="columns large-3 small-12">
-            {{{createLabel sectionThree.field.explanationNdr}}}
-          </div>
-          <div class="columns">
-            {{{createTextArea sectionThree.field.explanationNdr}}}
-          </div>
-        </div>
+      {{!-- 30 --}}
+        {{{createExplanationTextArea formValues=sectionThree.field.explanationNdr hide=project.noDocumentationRestriction inputValue=project.explanationNdr}}}
       </div>
 
       {{!-- 31 --}}
       <div class="explanation-wrapper">
         <div class="row">
           <div class="columns large-10 medium-10 small-12">
-            {{{createLabel sectionThree.field.openHardwareComponents}}}
+            {{{createLabel formValues=sectionThree.field.openHardwareComponents}}}
           </div>
           <div class="columns explanation-select">
-            {{{createBooleanDropdown sectionThree.field.openHardwareComponents}}}
+            {{{createBooleanDropdown formValues=sectionThree.field.openHardwareComponents selection=project.openHardwareComponents}}}
           </div>
         </div>
-
-
-        {{!-- 32 --}}
-        <div class="row explanation-field hide" data-value="openHardwareComponents">
-          <div class="columns large-3 small-12">
-          {{{createLabel sectionThree.field.explanationOhwc}}}
-          </div>
-          <div class="columns">
-          {{{createTextArea sectionThree.field.explanationOhwc}}}
-          </div>
-        </div>
+      {{!-- 32 --}}
+        {{{createExplanationTextArea formValues=sectionThree.field.explanationOhwc hide=project.openHardwareComponents inputValue=project.explanationOhwc}}}
       </div>
 
       {{!-- 33 --}}
       <div class="explanation-wrapper">
         <div class="row">
           <div class="columns large-10 medium-10 small-12">
-          {{{createLabel sectionThree.field.creatorContribution}}}
+          {{{createLabel formValues=sectionThree.field.creatorContribution}}}
           </div>
           <div class="columns explanation-select">
-          {{{createBooleanDropdown sectionThree.field.creatorContribution}}}
+          {{{createBooleanDropdown formValues=sectionThree.field.creatorContribution selection=project.creatorContribution}}}
           </div>
         </div>
-
       {{!-- 34 --}}
-        <div class="row explanation-field hide" data-value="creatorContribution">
-          <div class="columns large-3 small-12">
-          {{{createLabel sectionThree.field.explanationCcr}}}
-          </div>
-          <div class="columns">
-          {{{createTextArea sectionThree.field.explanationCcr}}}
-          </div>
-        </div>
+        {{{createExplanationTextArea formValues=sectionThree.field.explanationCcr hide=project.creatorContribution inputValue=project.explanationCcr}}}
       </div>
 
       {{!-- 35 --}}
       <div class="explanation-wrapper">
         <div class="row">
           <div class="columns large-10 medium-10 small-12">
-            {{{createLabel sectionThree.field.noUseRestriction}}}
+            {{{createLabel formValues=sectionThree.field.noUseRestriction}}}
           </div>
           <div class="columns explanation-select">
-            {{{createBooleanDropdown sectionThree.field.noUseRestriction}}}
+            {{{createBooleanDropdown formValues=sectionThree.field.noUseRestriction selection=project.noUseRestriction }}}
 
           </div>
         </div>
-
-        {{!-- 36 --}}
-        <div class="row explanation-field hide" data-value="noUseRestriction">
-          <div class="columns large-3 small-12">
-            {{{createLabel sectionThree.field.explanationNur}}}
-          </div>
-          <div class="columns">
-            {{{createTextArea sectionThree.field.explanationNur}}}
-          </div>
-        </div>
+      {{!-- 36 --}}
+        {{{createExplanationTextArea formValues=sectionThree.field.explanationNur hide=project.noUseRestriction inputValue=project.explanationNur}}}
       </div>
 
       {{!-- 37 --}}
       <div class="explanation-wrapper">
         <div class="row">
           <div class="columns large-10 medium-10 small-12">
-            {{{createLabel sectionThree.field.redistributedWork}}}
+            {{{createLabel formValues=sectionThree.field.redistributedWork}}}
           </div>
           <div class="columns explanation-select">
-            {{{createBooleanDropdown sectionThree.field.redistributedWork}}}
+            {{{createBooleanDropdown formValues=sectionThree.field.redistributedWork selection=project.redistributedWork}}}
           </div>
         </div>
-
-
-        {{!-- 38 --}}
-        <div class="row explanation-field hide" data-value="redistributedWork">
-          <div class="columns large-3 small-12">
-            {{{createLabel sectionThree.field.explanationRwr}}}
-          </div>
-          <div class="columns">
-            {{{createTextArea sectionThree.field.explanationRwr}}}
-          </div>
-        </div>
+      {{!-- 38 --}}
+        {{{createExplanationTextArea formValues=sectionThree.field.explanationRwr hide=project.redistributedWork inputValue=project.explanationRwr}}}
       </div>
 
         {{!-- 39 --}}
       <div class="explanation-wrapper">
         <div class="row">
           <div class="columns large-10 medium-10 small-12">
-            {{{createLabel sectionThree.field.noSpecificProduct}}}
+            {{{createLabel formValues=sectionThree.field.noSpecificProduct}}}
           </div>
           <div class="columns explanation-select">
-            {{{createBooleanDropdown sectionThree.field.noSpecificProduct}}}
+            {{{createBooleanDropdown formValues=sectionThree.field.noSpecificProduct selection=project.noSpecificProduct}}}
           </div>
         </div>
-
-        {{!-- 40 --}}
-        <div class="row explanation-field hide" data-value="noSpecificProduct">
-          <div class="columns large-3 small-12">
-            {{{createLabel sectionThree.field.explanationNsp}}}
-          </div>
-          <div class="columns">
-            {{{createTextArea sectionThree.field.explanationNsp}}}
-          </div>
-        </div>
+      {{!-- 40 --}}
+        {{{createExplanationTextArea formValues=sectionThree.field.explanationNsp hide=project.noSpecificProduct inputValue=project.explanationNsp}}}
       </div>
 
         {{!-- 41 --}}
       <div class="explanation-wrapper">
         <div class="row">
           <div class="columns large-10 medium-10 small-12">
-            {{{createLabel sectionThree.field.noComponentRestriction}}}
+            {{{createLabel formValues=sectionThree.field.noComponentRestriction}}}
           </div>
           <div class="columns explanation-select">
-            {{{createBooleanDropdown sectionThree.field.noComponentRestriction}}}
+            {{{createBooleanDropdown formValues=sectionThree.field.noComponentRestriction selection=project.noComponentRestriction}}}
           </div>
         </div>
-
         {{!-- 42 --}}
-        <div class="row explanation-field hide" data-value="noComponentRestriction">
-          <div class="columns large-3 small-12">
-            {{{createLabel sectionThree.field.explanationNor}}}
-          </div>
-          <div class="columns">
-            {{{createTextArea sectionThree.field.explanationNor}}}
-          </div>
-        </div>
+        {{{createExplanationTextArea formValues=sectionThree.field.explanationNor hide=project.noComponentRestriction inputValue=project.explanationNor}}}
       </div>
 
       {{!-- 43 --}}
       <div class="explanation-wrapper">
         <div class="row">
           <div class="columns large-10 medium-10 small-12">
-              {{{createLabel sectionThree.field.technologyNeutral}}}
+              {{{createLabel formValues=sectionThree.field.technologyNeutral}}}
           </div>
           <div class="columns explanation-select">
-              {{{createBooleanDropdown sectionThree.field.technologyNeutral}}}
+              {{{createBooleanDropdown formValues=sectionThree.field.technologyNeutral selection=project.technologyNeutral}}}
           </div>
         </div>
-
-          {{!-- 44 --}}
-        <div class="row explanation-field hide" data-value="technologyNeutral">
-          <div class="columns large-3 small-12">
-            {{{createLabel sectionThree.field.explanationTn}}}
-          </div>
-          <div class="columns large-9">
-            {{{createTextArea sectionThree.field.explanationTn}}}
-          </div>
-        </div>
+      {{!-- 44 --}}
+        {{{createExplanationTextArea formValues=sectionThree.field.explanationTn hide=project.technologyNeutral inputValue=project.explanationTn}}}
       </div>
 
     </div>

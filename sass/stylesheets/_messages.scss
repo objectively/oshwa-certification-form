@@ -24,3 +24,15 @@ label[id^='citations['] {
   display: block;
   width: 100%;
 }
+
+.error-messages {
+  border-left: 0.5rem $error solid;
+  padding: 1rem 2rem;
+  background-color: rgba($error, 0.2);
+
+  margin-top: 1rem !important;
+
+  li {
+    font-size: 1rem;
+  }
+}

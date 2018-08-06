@@ -1,5 +1,5 @@
-{{#each errors}}
-  <ul class="error-messages">
-    <li>{{this.param}}: {{this.msg}}</li>
-  </ul>
-{{/each}}
+<ul class="error-messages">
+  {{#each errors}}
+    <li><strong>{{this.param}}:</strong> {{this.msg}}</li>
+  {{/each}}
+</ul>

@@ -12,15 +12,14 @@
   <section class="page-section">
     <div class="row">
       <div class="column large-12">
-        {{#if errors}}
-          {{> errors errors=errors}}
-        {{/if}}
-
+      {{#if errors}}
+        {{> errors errors=errors}}
+      {{/if}}
         <form autocomplete="off" method="POST" action="/apply">
-        {{> form_sections/section_one sectionOne=sectionOne}}
-        {{> form_sections/section_two sectionTwo=sectionTwo}}
-        {{> form_sections/section_three sectionThree=sectionThree}}
-        {{> form_sections/section_four sectionFour=sectionFour}}
+        {{> form_sections/section_one sectionOne=sectionOne project=project}}
+        {{> form_sections/section_two sectionTwo=sectionTwo project=project}}
+        {{> form_sections/section_three sectionThree=sectionThree project=project}}
+        {{> form_sections/section_four sectionFour=sectionFour project=project}}
         </form>
 
       </div>

@@ -13,12 +13,11 @@ const isBooleanSelect = key => booleanSelectFields.indexOf(key) !== -1;
 const isArrayField = key => arrayFields.indexOf(key) !== -1;
 const isReferenceField = key => referenceFields.indexOf(key) !== -1;
 const returnBooleanFromCheckbox = value => !!value;
+const citationsKeyRegex = /^citations\[\d+\]$/;
 
-const isAddUrlField = key => {
+const isAddUrlField = key =>
   // citations come from dynamically generated  form fields with names 'citations[x]'
-  const citationsKeyRegex = /^citations\[\d+\]$/;
-  return citationsKeyRegex.test(key);
-};
+  citationsKeyRegex.test(key);
 
 const returnArrayFromCheckbox = values => {
   if (typeof values === 'string') {
@@ -72,6 +71,7 @@ const returnUrlToObj = urls => {
 };
 
 module.exports = {
+  citationsKeyRegex,
   isAddUrlField,
   returnUrlToObj,
   isReferenceField,

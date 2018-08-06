@@ -13,106 +13,106 @@
       <div class="row align-middle">
         {{!-- 13 --}}
         <div class="columns large-2 medium-12 small-12">
-          {{{createLabel sectionTwo.field.projectName}}}
+          {{{createLabel formValues=sectionTwo.field.projectName}}}
         </div>
         <div class="columns large-5 medium-12 small-12">
-          {{{createInput sectionTwo.field.projectName}}}
+          {{{createInput formValues=sectionTwo.field.projectName inputValue=project.projectName}}}
         </div>
         {{!-- 14 --}}
         <div class="columns large-3 medium-6 small-6">
-          {{{createLabel sectionTwo.field.projectVersion}}}
+          {{{createLabel formValues=sectionTwo.field.projectVersion}}}
         </div>
         <span>v. </span>
         <div class="columns project-version-label">
-          {{{createInput sectionTwo.field.projectVersion}}}
+          {{{createInput formValues=sectionTwo.field.projectVersion inputValue=project.projectVersion}}}
         </div>
       </div>
 
       {{!-- 15 --}}
       <div class="row align-middle">
         <div class="columns large-6 medium-6 small-12">
-          {{{createLabel sectionTwo.field.previousVersions}}}
+          {{{createLabel formValues=sectionTwo.field.previousVersions}}}
         </div>
         <div class="columns large-6 medium-6 small-12 field-wrapper" data-field-name="previousVersions" data-target="select">
-          {{{createPreviousVersionsDropdown sectionTwo.field.previousVersions projectsList}}}
+          {{{createPreviousVersionsDropdown formValues=sectionTwo.field.previousVersions projectsList=projectsList selectedProjects=project.previousVersions}}}
         </div>
       </div>
 
       {{!-- 16 --}}
       <div class="row">
         <div class="columns large-3 small-12">
-          {{{createLabel sectionTwo.field.projectDescription}}}
+          {{{createLabel formValues=sectionTwo.field.projectDescription}}}
         </div>
         <div class="columns">
-          {{{createTextArea sectionTwo.field.projectDescription}}}
+          {{{createTextArea formValues=sectionTwo.field.projectDescription inputValue=project.projectDescription}}}
         </div>
       </div>
 
       {{!-- 17 --}}
       <div class="row align-middle">
         <div class="columns large-3 small-12">
-          {{{createLabel sectionTwo.field.projectWebsite}}}
+          {{{createLabel formValues=sectionTwo.field.projectWebsite}}}
         </div>
         <div class="columns">
-          {{{createInput sectionTwo.field.projectWebsite}}}
+          {{{createInput formValues=sectionTwo.field.projectWebsite inputValue=project.projectWebsite}}}
         </div>
       </div>
 
       {{!-- 18 --}}
       <div class="row align-middle">
         <div class="columns large-3 small-12">
-          {{{createLabel sectionTwo.field.primaryType}}}
+          {{{createLabel formValues=sectionTwo.field.primaryType}}}
         </div>
         <div class="columns">
-          {{{createDropdownSelect sectionTwo.field.primaryType primaryProjectTypes}}}
+          {{{createDropdownSelect formValues=sectionTwo.field.primaryType options=primaryProjectTypes selection=project.primaryType}}}
         </div>
       </div>
 
       {{!-- 19 --}}
       <div class="row align-middle">
         <div class="columns additional-project-types">
-        {{{createLabel sectionTwo.field.additionalType}}}
-        {{{createCheckboxes sectionTwo.field.additionalType additionalProjectTypes}}}
+        {{{createLabel formValues=sectionTwo.field.additionalType}}}
+        {{{createCheckboxes formValues=sectionTwo.field.additionalType projectTypes=additionalProjectTypes checkedTypes=(getCheckedTypes project)}}}
         </div>
       </div>
 
       {{!-- 20 --}}
       <div class="row align-middle">
         <div class="columns large-3 small-12">
-          {{{createLabel sectionTwo.field.projectKeywords}}}
+          {{{createLabel formValues=sectionTwo.field.projectKeywords}}}
         </div>
         <div class="columns">
-          {{{createInput sectionTwo.field.projectKeywords}}}
+          {{{createInput formValues=sectionTwo.field.projectKeywords inputValue=project.projectKeywords}}}
         </div>
       </div>
 
       {{!-- 21 --}}
       <div class="row align-middle">
         <div class="columns large-4 small-12">
-          {{{createLabel sectionTwo.field.documentationUrl}}}
+          {{{createLabel formValues=sectionTwo.field.documentationUrl}}}
         </div>
         <div class="columns">
-          {{{createInput sectionTwo.field.documentationUrl}}}
+          {{{createInput formValues=sectionTwo.field.documentationUrl inputValue=project.documentationUrl}}}
         </div>
       </div>
 
       {{!-- 22 --}}
       <div class="row align-middle">
         <div class="columns small-1">
-          {{{createCheckbox sectionTwo.field.availableFileFormat}}}
+          {{{createCheckbox formValues=sectionTwo.field.availableFileFormat checked=project.availableFileFormat}}}
         </div>
         <div class="columns single-checkbox-field">
-          {{{createLabel sectionTwo.field.availableFileFormat}}}
+          {{{createLabel formValues=sectionTwo.field.availableFileFormat}}}
         </div>
       </div>
 
       {{!-- 23 --}}
       <div class="row align-middle">
         <div class="columns large-3 small-12">
-          {{{createLabel sectionTwo.field.citations}}}
+          {{{createLabel formValues=sectionTwo.field.citations}}}
         </div>
         <div class="columns large-9 small-12">
-          {{{createUrlInputs sectionTwo.field.citations}}}
+          {{{createUrlInputs formValues=sectionTwo.field.citations citationValues=(getCitationValues project) }}}
         </div>
       </div>
 

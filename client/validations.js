@@ -7,7 +7,7 @@ const Validations = {
   validateForm() {
     $.validator.addMethod(
       'checkCreatedUrls',
-      function(value, element) {
+      (value, element) => {
         const elName = element.name;
         const urlPair = $(`input[name="${elName}"]`);
         const titleIsValid = urlPair[0].value.length > 0;
@@ -15,9 +15,8 @@ const Validations = {
           !Validations.scriptsRegex.test(urlPair[1].value) && Validations.urlRegex.test(urlPair[1].value);
         if (titleIsValid && urlIsValid) {
           return true;
-        } else {
-          return false;
         }
+        return false;
       },
       $.validator.format('Citations must have a title and valid url.')
     );
