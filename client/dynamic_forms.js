@@ -5,12 +5,16 @@ const DynamicForm = {
       <div class="row">
         <i class="js-remove-field material-icons">remove_circle</i>
         <div class="columns small-11 medium-5 large-5 ">
-        <label for="citations[${count}]">Citation Name</label>
-        <input type="text" class="url_create url_title" name="citations[${count}]" placeholder="title" />
+        <label for="citations[${count}]--url_title">Citation Name</label>
+        <input id="citations[${count}]--url_title" type="text" class="url_create url_title" name="citations[${
+      count
+    }]" placeholder="title" />
         </div>
         <div class="columns small-11 small-offset-1 medium-5 large-5">
-        <label for="citations[${count}]">Citation URL</label>
-        <input type="text" class="url_create url_address" name="citations[${count}]" placeholder="url" />
+        <label for="citations[${count}]--url_address">Citation URL</label>
+        <input id="citations[${count}]--url_address" type="text" class="url_create url_address" name="citations[${
+      count
+    }]" placeholder="url" />
         </div>
         <div class="columns small-offset-1 small-11 citation-error"></div>
       </div>

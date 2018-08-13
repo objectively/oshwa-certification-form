@@ -1,0 +1,12 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $('.previousVersions').select2({
+      multiple: true,
+      width: '100%'
+    });
+    // add id to select2 element to attach label
+    document.querySelector('.select2-search__field').setAttribute('id', 'select2-search__field');
+  })
+</script>
+

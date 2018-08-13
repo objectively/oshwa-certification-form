@@ -282,15 +282,15 @@ const Validations = {
       if (textLength >= maxLength) {
         $(e.currentTarget)
           .parent()
-          .find('#textarea-message')
-          .text(`${textLength} characters`)
+          .find('.textarea-message')
+          .text(`${textLength} characters over suggested length`)
           .addClass('error-message');
       } else {
         const chars = maxLength - textLength;
         $(e.currentTarget)
           .parent()
-          .find('#textarea-message')
-          .text(`${chars} characters`)
+          .find('.textarea-message')
+          .text(`${chars} characters left`)
           .removeClass('error-message');
       }
     });

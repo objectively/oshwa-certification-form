@@ -12,7 +12,7 @@
         {{!-- 45 --}}
         <div class="row">
           <div class="columns certificate-mark">
-            {{{createLabel formValues=sectionFour.field.certificationmarkTerms}}}
+            {{{sectionFour.field.certificationmarkTerms.formOrder}}}. {{{sectionFour.field.certificationmarkTerms.title}}}
             {{{createCheckboxRows formValues=sectionFour.field.certificationmarkTerms options=certificationMarkChecklist checkedOptions=project.certificationmarkTerms}}}
           </div>
         </div>
@@ -39,11 +39,8 @@
 
         {{!-- 48 --}}
         <div class="row">
-          <div class="columns small-1 single-checkbox-field">
+          <div class="columns small-12 single-checkbox-field">
             {{{createCheckbox formValues=sectionFour.field.agreementTerms checked=project.agreementTerms}}}
-          </div>
-          <div class="columns single-checkbox-field">
-            {{{createLabel formValues=sectionFour.field.agreementTerms}}}
           </div>
         </div>
 

@@ -526,10 +526,10 @@ form {
 label.error {
   color: #cc0000; }
 
-#textarea-message {
+.textarea-message {
   color: #3c763d; }
 
-#textarea-message.error-message {
+.textarea-message.error-message {
   color: #cc0000; }
 
 ul.error-messages {

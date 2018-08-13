@@ -9,6 +9,7 @@ module.exports = {
     buttonText: 'Get Started'
   },
   apply: {
-    title: 'Certify a project'
+    title: 'Certify a project',
+    customScriptsPartial: 'script_tags/form_tags'
   }
 };

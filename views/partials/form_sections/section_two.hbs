@@ -71,7 +71,9 @@
       {{!-- 19 --}}
       <div class="row align-middle">
         <div class="columns additional-project-types">
-        {{{createLabel formValues=sectionTwo.field.additionalType}}}
+
+        {{{sectionTwo.field.additionalType.formOrder}}}. {{{sectionTwo.field.additionalType.title}}}
+
         {{{createCheckboxes formValues=sectionTwo.field.additionalType projectTypes=additionalProjectTypes checkedTypes=(getCheckedTypes project)}}}
         </div>
       </div>
@@ -98,18 +100,15 @@
 
       {{!-- 22 --}}
       <div class="row align-middle">
-        <div class="columns small-1">
-          {{{createCheckbox formValues=sectionTwo.field.availableFileFormat checked=project.availableFileFormat}}}
-        </div>
-        <div class="columns single-checkbox-field">
-          {{{createLabel formValues=sectionTwo.field.availableFileFormat}}}
+        <div class="columns small-12">
+          {{{sectionTwo.field.availableFileFormat.formOrder}}}. {{{createCheckbox formValues=sectionTwo.field.availableFileFormat checked=project.availableFileFormat}}}
         </div>
       </div>
 
       {{!-- 23 --}}
       <div class="row align-middle">
         <div class="columns large-3 small-12">
-          {{{createLabel formValues=sectionTwo.field.citations}}}
+          {{{sectionTwo.field.citations.formOrder}}}. {{{sectionTwo.field.citations.title}}}
         </div>
         <div class="columns large-9 small-12">
           {{{createUrlInputs formValues=sectionTwo.field.citations citationValues=(getCitationValues project) }}}
