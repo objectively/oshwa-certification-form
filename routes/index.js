@@ -27,10 +27,13 @@ router.get('/', auth, (req, res) => {
 
 /* GET /apply. */
 router.get('/apply', auth, (req, res) => {
-  Promise.all([projectController.getProjectsList(), projectController.getValidations()])
+  Promise.all([
+    projectController.getProjectsList(),
+    projectController.getValidations(),
+    projectController.getExamplesFromLearningModules()
+  ])
     .then(contentfulValues => {
-      const [projectsList, validations] = contentfulValues;
-
+      const [projectsList, validations, learningModuleExamples] = contentfulValues;
       res.render('apply', {
         ...apply,
         sectionOne,
@@ -41,7 +44,8 @@ router.get('/apply', auth, (req, res) => {
           ...helpers
         },
         projectsList,
-        ...validations[0]
+        ...validations[0],
+        learningModuleExamples
       });
     })
     .catch(err => {
@@ -55,9 +59,13 @@ router.post('/apply', auth, validateProjectFields, (req, res) => {
   // server side validations
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
-    Promise.all([projectController.getProjectsList(), projectController.getValidations()])
+    Promise.all([
+      projectController.getProjectsList(),
+      projectController.getValidations(),
+      projectController.getExamplesFromLearningModules()
+    ])
       .then(contentfulValues => {
-        const [projectsList, validations] = contentfulValues;
+        const [projectsList, validations, learningModuleExamples] = contentfulValues;
         res.render('apply', {
           ...apply,
           sectionOne,
@@ -69,6 +77,7 @@ router.post('/apply', auth, validateProjectFields, (req, res) => {
           },
           projectsList,
           ...validations[0],
+          learningModuleExamples,
           project,
           errors: errors.array()
         });

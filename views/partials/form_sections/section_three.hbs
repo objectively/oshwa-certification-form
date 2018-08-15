@@ -1,3 +1,4 @@
+
 <section class="page-section" id="form-3">
   <div class="row align-justify">
     <div class="columns">
@@ -18,6 +19,9 @@
           {{{ createDropdownSelect formValues=sectionThree.field.hardwareLicense options=hardwareLicenses selection=project.hardwareLicense }}}
         </div>
       </div>
+      {{!-- hardware examples --}}
+      {{> module_examples/hardware-examples}}
+
 
       {{!-- 25 --}}
       <div class="row">
@@ -28,6 +32,9 @@
           {{{ createDropdownSelect formValues=sectionThree.field.softwareLicense options=softwareLicenses selection=project.softwareLicense }}}
         </div>
       </div>
+      {{!-- software examples --}}
+      {{> module_examples/software-examples}}
+
 
       {{!-- 26 --}}
       <div class="row">
@@ -38,6 +45,8 @@
           {{{createDropdownSelect formValues=sectionThree.field.documentationLicense options=documentationLicenses selection=project.documentationLicense}}}
         </div>
       </div>
+      {{!-- documentation examples --}}
+      {{> module_examples/documentation-examples}}
 
       {{!-- 27 --}}
       <div class="explanation-wrapper">

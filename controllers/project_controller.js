@@ -31,6 +31,21 @@ const getProjectsList = () =>
     .then(response => response.items)
     .catch(console.error);
 
+const getExamplesFromLearningModules = () =>
+  contentfulDeliveryClient
+    .getEntries({ content_type: 'learningModule', select: ['fields.moduleTitle', 'fields.examples'], include: 2 })
+    .then(response => {
+      const examples = {};
+      const softwareExamples = response.items.filter(item => item.fields.moduleTitle === 'Software');
+      examples.softwareExamples = softwareExamples[0].fields.examples;
+      const hardwareExamples = response.items.filter(item => item.fields.moduleTitle === 'Hardware');
+      examples.hardwareExamples = hardwareExamples[0].fields.examples;
+      const documentationExamples = response.items.filter(item => item.fields.moduleTitle === 'Documentation');
+      examples.documentationExamples = documentationExamples[0].fields.examples;
+      return examples;
+    })
+    .catch(console.error);
+
 const getValidations = () =>
   contentfulClient
     .getSpace(spaceID)
@@ -71,5 +86,6 @@ const submitFormToContentful = fields =>
 module.exports = {
   getValidations,
   submitFormToContentful,
-  getProjectsList
+  getProjectsList,
+  getExamplesFromLearningModules
 };

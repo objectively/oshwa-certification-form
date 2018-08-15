@@ -49,10 +49,24 @@ const DynamicForm = {
       }
     });
   },
+  openExample() {
+    $('.open-example-control').on('click', function() {
+      const examplesTarget = $(this).attr('data-target');
+      const examplesContainer = $(`[data-modal-value="${examplesTarget}"]`);
+      if ($(this).hasClass('open')) {
+        $(this).removeClass('open');
+        examplesContainer.addClass('hide');
+      } else {
+        $(this).addClass('open');
+        examplesContainer.removeClass('hide');
+      }
+    });
+  },
   init() {
     this.addFormField();
     this.deleteFormField();
     this.renderExplanationFields();
+    this.openExample();
   }
 };
 

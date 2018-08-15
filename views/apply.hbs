@@ -9,13 +9,15 @@
     </div>
   </section>
 
-  <section class="page-section">
-    <div class="row">
+  <section class="page-section form-section">
+    <div class="row form-row">
       <div class="column large-12">
       {{#if errors}}
         {{> errors errors=errors}}
       {{/if}}
         <form autocomplete="off" method="POST" action="/apply">
+
+
         {{> form_sections/section_one sectionOne=sectionOne project=project}}
         {{> form_sections/section_two sectionTwo=sectionTwo project=project}}
         {{> form_sections/section_three sectionThree=sectionThree project=project}}

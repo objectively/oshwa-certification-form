@@ -1,3 +1,4 @@
+const md = require('marked');
 const { citationsKeyRegex } = require('./form_helpers');
 
 const createBooleanDropdown = content => {
@@ -273,6 +274,11 @@ const getCheckedTypes = project => {
     return project.additionalType;
   }
 };
+
+const markdownify = str => {
+  return md(str);
+};
+
 module.exports = {
   createBooleanDropdown,
   createCheckbox,
@@ -286,5 +292,6 @@ module.exports = {
   createTextArea,
   createUrlInputs,
   getCitationValues,
-  getCheckedTypes
+  getCheckedTypes,
+  markdownify
 };
