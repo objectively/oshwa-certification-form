@@ -14,7 +14,7 @@
           </div>
           <div class="modal-container__meta">
             <span class="license-header">License</span>
-            <span class="license-name">{{this.fields.softwareLicense.fields.licenseName}}</span>
+            <span class="license-name">{{this.fields.documentationLicense.fields.licenseName}}</span>
           </div>
           <span class="learn-why">Learn why</span>
           {{!-- modal body --}}
@@ -23,10 +23,10 @@
               <i class="modal__close material-icons js-close-modal">close</i>
             </div>
             <div class="modal__content">
-              <p class="license-header">Software License:</p>
-              <p class="license-name">{{this.fields.softwareLicense.fields.licenseName}}</p>
+              <p class="license-header">Documentation License:</p>
+              <p class="license-name">{{this.fields.documentationLicense.fields.licenseName}}</p>
               <p class="license-why">Why this license?</p>
-              {{{markdownify this.fields.softwareLicenseExplanation}}}
+              {{{markdownify this.fields.documentationLicenseExplanation}}}
               <div class="button-container">
                 <a href="" class="learn-more">Learn more about this project's licensing</a>
               </div>

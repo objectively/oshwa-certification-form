@@ -276,7 +276,9 @@ const getCheckedTypes = project => {
 };
 
 const markdownify = str => {
-  return md(str);
+  if (str) {
+    return md(str);
+  }
 };
 
 module.exports = {
