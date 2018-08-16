@@ -3,6 +3,7 @@ const { citationsKeyRegex } = require('./form_helpers');
 
 const createBooleanDropdown = content => {
   const { hash: { formValues, selection } } = content;
+  const { instructions } = formValues || '';
   let renderedOptions;
   if (selection === undefined || selection === true) {
     renderedOptions = `
@@ -15,19 +16,24 @@ const createBooleanDropdown = content => {
       <option value="false" selected>No</option>
     `;
   }
+
   return `
-  <div class="select">
-    <select id="${formValues.contentfulFieldName}" type="text" name="${formValues.contentfulFieldName}" data-target="${
+    <div class="select">
+      <select id="${formValues.contentfulFieldName}" type="text" name="${
     formValues.contentfulFieldName
-  }">
-      ${renderedOptions}
-    </select>
-  </div>
-`;
+  }" data-target="${formValues.contentfulFieldName}">
+        ${renderedOptions}
+      </select>
+    </div>
+    <div class="instructions">
+      ${instructions}
+    </div>
+  `;
 };
 
 const createCheckbox = content => {
   const { hash: { formValues, checked } } = content;
+  const { instructions } = formValues || '';
   const isChecked = checked || false;
   return `
   <div class="checkbox">
@@ -39,13 +45,16 @@ const createCheckbox = content => {
       ${isChecked ? `checked=checked` : ``}
     />
     <label for="${formValues.contentfulFieldName}">${formValues.title}</label>
+    <div class="instructions">
+      ${instructions}
+    </div>
   </div>
 `;
 };
 
 const createCheckboxes = content => {
   const { hash: { formValues, projectTypes, checkedTypes } } = content;
-
+  const { instructions } = formValues || '';
   let allCheckboxes = '';
   projectTypes.forEach(option => {
     allCheckboxes += `
@@ -62,6 +71,9 @@ const createCheckboxes = content => {
     <div class="row">
       <fieldset>
         <legend>${formValues.title}</legend>
+        <div class="instructions">
+          ${instructions}
+        </div>
         <div class="row">
           ${allCheckboxes}
         </div>
@@ -72,6 +84,7 @@ const createCheckboxes = content => {
 
 const createCheckboxRows = content => {
   const { hash: { formValues, options, checkedOptions } } = content;
+  const { instructions } = formValues || '';
   let allCheckboxes = '';
   options.forEach(option => {
     allCheckboxes += `
@@ -88,6 +101,9 @@ const createCheckboxRows = content => {
     <div class="row">
       <fieldset>
         <legend>${formValues.title}</legend>
+        <div class="instructions">
+          ${instructions}
+        </div>
         ${allCheckboxes}
       </fieldset>
     </div>
@@ -96,13 +112,14 @@ const createCheckboxRows = content => {
 
 const createDropdownSelect = content => {
   const { hash: { formValues, options, selection } } = content;
+  const { instructions } = formValues || '';
+
   let allOptions = '';
   options.forEach(option => {
     allOptions += `
     <option value="${option}" ${option == selection ? `selected` : ``}>${option}</option>
     `;
   });
-
   return `
     <div class="select">
       <select id="${formValues.contentfulFieldName}" type="text" name="${formValues.contentfulFieldName}">
@@ -110,11 +127,15 @@ const createDropdownSelect = content => {
         ${allOptions}
       </select>
     </div>
+    <div class="instructions">
+      ${instructions}
+    </div>
   `;
 };
 
 const createPreviousVersionsDropdown = content => {
   const { hash: { formValues, projectsList, selectedProjects } } = content;
+  const { instructions } = formValues;
 
   let allProjects = '';
   projectsList.forEach(project => {
@@ -126,22 +147,25 @@ const createPreviousVersionsDropdown = content => {
   });
 
   return `
-    <div class="select select-previous-versions" >
-      <select id="${formValues.contentfulFieldName}" multiple="multiple" class="${
+      <div class="select select-previous-versions" >
+        <select id="${formValues.contentfulFieldName}" multiple="multiple" class="${
     formValues.contentfulFieldName
   }" type="text" name="${formValues.contentfulFieldName}">
-        <option></option>
-        ${allProjects}
-      </select>
-    </div>
-    <label for="select2-search__field">Search by OSHWA UID, owner, or project name</label>
+          <option></option>
+          ${allProjects}
+        </select>
+      </div>
+      <label for="select2-search__field">Search by OSHWA UID, owner, or project name</label>
+      <div class="instructions">
+        ${instructions}
+      </div>
   `;
 };
 
 const createInput = content => {
   const { hash: { formValues } } = content;
   const inputValue = content.hash.inputValue || '';
-
+  const { instructions } = formValues || '';
   return `
     <input type="text"
       id="${formValues.contentfulFieldName}"
@@ -149,6 +173,9 @@ const createInput = content => {
       placeholder="${formValues.formPlaceholder}"
       ${inputValue ? `value=${inputValue}` : `value=""`}
     >
+    <div class="instructions">
+      ${instructions}
+    </div>
   `;
 };
 
@@ -163,6 +190,8 @@ const createLabel = content => {
 const createTextArea = content => {
   const { hash: { formValues, hide } } = content;
   const inputValue = content.hash.inputValue || '';
+  const { instructions } = formValues || '';
+
   return `
     <textarea id="${formValues.contentfulFieldName}"
     type="text"
@@ -170,11 +199,15 @@ const createTextArea = content => {
     placeholder="${formValues.formPlaceholder}"
     >${inputValue}</textarea>
     <div class="textarea-message"></div>
-`;
+    <div class="instructions">
+      ${instructions}
+    </div>
+  `;
 };
 
 const createExplanationTextArea = content => {
   const { hash: { formValues, hide } } = content;
+  const { instructions } = formValues || '';
   const inputValue = content.hash.inputValue || '';
   let isHidden;
   if (hide === undefined || hide === true) {
@@ -192,7 +225,8 @@ const createExplanationTextArea = content => {
         <textarea id="${formValues.contentfulFieldName}" type="text" name="${
     formValues.contentfulFieldName
   }" placeholder="${formValues.formPlaceholder}">${inputValue}</textarea>
-        <div class="textarea-message"></div>
+      <div class="textarea-message"></div>
+        ${instructions}
       </div>
     </div>
 `;
@@ -200,6 +234,7 @@ const createExplanationTextArea = content => {
 
 const createUrlInputs = content => {
   const { hash: { formValues, citationValues } } = content;
+  const { instructions } = formValues || '';
   let urlFields = '';
   if (citationValues.length === 0) {
     urlFields += `
@@ -210,7 +245,7 @@ const createUrlInputs = content => {
           <label for="${formValues.contentfulFieldName}[1]--url_title">Citation Name</label>
           <input id="${formValues.contentfulFieldName}[1]--url_title" type="text" class="url_create url_title" name="${
       formValues.contentfulFieldName
-    }[1]" placeholder="title" />
+    }[1]" placeholder="Enter url title" />
         </div>
         <div class="columns small-11 small-offset-1 medium-5 large-5">
           <label for="${formValues.contentfulFieldName}[1]--url_address">Citation URL</label>
@@ -218,7 +253,8 @@ const createUrlInputs = content => {
             formValues.contentfulFieldName
           }[1]--url_address" type="text" class="url_create url_address" name="${
       formValues.contentfulFieldName
-    }[1]" placeholder="url" />
+    }[1]" placeholder="${formValues.formPlaceholder}" />
+        <div class="instructions">${instructions}</div>
         </div>
         <div class="columns small-offset-1 small-11 citation-error"></div>
       </div>
@@ -234,13 +270,14 @@ const createUrlInputs = content => {
             <label for="${formValues.contentfulFieldName}[${i + 1}]--url_title">Citation Name</label>
             <input id="${formValues.contentfulFieldName}[${i +
         1}]--url_title" type="text" class="url_create url_title" name="${formValues.contentfulFieldName}[${i +
-        1}]" placeholder="title" value="${citationValues[i][0]}" />
+        1}]" placeholder="Enter url title" value="${citationValues[i][0]}" />
           </div>
           <div class="columns small-11 small-offset-1 medium-5 large-5">
             <label for="${formValues.contentfulFieldName}[${i + 1}]--url_address">Citation URL</label>
             <input id="${formValues.contentfulFieldName}[${i +
         1}]--url_address" type="text" class="url_create url_address" name="${formValues.contentfulFieldName}[${i +
-        1}]" placeholder="url" value="${citationValues[i][1]}" >
+        1}]" placeholder="${formValues.formPlaceholder}" value="${citationValues[i][1]}" >
+          <div class="instructions">${instructions}</div>
           </div>
           <div class="columns small-offset-1 small-11 citation-error"></div>
         </div>

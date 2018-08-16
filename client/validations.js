@@ -177,37 +177,48 @@ const Validations = {
         previousVersions: {},
         projectDescription: {},
         projectWebsite: {},
-        primaryType: { required: 'Primary project type is required' },
+        primaryType: {
+          required:
+            'You must select a project type. If your project doesn\'t fall into any of these types, select "Other".'
+        },
         additionalType: {},
         projectKeywords: {},
         documentationUrl: {},
         availableFileFormat: {},
         citations: {},
-        hardwareLicense: { required: 'This field is required' },
-        softwareLicense: { required: 'This field is required' },
-        documentationLicense: { required: 'This field is required' },
+        hardwareLicense: { required: 'You must select a license. If your license is not listed, select "Other"' },
+        softwareLicense: {
+          required:
+            'You must select a license. If your license is not listed, select "Other". If your project doesn\'t use software, select "No software".'
+        },
+        documentationLicense: { required: 'You must select a license. If your license is not listed, select "Other"' },
         noCommercialRestriction: {},
-        explanationNcr: { required: 'This field is required if you answered no above.' },
+        explanationNcr: { required: 'This explanation is required if you answered no.' },
         noDocumentationRestriction: {},
-        explanationNdr: { required: 'This field is required if you answered no above.' },
+        explanationNdr: { required: 'This explanation is required if you answered no.' },
         openHardwareComponents: {},
-        explanationOhwc: { required: 'This field is required if you answered no above.' },
+        explanationOhwc: { required: 'This explanation is required if you answered no.' },
         creatorContribution: {},
-        explanationCcr: { required: 'This field is required if you answered no above.' },
+        explanationCcr: { required: 'This explanation is required if you answered no.' },
         noUseRestriction: {},
-        explanationNur: { required: 'This field is required if you answered no above.' },
+        explanationNur: { required: 'This explanation is required if you answered no.' },
         redistributedWork: {},
-        explanationRwr: { required: 'This field is required if you answered no above.' },
+        explanationRwr: { required: 'This explanation is required if you answered no.' },
         noSpecificProduct: {},
-        explanationNsp: { required: 'This field is required if you answered no above.' },
+        explanationNsp: { required: 'This explanation is required if you answered no.' },
         noComponentRestriction: {},
-        explanationNor: { required: 'This field is required if you answered no above.' },
+        explanationNor: { required: 'This explanation is required if you answered no.' },
         technologyNeutral: {},
-        explanationTn: { required: 'This field is required if you answered no above.' },
+        explanationTn: { required: 'This explanation is required if you answered no.' },
         certificationmarkTerms: {},
-        explanationCertificationTerms: { required: 'This field is required if you answered no above.' },
+        explanationCertificationTerms: {
+          required: 'This explanation is required if you did not agree to one or more of the above terms.'
+        },
         relationship: {},
-        agreementTerms: {},
+        agreementTerms: {
+          required:
+            'You must agree to the terms of the OSHWA Open Source Hardware Certification Mark LIcense Agreement.'
+        },
         parentName: {},
         certificationDate: { required: '' }
       },

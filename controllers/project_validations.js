@@ -106,7 +106,9 @@ const validateProjectFields = [
     .escape(),
   check('primaryType')
     .isLength({ min: 1 })
-    .withMessage('Primary Type is required')
+    .withMessage(
+      'Primary Type: You must select a project type. If your project doesn\'t fall into any of these types, select "Other".'
+    )
     .trim()
     .escape(),
   check('additionalType')
@@ -126,17 +128,19 @@ const validateProjectFields = [
     .escape(),
   check('hardwareLicense')
     .isLength({ min: 1 })
-    .withMessage('Hardware license is required')
+    .withMessage('Hardware license: You must select a license. If your license is not listed, select "Other"')
     .trim()
     .escape(),
   check('softwareLicense')
     .isLength({ min: 1 })
-    .withMessage('Software license is required')
+    .withMessage(
+      'Software license: You must select a license. If your license is not listed, select "Other". If your project doesn\'t use software, select "No software".'
+    )
     .trim()
     .escape(),
   check('documentationLicense')
     .isLength({ min: 1 })
-    .withMessage('Documentation License is required')
+    .withMessage('Documentation License: You must select a license. If your license is not listed, select "Other"')
     .trim()
     .escape(),
   sanitizeBody('noCommercialRestriction').toBoolean(),
@@ -147,7 +151,7 @@ const validateProjectFields = [
       }
       return true;
     })
-    .withMessage('noCommercialRestriction: explanation required if answered no')
+    .withMessage('noCommercialRestriction: This explanation is required if you answered no.')
     .trim()
     .escape(),
   sanitizeBody('noDocumentationRestriction').toBoolean(),
@@ -158,7 +162,7 @@ const validateProjectFields = [
       }
       return true;
     })
-    .withMessage('noDocumentationRestriction: explanation required if answered no')
+    .withMessage('noDocumentationRestriction: This explanation is required if you answered no.')
     .trim()
     .escape(),
   sanitizeBody('openHardwareComponents').toBoolean(),
@@ -169,7 +173,7 @@ const validateProjectFields = [
       }
       return true;
     })
-    .withMessage('openHardwareComponents: explanation required if answered no')
+    .withMessage('openHardwareComponents: This explanation is required if you answered no.')
     .trim()
     .escape(),
   sanitizeBody('creatorContribution').toBoolean(),
@@ -180,7 +184,7 @@ const validateProjectFields = [
       }
       return true;
     })
-    .withMessage('creatorContribution: explanation required if answered no')
+    .withMessage('creatorContribution: This explanation is required if you answered no.')
     .trim()
     .escape(),
   sanitizeBody('noUseRestriction').toBoolean(),
@@ -191,7 +195,7 @@ const validateProjectFields = [
       }
       return true;
     })
-    .withMessage('noUseRestriction: explanation required if answered no')
+    .withMessage('noUseRestriction: This explanation is required if you answered no.')
     .trim()
     .escape(),
   sanitizeBody('redistributedWork').toBoolean(),
@@ -202,7 +206,7 @@ const validateProjectFields = [
       }
       return true;
     })
-    .withMessage('redistributedWork: explanation required if answered no')
+    .withMessage('redistributedWork: This explanation is required if you answered no.')
     .trim()
     .escape(),
   sanitizeBody('noSpecificProduct').toBoolean(),
@@ -213,7 +217,7 @@ const validateProjectFields = [
       }
       return true;
     })
-    .withMessage('noSpecificProduct: explanation required if answered no')
+    .withMessage('noSpecificProduct: This explanation is required if you answered no.')
     .trim()
     .escape(),
   sanitizeBody('noComponentRestriction').toBoolean(),
@@ -224,7 +228,7 @@ const validateProjectFields = [
       }
       return true;
     })
-    .withMessage('noComponentRestriction: explanation required if answered no')
+    .withMessage('noComponentRestriction: This explanation is required if you answered no.')
     .trim()
     .escape(),
   sanitizeBody('technologyNeutral').toBoolean(),
@@ -235,7 +239,7 @@ const validateProjectFields = [
       }
       return true;
     })
-    .withMessage('noComponentRestriction: explanation required if answered no'),
+    .withMessage('noComponentRestriction: This explanation is required if you answered no.'),
   check('certificationmarkTerms'),
   check('explanationCertificationTerms')
     .custom((value, { req }) => {
@@ -261,7 +265,9 @@ const validateProjectFields = [
           return true;
       }
     })
-    .withMessage('certificationmarkTerms: Explanation is required if response is no')
+    .withMessage(
+      'certificationmarkTerms: This explanation is required if you did not agree to one or more of the certification mark terms.'
+    )
     .trim()
     .escape(),
   check('relationship')
@@ -269,7 +275,7 @@ const validateProjectFields = [
     .escape(),
   check('agreementTerms')
     .isLength({ min: 1 })
-    .withMessage('Agreement is required'),
+    .withMessage('You must agree to the terms of the OSHWA Open Source Hardware Certification Mark License Agreement.'),
   sanitizeBody('agreementTerms').toBoolean(),
   check('parentName')
     .trim()

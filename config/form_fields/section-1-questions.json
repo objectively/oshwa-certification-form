@@ -217,7 +217,7 @@
         "OSHWA Contact Email Address (this address will be kept private and only used for official communicatiosn from OSHWA about your certification)",
       "contentfulFieldName": "privateContact",
       "hidden": "",
-      "formPlaceholder": "OSHWA contact email",
+      "formPlaceholder": "Enter an email address for receiving correspondence from OSHWA",
       "type": "string",
       "fieldType": "input",
       "unique": "",
@@ -230,13 +230,13 @@
       "urlErrorMessage": "",
       "email": "TRUE",
       "emailErrorMessage": "Please enter a valid email address",
-      "instructions": ""
+      "instructions":
+        "This email address will be kept private and only used for official communications from OSHWA about your certification"
     },
     "publicContact": {
       "formSection": "1",
       "formOrder": "12",
-      "title":
-        "Public Contact Email Address (this address will be made publicly available in the certification directory)",
+      "title": "Public contact email address",
       "contentfulFieldName": "publicContact",
       "hidden": "",
       "formPlaceholder": "Public contact email",
