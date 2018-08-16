@@ -134,7 +134,7 @@
       "title": "Additional Project Types",
       "contentfulFieldName": "additionalType",
       "hidden": "",
-      "formPlaceholder": "Additional project types (select any that apply)",
+      "formPlaceholder": "",
       "type": "array",
       "fieldType": "checkbox_array",
       "unique": "",
@@ -147,7 +147,7 @@
       "urlErrorMessage": "",
       "email": "",
       "emailErrorMessage": "",
-      "instructions": ""
+      "instructions": "Select any that apply"
     },
     "projectKeywords": {
       "formSection": "2",

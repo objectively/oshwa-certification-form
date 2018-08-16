@@ -252,7 +252,7 @@
       "urlErrorMessage": "",
       "email": "TRUE",
       "emailErrorMessage": "Please enter a valid email address",
-      "instructions": ""
+      "instructions": "This address will be made publicly available in the certification directory"
     }
   }
 }

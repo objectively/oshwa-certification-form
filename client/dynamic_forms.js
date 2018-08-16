@@ -9,6 +9,7 @@ const DynamicForm = {
         <input id="citations[${count}]--url_title" type="text" class="url_create url_title" name="citations[${
       count
     }]" placeholder="Enter url title" />
+          <div class="columns citation-error"></div>
         </div>
         <div class="columns small-11 small-offset-1 medium-5 large-5">
         <label for="citations[${count}]--url_address">Citation URL</label>
@@ -16,8 +17,9 @@ const DynamicForm = {
       count
     }]" placeholder="Enter a URL including the protocol (e.g https://example.com)" />
         <div class="instructions">Include the protocol to your URL (e.g. http:// or https://)</div>
+        <div class="columns citation-error"></div>
         </div>
-        <div class="columns small-offset-1 small-11 citation-error"></div>
+
       </div>
     </div>
   `;

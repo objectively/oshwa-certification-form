@@ -70,10 +70,7 @@ const createCheckboxes = content => {
   return `
     <div class="row">
       <fieldset>
-        <legend>${formValues.title}</legend>
-        <div class="instructions">
-          ${instructions}
-        </div>
+        <legend>${instructions}</legend>
         <div class="row">
           ${allCheckboxes}
         </div>
@@ -155,7 +152,7 @@ const createPreviousVersionsDropdown = content => {
           ${allProjects}
         </select>
       </div>
-      <label for="select2-search__field">Search by OSHWA UID, owner, or project name</label>
+      <label for="select2-search__field">Previous versions</label>
       <div class="instructions">
         ${instructions}
       </div>
@@ -246,6 +243,7 @@ const createUrlInputs = content => {
           <input id="${formValues.contentfulFieldName}[1]--url_title" type="text" class="url_create url_title" name="${
       formValues.contentfulFieldName
     }[1]" placeholder="Enter url title" />
+          <div class="columns citation-error"></div>
         </div>
         <div class="columns small-11 small-offset-1 medium-5 large-5">
           <label for="${formValues.contentfulFieldName}[1]--url_address">Citation URL</label>
@@ -254,9 +252,9 @@ const createUrlInputs = content => {
           }[1]--url_address" type="text" class="url_create url_address" name="${
       formValues.contentfulFieldName
     }[1]" placeholder="${formValues.formPlaceholder}" />
-        <div class="instructions">${instructions}</div>
+          <div class="columns citation-error"></div>
         </div>
-        <div class="columns small-offset-1 small-11 citation-error"></div>
+
       </div>
     </div>
     `;
@@ -271,15 +269,16 @@ const createUrlInputs = content => {
             <input id="${formValues.contentfulFieldName}[${i +
         1}]--url_title" type="text" class="url_create url_title" name="${formValues.contentfulFieldName}[${i +
         1}]" placeholder="Enter url title" value="${citationValues[i][0]}" />
+            <div class="columns citation-error"></div>
           </div>
           <div class="columns small-11 small-offset-1 medium-5 large-5">
             <label for="${formValues.contentfulFieldName}[${i + 1}]--url_address">Citation URL</label>
             <input id="${formValues.contentfulFieldName}[${i +
         1}]--url_address" type="text" class="url_create url_address" name="${formValues.contentfulFieldName}[${i +
         1}]" placeholder="${formValues.formPlaceholder}" value="${citationValues[i][1]}" >
-          <div class="instructions">${instructions}</div>
+            <div class="columns citation-error"></div>
           </div>
-          <div class="columns small-offset-1 small-11 citation-error"></div>
+
         </div>
       </div>
       `;

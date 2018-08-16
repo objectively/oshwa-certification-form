@@ -64,21 +64,23 @@
       .tag {
         background-color: $purple;
         color: $white;
-        font-size: 0.6rem;
+        font-size: 0.65rem;
         padding: 0.3rem;
+        margin: 0.1rem 0;
+        display: inline-block;
       }
     }
     &__meta {
       .license-header {
         color: $purple;
         display: block;
-        font-size: 0.6rem;
+        font-size: 0.7rem;
         padding: 0.3rem 0;
       }
       .license-name {
         color: $gray;
         display: block;
-        font-size: 0.6rem;
+        font-size: 0.7rem;
       }
     }
     .learn-why {

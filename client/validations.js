@@ -228,12 +228,7 @@ const Validations = {
         } else if (element.attr('name') === 'agreementTerms') {
           error.insertAfter(element.parent().parent());
         } else if (element.hasClass('url_create')) {
-          error.appendTo(
-            element
-              .parent()
-              .parent()
-              .find('.citation-error')
-          );
+          error.appendTo(element.parent().find('.citation-error'));
         } else {
           error.insertAfter(element);
         }

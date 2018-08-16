@@ -291,17 +291,19 @@ body {
     .page-section .modal-container__tags .tag {
       background-color: #9255bf;
       color: #fff;
-      font-size: 0.6rem;
-      padding: 0.3rem; }
+      font-size: 0.65rem;
+      padding: 0.3rem;
+      margin: 0.1rem 0;
+      display: inline-block; }
   .page-section .modal-container__meta .license-header {
     color: #9255bf;
     display: block;
-    font-size: 0.6rem;
+    font-size: 0.7rem;
     padding: 0.3rem 0; }
   .page-section .modal-container__meta .license-name {
     color: #4d4d4d;
     display: block;
-    font-size: 0.6rem; }
+    font-size: 0.7rem; }
   .page-section .modal-container .learn-why {
     bottom: 0;
     font-weight: 300;
@@ -578,7 +580,8 @@ label[id^='citations['] {
 
 .citation-error {
   display: block;
-  width: 100%; }
+  width: 100%;
+  padding: 0; }
 
 .error-messages {
   border-left: 0.5rem #cc0000 solid;
