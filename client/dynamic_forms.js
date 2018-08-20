@@ -5,7 +5,7 @@ const DynamicForm = {
       <div class="row">
         <i class="js-remove-field material-icons">remove_circle</i>
         <div class="columns small-11 medium-5 large-5 ">
-        <label for="citations[${count}]--url_title">Citation Name</label>
+        <label for="citations[${count}]--url_title">Citation Title</label>
         <input id="citations[${count}]--url_title" type="text" class="url_create url_title" name="citations[${
       count
     }]" placeholder="Enter url title" />

@@ -3,7 +3,7 @@
     <div class="columns">
       <h2>Certification</h2>
       <span class="section-header">Section 4 of 4</span>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos nostrum similique alias nam ab quas mollitia iusto error eum delectus?</p>
+        <p>This part of the form asks you to certify that you agree to specific terms of the OSHWA Certification Mark License Agreement.</p>
     </div>
   </div>
 
@@ -12,10 +12,10 @@
         {{!-- 45 --}}
         <div class="row">
           <div class="columns certificate-mark">
-            {{{sectionFour.field.certificationMarkTerms.formOrder}}}. {{{sectionFour.field.certificationMarkTerms.title}}}
-            {{{createCertificationMarkTerms
+            {{{sectionFour.field.certificationMarkTerms.formOrder}}}.
+            {{!-- {{{sectionFour.field.certificationMarkTerms.title}}} --}}
+            {{{ createCertificationMarkTerms
                 formValues=sectionFour.field.certificationMarkTerms
-
                 checkedOptions=project.certificationMarkTerms}}}
           </div>
         </div>

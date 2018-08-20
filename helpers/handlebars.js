@@ -44,7 +44,9 @@ const createCheckbox = content => {
       value="${isChecked}"
       ${isChecked ? `checked=checked` : ``}
     />
-    <label for="${formValues.contentfulFieldName}">${formValues.title}</label>
+    <label class="single_checkbox_label" for="${formValues.contentfulFieldName}">${formValues.formOrder}. ${
+    formValues.title
+  }</label>
     <div class="instructions">
       ${instructions}
     </div>
@@ -151,8 +153,7 @@ const createInput = content => {
 const createLabel = content => {
   const { hash: { formValues } } = content;
   return `
-  ${formValues.formOrder}.
-  <label for="${formValues.contentfulFieldName}">${formValues.title}</label>
+  <label for="${formValues.contentfulFieldName}">${formValues.formOrder}. ${formValues.title}</label>
 `;
 };
 
@@ -187,8 +188,7 @@ const createExplanationTextArea = content => {
   return `
     <div class="row explanation-field ${isHidden ? `hide` : ``}" data-value="${formValues.requiredDependency}">
       <div class="columns large-3 small-12">
-         ${formValues.formOrder}.
-        <label for="${formValues.contentfulFieldName}">${formValues.title}</label>
+        <label for="${formValues.contentfulFieldName}">${formValues.formOrder}. ${formValues.title}</label>
       </div>
       <div class="columns">
         <textarea id="${formValues.contentfulFieldName}" type="text" name="${
@@ -211,7 +211,7 @@ const createUrlInputs = content => {
       <div class="row">
         <i class="js-remove-field material-icons">remove_circle</i>
         <div class="columns small-11 medium-5 large-5 ">
-          <label for="${formValues.contentfulFieldName}[1]--url_title">Citation Name</label>
+          <label for="${formValues.contentfulFieldName}[1]--url_title">Citation Title</label>
           <input id="${formValues.contentfulFieldName}[1]--url_title" type="text" class="url_create url_title" name="${
       formValues.contentfulFieldName
     }[1]" placeholder="Enter url title" />
@@ -238,7 +238,7 @@ const createUrlInputs = content => {
         <div class="row">
           <i class="js-remove-field material-icons">remove_circle</i>
           <div class="columns small-11 medium-5 large-5 ">
-            <label for="${formValues.contentfulFieldName}[${i + 1}]--url_title">Citation Name</label>
+            <label for="${formValues.contentfulFieldName}[${i + 1}]--url_title">Citation Title</label>
             <input id="${formValues.contentfulFieldName}[${i +
         1}]--url_title" type="text" class="url_create url_title" name="${formValues.contentfulFieldName}[${i +
         1}]" placeholder="Enter url title" value="${citationValues[i][0]}" />
@@ -310,14 +310,11 @@ const createCertificationMarkTerms = content => {
   return `
     <div class="row">
       <fieldset>
-        <legend>certificationMarkTerms</legend>
+        <legend>${formValues.instructions}</legend>
         <div class="instructions">
         </div>
         ${allCheckboxes}
       </fieldset>
-      <div class="instructions">
-        ${instructions}
-      </div>
     </div>
   `;
 };
