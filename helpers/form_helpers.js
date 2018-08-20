@@ -1,13 +1,16 @@
 const {
-  addUrlFields,
   arrayCheckboxFormFields,
+  objectCheckboxFormFields,
   arrayFields,
   booleanFormFields,
   booleanSelectFields,
   referenceFields
 } = require('./form_parsers');
 
+const certificationMarkTerms = require('../config/form_fields/certification_mark_terms');
+
 const isCheckboxArray = key => arrayCheckboxFormFields.indexOf(key) !== -1;
+const isCheckboxObject = key => objectCheckboxFormFields.indexOf(key) !== -1;
 const isBoolean = key => booleanFormFields.indexOf(key) !== -1;
 const isBooleanSelect = key => booleanSelectFields.indexOf(key) !== -1;
 const isArrayField = key => arrayFields.indexOf(key) !== -1;
@@ -70,7 +73,16 @@ const returnUrlToObj = urls => {
   return urlsArr;
 };
 
+const returnCertificationObjectFromCheckbox = values => {
+  const certificationMarkTermsValues = {};
+  Object.keys(certificationMarkTerms).map(term => {
+    certificationMarkTermsValues[term] = { agreement: values.indexOf(term) !== -1 };
+  });
+  return certificationMarkTermsValues;
+};
+
 module.exports = {
+  certificationMarkTerms,
   citationsKeyRegex,
   isAddUrlField,
   returnUrlToObj,
@@ -80,6 +92,8 @@ module.exports = {
   returnArrayFromTextField,
   isCheckboxArray,
   returnArrayFromCheckbox,
+  isCheckboxObject,
+  returnCertificationObjectFromCheckbox,
   isBoolean,
   returnBooleanFromCheckbox,
   isBooleanSelect,

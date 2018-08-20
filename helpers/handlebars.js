@@ -1,5 +1,5 @@
 const md = require('marked');
-const { citationsKeyRegex } = require('./form_helpers');
+const { certificationMarkTerms, citationsKeyRegex } = require('./form_helpers');
 
 const createBooleanDropdown = content => {
   const { hash: { formValues, selection } } = content;
@@ -74,34 +74,6 @@ const createCheckboxes = content => {
         <div class="row">
           ${allCheckboxes}
         </div>
-      </fieldset>
-    </div>
-  `;
-};
-
-const createCheckboxRows = content => {
-  const { hash: { formValues, options, checkedOptions } } = content;
-  const { instructions } = formValues || '';
-  let allCheckboxes = '';
-  options.forEach(option => {
-    allCheckboxes += `
-      <div class="columns small-12 checkbox">
-        <input
-          type="checkbox" id="${option}" name="${formValues.contentfulFieldName}" value="${option}"
-            ${checkedOptions && checkedOptions.indexOf(option) !== -1 ? `checked=checked` : ``}
-        />
-        <label for="${option}">${option}</label>
-      </div>
-    `;
-  });
-  return `
-    <div class="row">
-      <fieldset>
-        <legend>${formValues.title}</legend>
-        <div class="instructions">
-          ${instructions}
-        </div>
-        ${allCheckboxes}
       </fieldset>
     </div>
   `;
@@ -252,6 +224,7 @@ const createUrlInputs = content => {
           }[1]--url_address" type="text" class="url_create url_address" name="${
       formValues.contentfulFieldName
     }[1]" placeholder="${formValues.formPlaceholder}" />
+          <div class="instructions">Include the protocol to your URL (e.g. http:// or https://)</div>
           <div class="columns citation-error"></div>
         </div>
 
@@ -276,6 +249,7 @@ const createUrlInputs = content => {
             <input id="${formValues.contentfulFieldName}[${i +
         1}]--url_address" type="text" class="url_create url_address" name="${formValues.contentfulFieldName}[${i +
         1}]" placeholder="${formValues.formPlaceholder}" value="${citationValues[i][1]}" >
+            <div class="instructions">Include the protocol to your URL (e.g. http:// or https://)</div>
             <div class="columns citation-error"></div>
           </div>
 
@@ -317,11 +291,42 @@ const markdownify = str => {
   }
 };
 
+const createCertificationMarkTerms = content => {
+  const { hash: { formValues, checkedOptions } } = content;
+  const { instructions } = formValues || '';
+  let allCheckboxes = '';
+
+  Object.keys(certificationMarkTerms).map(option => {
+    allCheckboxes += `<div class="columns small-12 checkbox">
+      <input
+        type="checkbox" id="${option}" name="${formValues.contentfulFieldName}" value="${option}" ${
+      checkedOptions && checkedOptions.indexOf(option) !== -1 ? `checked=checked` : ``
+    }
+      />
+      <label for="${option}">${certificationMarkTerms[option].term}</label>
+    </div>`;
+  });
+
+  return `
+    <div class="row">
+      <fieldset>
+        <legend>certificationMarkTerms</legend>
+        <div class="instructions">
+        </div>
+        ${allCheckboxes}
+      </fieldset>
+      <div class="instructions">
+        ${instructions}
+      </div>
+    </div>
+  `;
+};
+
 module.exports = {
   createBooleanDropdown,
+  createCertificationMarkTerms,
   createCheckbox,
   createCheckboxes,
-  createCheckboxRows,
   createDropdownSelect,
   createInput,
   createLabel,

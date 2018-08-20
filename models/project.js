@@ -7,6 +7,8 @@ const {
   returnBooleanFromCheckbox,
   isCheckboxArray,
   returnArrayFromCheckbox,
+  isCheckboxObject,
+  returnCertificationObjectFromCheckbox,
   isBooleanSelect,
   returnBooleanFromSelect,
   isArrayField,
@@ -80,6 +82,8 @@ Project.prototype.mapFieldsToContentful = function mapFieldsToContentful() {
       keyValue = returnBooleanFromCheckbox(this[key]);
     } else if (isCheckboxArray(key)) {
       keyValue = returnArrayFromCheckbox(this[key]);
+    } else if (isCheckboxObject(key)) {
+      keyValue = returnCertificationObjectFromCheckbox(this[key]);
     } else if (isBooleanSelect(key)) {
       keyValue = returnBooleanFromSelect(this[key]);
     } else if (isReferenceField(key)) {

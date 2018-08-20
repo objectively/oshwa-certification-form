@@ -1,14 +1,14 @@
 {
   "field": {
-    "certificationmarkTerms": {
+    "certificationMarkTerms": {
       "formSection": "4",
       "formOrder": "45",
       "title": "Certificate mark terms question",
-      "contentfulFieldName": "certificationmarkTerms",
+      "contentfulFieldName": "certificationMarkTerms",
       "hidden": "",
       "formPlaceholder": "",
-      "type": "array",
-      "fieldType": "checkbox_array",
+      "type": "json",
+      "fieldType": "checkbox_object",
       "unique": "",
       "required": "",
       "requiredErrorMessage": "",

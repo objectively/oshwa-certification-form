@@ -59,7 +59,6 @@ const getValidations = () =>
         const hardwareLicenses = getValidationDropdownItems(contentType, 'hardwareLicense');
         const softwareLicenses = getValidationDropdownItems(contentType, 'softwareLicense');
         const documentationLicenses = getValidationDropdownItems(contentType, 'documentationLicense');
-        const certificationMarkChecklist = getValidationCheckboxItems(contentType, 'certificationmarkTerms');
         return [
           {
             countryOptions,
@@ -68,8 +67,7 @@ const getValidations = () =>
             additionalProjectTypes,
             hardwareLicenses,
             softwareLicenses,
-            documentationLicenses,
-            certificationMarkChecklist
+            documentationLicenses
           }
         ];
       })

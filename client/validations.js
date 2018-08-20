@@ -144,12 +144,12 @@ const Validations = {
             }
           }
         },
-        certificationmarkTerms: {},
+        certificationMarkTerms: {},
         explanationCertificationTerms: {
           required: {
             depends() {
-              const numTerms = $("input[name='certificationmarkTerms']").length;
-              const numSelected = $("input[name='certificationmarkTerms']:checked").length;
+              const numTerms = $("input[name='certificationMarkTerms']").length;
+              const numSelected = $("input[name='certificationMarkTerms']:checked").length;
               return numTerms !== numSelected;
             }
           }

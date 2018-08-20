@@ -240,33 +240,24 @@ const validateProjectFields = [
       return true;
     })
     .withMessage('noComponentRestriction: This explanation is required if you answered no.'),
-  check('certificationmarkTerms'),
+  check('certificationMarkTerms'),
   check('explanationCertificationTerms')
     .custom((value, { req }) => {
-      const certificationmarkTermsCount = 5;
-      switch (typeof req.body.certificationmarkTerms) {
-        case 'string':
-          if (value.length <= 0) {
-            return false;
-          } else {
-            return true;
-          }
-          break;
-        case 'object':
-          if (req.body.certificationmarkTerms.length < certificationmarkTermsCount && value.length <= 0) {
-            return false;
-          } else if (req.body.certificationmarkTerms.length < certificationmarkTermsCount && value.length > 0) {
-            return true;
-          } else if (req.body.certificationmarkTerms.length === certificationmarkTermsCount) {
-            return true;
-          }
-          break;
-        default:
-          return true;
+      const certificationMarkTermsCount = 5;
+      if (!req.body.certificationMarkTerms) {
+        return false;
+      } else if (req.body.certificationMarkTerms.length < certificationMarkTermsCount && value.length <= 0) {
+        return false;
+      } else if (req.body.certificationMarkTerms.length < certificationMarkTermsCount && value.length > 0) {
+        return true;
+      } else if (req.body.certificationMarkTerms.length === certificationMarkTermsCount) {
+        return true;
+      } else {
+        return false;
       }
     })
     .withMessage(
-      'certificationmarkTerms: This explanation is required if you did not agree to one or more of the certification mark terms.'
+      'certificationMarkTerms: This explanation is required if you did not agree to one or more of the certification mark terms.'
     )
     .trim()
     .escape(),

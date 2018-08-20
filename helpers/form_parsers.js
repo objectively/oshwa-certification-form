@@ -15,6 +15,12 @@ const arrayCheckboxFormFields = Object.keys(formQuestions1.field)
   .concat(Object.keys(formQuestions3.field).filter(item => formQuestions3.field[item].fieldType === 'checkbox_array'))
   .concat(Object.keys(formQuestions4.field).filter(item => formQuestions4.field[item].fieldType === 'checkbox_array'));
 
+const objectCheckboxFormFields = Object.keys(formQuestions1.field)
+  .filter(item => formQuestions1.field[item].fieldType === 'checkbox_object')
+  .concat(Object.keys(formQuestions2.field).filter(item => formQuestions2.field[item].fieldType === 'checkbox_object'))
+  .concat(Object.keys(formQuestions3.field).filter(item => formQuestions3.field[item].fieldType === 'checkbox_object'))
+  .concat(Object.keys(formQuestions4.field).filter(item => formQuestions4.field[item].fieldType === 'checkbox_object'));
+
 const arrayFields = Object.keys(formQuestions1.field)
   .filter(item => formQuestions1.field[item].fieldType === 'string_array')
   .concat(Object.keys(formQuestions2.field).filter(item => formQuestions2.field[item].fieldType === 'string_array'))
@@ -47,5 +53,6 @@ module.exports = {
   arrayFields,
   booleanFormFields,
   booleanSelectFields,
+  objectCheckboxFormFields,
   referenceFields
 };
