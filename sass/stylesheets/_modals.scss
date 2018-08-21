@@ -1,9 +1,14 @@
 .module-examples {
   background-color: rgba($purple, 0.1);
+  padding: 1rem !important;
+  @include breakpoint($small-only) {
+    padding: 1rem !important;
+  }
 }
 
 .page-section {
   .modals-wrapper {
+    margin: 0;
     padding-bottom: 2rem;
   }
   .modals-container {
@@ -43,9 +48,6 @@
     }
   }
 
-  .modal-container.hide {
-    display: none;
-  }
   .modal-container {
     font-weight: 700;
     line-height: 1;

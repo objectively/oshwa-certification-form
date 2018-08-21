@@ -1,10 +1,11 @@
 #certify,
 #apply {
   .page-content-wrapper {
-    padding: 0;
   }
   .page-section {
     padding-top: 0;
+    padding-bottom: 2rem !important;
+
     color: $gray;
     h2 {
       font-size: 1.6rem;

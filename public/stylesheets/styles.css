@@ -34,6 +34,11 @@ body {
   box-shadow: none;
   overflow-y: hidden; }
 
+.hide {
+  left: -9999px !important;
+  position: absolute !important;
+  top: -9999px !important; }
+
 .top-bar {
   background-color: rgba(0, 0, 0, 0.1);
   position: relative;
@@ -171,13 +176,10 @@ body {
       #index .page-section--projects .button-container .button:hover {
         background-color: #343434; }
 
-#certify .page-content-wrapper,
-#apply .page-content-wrapper {
-  padding: 0; }
-
 #certify .page-section,
 #apply .page-section {
   padding-top: 0;
+  padding-bottom: 2rem !important;
   color: #4d4d4d; }
   #certify .page-section h2,
   #apply .page-section h2 {
@@ -237,9 +239,14 @@ body {
     font-size: 1.2rem !important; }
 
 .module-examples {
-  background-color: rgba(146, 85, 191, 0.1); }
+  background-color: rgba(146, 85, 191, 0.1);
+  padding: 1rem !important; }
+  @media (max-width: 39.9375em) {
+    .module-examples {
+      padding: 1rem !important; } }
 
 .page-section .modals-wrapper {
+  margin: 0;
   padding-bottom: 2rem; }
 
 .page-section .modals-container h3 {
@@ -270,9 +277,6 @@ body {
   -o-transform: rotate(0deg);
   -ms-transform: rotate(0deg);
   transform: rotate(0deg); }
-
-.page-section .modal-container.hide {
-  display: none; }
 
 .page-section .modal-container {
   font-weight: 700;
@@ -365,11 +369,12 @@ body {
       text-transform: uppercase;
       text-decoration: none; }
 
+.row {
+  padding: 1rem 0; }
+
 form {
   font-weight: 500;
   font-size: 0.9rem; }
-  form .row {
-    padding: 0.5rem; }
   form textarea {
     min-height: 9rem; }
   form input[type='text'] {
@@ -397,7 +402,7 @@ form {
     margin-bottom: 0;
     padding: 0; }
     form .checkbox label {
-      font-size: 0.8rem;
+      font-size: 0.9rem;
       margin: 0;
       padding: 0 0 0 20px;
       text-indent: -20px; }
@@ -409,7 +414,7 @@ form {
       padding-left: 2rem; } }
   .additional-project-types .checkbox label {
     display: block;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     margin: 0;
     padding: 0 0 0 20px;
     text-indent: -20px; }
@@ -421,7 +426,7 @@ form {
       padding-left: 2rem; } }
   .certificate-mark .checkbox label {
     display: block;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     margin: 0;
     padding: 0 0 0 20px;
     text-indent: -20px; }
@@ -438,19 +443,18 @@ form {
   font-weight: 600;
   padding: 1rem 0; }
 
-.hide {
-  left: -9999px !important;
-  position: absolute !important;
-  top: -9999px !important; }
-
 .js-add-url-inputs-field {
   display: block;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-weight: 700;
+  margin-left: 1rem !important;
   text-transform: uppercase; }
+  @media (max-width: 63.9375em) {
+    .js-add-url-inputs-field {
+      margin-left: 1rem !important; } }
   @media (max-width: 39.9375em) {
     .js-add-url-inputs-field {
-      margin-left: -0.5rem; } }
+      margin-left: 0 !important; } }
   .js-add-url-inputs-field:hover {
     color: rgba(77, 77, 77, 0.85);
     cursor: pointer; }
@@ -483,7 +487,7 @@ form {
 .single-checkbox-field .checkbox {
   display: inline-block; }
   .single-checkbox-field .checkbox label {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     margin: 0;
     padding: 0 0 0 20px;
     text-indent: -20px; }
@@ -493,13 +497,9 @@ form {
   .select-previous-versions::before {
     display: none; }
 
-.url_title,
-.url_address {
-  width: 50px; }
-
 .instructions {
   font-style: italic;
-  font-size: 0.8rem; }
+  font-size: 0.9rem; }
 
 .single_checkbox_label {
   font-weight: 500;

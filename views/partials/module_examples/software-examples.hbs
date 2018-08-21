@@ -4,9 +4,9 @@
           <div class="column small-12 large-12 modals-container">
             <h3>Examples of Software Licensing</h3><span class="open-example-control" data-target="softwareExamples"><i class="material-icons">arrow_drop_down_circle</span>
           </div>
-          <div class="row">
+          <div class="row hide" data-modal-value="softwareExamples">
             {{#each learningModuleExamples.softwareExamples}}
-              <div class="columns large-3 medium-6 small-12 modal-container hide js-open-modal" data-modal-value="softwareExamples">
+              <div class="columns large-3 medium-6 small-12 modal-container js-open-modal">
                 <span class="modal-container__title">{{this.fields.projectOwner}} {{this.fields.projectName}}</span>
                 <div class="modal-container__tags">
                   {{#each this.fields.projectTypes}}

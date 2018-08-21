@@ -3,9 +3,13 @@
 .form-row {
 }
 
+.row {
+  // border: red solid 1px;
+  padding: 1rem 0;
+}
+
 form {
   .row {
-    padding: 0.5rem;
   }
   font-weight: 500;
   font-size: 0.9rem;
@@ -41,7 +45,7 @@ form {
     margin-bottom: 0;
     padding: 0;
     label {
-      font-size: 0.8rem;
+      font-size: 0.9rem;
       margin: 0;
       padding: 0 0 0 20px;
       text-indent: -20px;
@@ -57,7 +61,7 @@ form {
     }
     label {
       display: block;
-      font-size: 0.8rem;
+      font-size: 0.9rem;
       margin: 0;
       padding: 0 0 0 20px;
       text-indent: -20px;
@@ -72,7 +76,7 @@ form {
     }
     label {
       display: block;
-      font-size: 0.8rem;
+      font-size: 0.9rem;
       margin: 0;
       padding: 0 0 0 20px;
       text-indent: -20px;
@@ -96,18 +100,16 @@ form {
   padding: 1rem 0;
 }
 
-.hide {
-  left: -9999px !important;
-  position: absolute !important;
-  top: -9999px !important;
-}
-
 .js-add-url-inputs-field {
   display: block;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-weight: 700;
+  margin-left: 1rem !important;
+  @include breakpoint($medium-only) {
+    margin-left: 1rem !important;
+  }
   @include breakpoint($small-only) {
-    margin-left: -0.5rem;
+    margin-left: 0 !important;
   }
   &:hover {
     color: rgba($gray, 0.85);
@@ -153,7 +155,7 @@ form {
   .checkbox {
     display: inline-block;
     label {
-      font-size: 0.8rem;
+      font-size: 0.9rem;
       margin: 0;
       padding: 0 0 0 20px;
       text-indent: -20px;
@@ -168,14 +170,14 @@ form {
   }
 }
 
-.url_title,
-.url_address {
-  width: 50px;
-}
+// .url_title,
+// .url_address {
+//   width: 50px;
+// }
 
 .instructions {
   font-style: italic;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
 }
 
 .single_checkbox_label {

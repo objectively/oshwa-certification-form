@@ -9,3 +9,9 @@ body {
   box-shadow: none;
   overflow-y: hidden;
 }
+
+.hide {
+  left: -9999px !important;
+  position: absolute !important;
+  top: -9999px !important;
+}

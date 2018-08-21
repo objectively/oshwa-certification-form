@@ -44,9 +44,7 @@ const createCheckbox = content => {
       value="${isChecked}"
       ${isChecked ? `checked=checked` : ``}
     />
-    <label class="single_checkbox_label" for="${formValues.contentfulFieldName}">${formValues.formOrder}. ${
-    formValues.title
-  }</label>
+    <label class="single_checkbox_label" for="${formValues.contentfulFieldName}">${formValues.title}</label>
     <div class="instructions">
       ${instructions}
     </div>
@@ -70,14 +68,14 @@ const createCheckboxes = content => {
       `;
   });
   return `
-    <div class="row">
+
       <fieldset>
         <legend>${instructions}</legend>
         <div class="row">
           ${allCheckboxes}
         </div>
       </fieldset>
-    </div>
+
   `;
 };
 
@@ -153,7 +151,7 @@ const createInput = content => {
 const createLabel = content => {
   const { hash: { formValues } } = content;
   return `
-  <label for="${formValues.contentfulFieldName}">${formValues.formOrder}. ${formValues.title}</label>
+  <label for="${formValues.contentfulFieldName}">${formValues.title}</label>
 `;
 };
 
@@ -188,7 +186,7 @@ const createExplanationTextArea = content => {
   return `
     <div class="row explanation-field ${isHidden ? `hide` : ``}" data-value="${formValues.requiredDependency}">
       <div class="columns large-3 small-12">
-        <label for="${formValues.contentfulFieldName}">${formValues.formOrder}. ${formValues.title}</label>
+        <label for="${formValues.contentfulFieldName}">${formValues.title}</label>
       </div>
       <div class="columns">
         <textarea id="${formValues.contentfulFieldName}" type="text" name="${
@@ -201,70 +199,62 @@ const createExplanationTextArea = content => {
 `;
 };
 
+const generateUrlCitationFields = (fieldName, placeholder, count = 1, addedCitations) => {
+  const citationInputs = `
+    <div data-template-value="url-inputs" class="form-field-wrapper row">
+      <div class="columns small-1"><i class="js-remove-field material-icons">remove_circle</i></div>
+      <div class="columns small-11 large-5 medium-5">
+        <label for="${fieldName}[${count}]--url_title">Citation Title</label>
+        <input
+        id="${fieldName}[${count}]--url_title"
+        type="text"
+        class="url_create url_title"
+        name="${fieldName}[${count}]"
+        placeholder="Enter url title"
+        ${addedCitations ? `value=${addedCitations[count][0]}` : `value=""`}
+        />
+        <div class="columns citation-error"></div>
+      </div>
+      <div class="columns small-offset-1 small-11 large-5 medium-5">
+        <label for="${fieldName}[${count}]--url_address">Citation URL</label>
+        <input
+        id="${fieldName}[${count}]--url_address"
+        type="text"
+        class="url_create url_address"
+        name="${fieldName}[${count}]"
+        placeholder="${placeholder}"
+        ${addedCitations ? `value=${addedCitations[count][1]}` : `value=""`}
+        />
+        <div class="instructions">Include the protocol to your URL (e.g. http:// or https://)</div>
+        <div class="columns citation-error"></div>
+      </div>
+    </div>
+  `;
+  return citationInputs;
+};
+
 const createUrlInputs = content => {
   const { hash: { formValues, citationValues } } = content;
   const { instructions } = formValues || '';
   let urlFields = '';
   if (citationValues.length === 0) {
-    urlFields += `
-    <div data-template-value="url-inputs" class="form-field-wrapper row">
-      <div class="row">
-        <i class="js-remove-field material-icons">remove_circle</i>
-        <div class="columns small-11 medium-5 large-5 ">
-          <label for="${formValues.contentfulFieldName}[1]--url_title">Citation Title</label>
-          <input id="${formValues.contentfulFieldName}[1]--url_title" type="text" class="url_create url_title" name="${
-      formValues.contentfulFieldName
-    }[1]" placeholder="Enter url title" />
-          <div class="columns citation-error"></div>
-        </div>
-        <div class="columns small-11 small-offset-1 medium-5 large-5">
-          <label for="${formValues.contentfulFieldName}[1]--url_address">Citation URL</label>
-          <input id="${
-            formValues.contentfulFieldName
-          }[1]--url_address" type="text" class="url_create url_address" name="${
-      formValues.contentfulFieldName
-    }[1]" placeholder="${formValues.formPlaceholder}" />
-          <div class="instructions">Include the protocol to your URL (e.g. http:// or https://)</div>
-          <div class="columns citation-error"></div>
-        </div>
-
-      </div>
-    </div>
-    `;
+    urlFields = generateUrlCitationFields(formValues.contentfulFieldName, formValues.formPlaceholder, 1);
   } else {
     for (let i = 0; i < citationValues.length; i++) {
-      urlFields += `
-      <div data-template-value="url-inputs" class="form-field-wrapper row">
-        <div class="row">
-          <i class="js-remove-field material-icons">remove_circle</i>
-          <div class="columns small-11 medium-5 large-5 ">
-            <label for="${formValues.contentfulFieldName}[${i + 1}]--url_title">Citation Title</label>
-            <input id="${formValues.contentfulFieldName}[${i +
-        1}]--url_title" type="text" class="url_create url_title" name="${formValues.contentfulFieldName}[${i +
-        1}]" placeholder="Enter url title" value="${citationValues[i][0]}" />
-            <div class="columns citation-error"></div>
-          </div>
-          <div class="columns small-11 small-offset-1 medium-5 large-5">
-            <label for="${formValues.contentfulFieldName}[${i + 1}]--url_address">Citation URL</label>
-            <input id="${formValues.contentfulFieldName}[${i +
-        1}]--url_address" type="text" class="url_create url_address" name="${formValues.contentfulFieldName}[${i +
-        1}]" placeholder="${formValues.formPlaceholder}" value="${citationValues[i][1]}" >
-            <div class="instructions">Include the protocol to your URL (e.g. http:// or https://)</div>
-            <div class="columns citation-error"></div>
-          </div>
-
-        </div>
-      </div>
-      `;
+      urlFields += generateUrlCitationFields(
+        formValues.contentfulFieldName,
+        formValues.formPlaceholder,
+        i,
+        citationValues
+      );
     }
   }
-  // dynamically added inputs are created in DynamicForm.generateUrlField
   return `
     <div class="url_fields field-wrapper" data-template-target="url-inputs">
       ${urlFields}
-      <div class="js-add-url-inputs-field"><i class="material-icons">add_circle</i></div>
+      <div class="row columns js-add-url-inputs-field"><i class="material-icons">add_circle</i></div>
     </div>
-  `;
+`;
 };
 
 const getCitationValues = project => {

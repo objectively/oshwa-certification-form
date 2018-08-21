@@ -1,30 +1,35 @@
 const DynamicForm = {
   generateUrlField(count) {
     return `
-    <div data-template-value='url-inputs' class="form-field-wrapper row">
-      <div class="row">
-        <i class="js-remove-field material-icons">remove_circle</i>
-        <div class="columns small-11 medium-5 large-5 ">
-        <label for="citations[${count}]--url_title">Citation Title</label>
-        <input id="citations[${count}]--url_title" type="text" class="url_create url_title" name="citations[${
-      count
-    }]" placeholder="Enter url title" />
-          <div class="columns citation-error"></div>
+        <div data-template-value="url-inputs" class="form-field-wrapper row">
+          <div class="columns small-1"><i class="js-remove-field material-icons">remove_circle</i></div>
+          <div class="columns small-11 large-5 medium-5">
+            <label for="citations[${count}]--url_title">Citation Title</label>
+            <input
+              id="citations[${count}]--url_title"
+              type="text"
+              class="url_create url_title"
+              name="citations[${count}]"
+              placeholder="Enter url title"
+            />
+            <div class="columns citation-error"></div>
+          </div>
+          <div class="columns small-offset-1 small-11 large-5 medium-5">
+            <label for="citations[${count}]--url_address">Citation URL</label>
+            <input
+              id="citations[${count}]--url_address"
+              type="text"
+              class="url_create url_address"
+              name="citations[${count}]"
+              placeholder="Enter a URL including the protocol (e.g https://example.com)"
+            />
+            <div class="instructions">Include the protocol to your URL (e.g. http:// or https://)</div>
+            <div class="columns citation-error"></div>
+          </div>
         </div>
-        <div class="columns small-11 small-offset-1 medium-5 large-5">
-        <label for="citations[${count}]--url_address">Citation URL</label>
-        <input id="citations[${count}]--url_address" type="text" class="url_create url_address" name="citations[${
-      count
-    }]" placeholder="Enter a URL including the protocol (e.g https://example.com)" />
-        <div class="instructions">Include the protocol to your URL (e.g. http:// or https://)</div>
-        <div class="columns citation-error"></div>
-        </div>
-
       </div>
-    </div>
-  `;
+    `;
   },
-
   addFormField() {
     $('.js-add-url-inputs-field').on('click', e => {
       const count = $('.form-field-wrapper ').length;
@@ -37,6 +42,7 @@ const DynamicForm = {
     $('body').on('click', '.js-remove-field', e => {
       e.preventDefault();
       $(e.currentTarget)
+        .parent()
         .parent()
         .remove();
     });
