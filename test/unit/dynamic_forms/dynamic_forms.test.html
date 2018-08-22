@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head><</head>
+<body>
+<header class="top-bar">
+  <span class="top-bar__button js-trigger-menu">menu</span>
+  <nav class="main-menu js-target-menu main-menu--left">
+    <a href="/">Home</a> <a href="/about.html">About</a>
+  </nav><a class="top-bar__logo" href="/"><img alt="Project Logo" src="/images/circle-logo.svg"></a><span class="top-bar__button js-trigger-menu">more_vert</span>
+  <nav class="main-menu js-target-menu main-menu--right">
+    <a href="#">Github Repository</a> <a href="/sandbox.html">Sandbox</a>
+  </nav>
+</header>
+<div class="row align-middle">
+  <div class="columns large-3 small-12">
+  </div>
+  <div class="columns large-9 small-12">
+    <div class="url_fields field-wrapper" data-template-target="url-inputs">
+      <div class="form-field-wrapper row" data-template-value="url-inputs">
+        <div class="columns small-1">
+          <i class="js-remove-field material-icons">remove_circle</i>
+        </div>
+        <div class="columns small-11 large-5 medium-5">
+          <label for="citations[1]--url_title">Citation
+          Title</label><input class="url_create url_title" id=
+          "citations[1]--url_title" name="citations[1]" placeholder=
+          "Enter citation title" type="text">
+        </div>
+        <div class="columns small-offset-1 small-11 large-5 medium-5">
+          <label for="citations[1]--url_address">Citation
+          URL</label><input class="url_create url_address" id=
+          "citations[1]--url_address" name="citations[1]" placeholder=
+          "Enter a URL including the protocol (e.g https://example.com)"
+          type="text">
+          <div class="instructions">
+          </div>
+        </div>
+        <div class="columns large-offset-1 citation-error"></div>
+      </div>
+      <div class="row columns js-add-url-inputs-field">
+        <i class="material-icons">add_circle</i>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="overlay"></div>
+
+</body>
+</html>

@@ -122,7 +122,9 @@ const validateProjectFields = [
     .withMessage('Maximum length is 256 characters')
     .trim()
     .escape(),
-  sanitizeBody('availableFileFormat').toBoolean(),
+  check('availableFileFormat')
+    .trim()
+    .escape(),
   check('citations')
     .trim()
     .escape(),
@@ -143,7 +145,9 @@ const validateProjectFields = [
     .withMessage('Documentation License: You must select a license. If your license is not listed, select "Other"')
     .trim()
     .escape(),
-  sanitizeBody('noCommercialRestriction').toBoolean(),
+  check('noCommercialRestriction')
+    .trim()
+    .escape(),
   check('explanationNcr')
     .custom((value, { req }) => {
       if (req.body.noCommercialRestriction === false && value.length <= 0) {
@@ -154,7 +158,9 @@ const validateProjectFields = [
     .withMessage('noCommercialRestriction: This explanation is required if you answered no.')
     .trim()
     .escape(),
-  sanitizeBody('noDocumentationRestriction').toBoolean(),
+  check('noDocumentationRestriction')
+    .trim()
+    .escape(),
   check('explanationNdr')
     .custom((value, { req }) => {
       if (req.body.noDocumentationRestriction === false && value.length <= 0) {
@@ -165,7 +171,9 @@ const validateProjectFields = [
     .withMessage('noDocumentationRestriction: This explanation is required if you answered no.')
     .trim()
     .escape(),
-  sanitizeBody('openHardwareComponents').toBoolean(),
+  check('openHardwareComponents')
+    .trim()
+    .escape(),
   check('explanationOhwc')
     .custom((value, { req }) => {
       if (req.body.openHardwareComponents === false && value.length <= 0) {
@@ -176,7 +184,9 @@ const validateProjectFields = [
     .withMessage('openHardwareComponents: This explanation is required if you answered no.')
     .trim()
     .escape(),
-  sanitizeBody('creatorContribution').toBoolean(),
+  check('creatorContribution')
+    .trim()
+    .escape(),
   check('explanationCcr')
     .custom((value, { req }) => {
       if (req.body.creatorContribution === false && value.length <= 0) {
@@ -187,7 +197,9 @@ const validateProjectFields = [
     .withMessage('creatorContribution: This explanation is required if you answered no.')
     .trim()
     .escape(),
-  sanitizeBody('noUseRestriction').toBoolean(),
+  check('noUseRestriction')
+    .trim()
+    .escape(),
   check('explanationNur')
     .custom((value, { req }) => {
       if (req.body.noUseRestriction === false && value.length <= 0) {
@@ -198,7 +210,9 @@ const validateProjectFields = [
     .withMessage('noUseRestriction: This explanation is required if you answered no.')
     .trim()
     .escape(),
-  sanitizeBody('redistributedWork').toBoolean(),
+  check('redistributedWork')
+    .trim()
+    .escape(),
   check('explanationRwr')
     .custom((value, { req }) => {
       if (req.body.redistributedWork === false && value.length <= 0) {
@@ -209,7 +223,9 @@ const validateProjectFields = [
     .withMessage('redistributedWork: This explanation is required if you answered no.')
     .trim()
     .escape(),
-  sanitizeBody('noSpecificProduct').toBoolean(),
+  check('noSpecificProduct')
+    .trim()
+    .escape(),
   check('explanationNsp')
     .custom((value, { req }) => {
       if (req.body.noSpecificProduct === false && value.length <= 0) {
@@ -220,7 +236,9 @@ const validateProjectFields = [
     .withMessage('noSpecificProduct: This explanation is required if you answered no.')
     .trim()
     .escape(),
-  sanitizeBody('noComponentRestriction').toBoolean(),
+  check('noComponentRestriction')
+    .trim()
+    .escape(),
   check('explanationNor')
     .custom((value, { req }) => {
       if (req.body.noComponentRestriction === false && value.length <= 0) {
@@ -231,7 +249,9 @@ const validateProjectFields = [
     .withMessage('noComponentRestriction: This explanation is required if you answered no.')
     .trim()
     .escape(),
-  sanitizeBody('technologyNeutral').toBoolean(),
+  check('technologyNeutral')
+    .trim()
+    .escape(),
   check('explanationTn')
     .custom((value, { req }) => {
       if (req.body.noComponentRestriction === false && value.length <= 0) {
@@ -282,7 +302,9 @@ const validateProjectFields = [
   check('agreementTerms')
     .isLength({ min: 1 })
     .withMessage('You must agree to the terms of the OSHWA Open Source Hardware Certification Mark License Agreement.'),
-  sanitizeBody('agreementTerms').toBoolean(),
+  check('agreementTerms')
+    .trim()
+    .escape(),
   check('parentName')
     .trim()
     .escape(),

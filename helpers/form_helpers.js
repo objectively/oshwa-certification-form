@@ -9,18 +9,18 @@ const {
 
 const certificationMarkTerms = require('../config/form_fields/certification_mark_terms');
 
-const isCheckboxArray = key => arrayCheckboxFormFields.indexOf(key) !== -1;
-const isCheckboxObject = key => objectCheckboxFormFields.indexOf(key) !== -1;
-const isBoolean = key => booleanFormFields.indexOf(key) !== -1;
-const isBooleanSelect = key => booleanSelectFields.indexOf(key) !== -1;
-const isArrayField = key => arrayFields.indexOf(key) !== -1;
-const isReferenceField = key => referenceFields.indexOf(key) !== -1;
-const returnBooleanFromCheckbox = value => !!value;
 const citationsKeyRegex = /^citations\[\d+\]$/;
 
 const isAddUrlField = key =>
   // citations come from dynamically generated  form fields with names 'citations[x]'
   citationsKeyRegex.test(key);
+
+const isArrayField = key => arrayFields.indexOf(key) !== -1;
+const isBoolean = key => booleanFormFields.indexOf(key) !== -1;
+const isBooleanSelect = key => booleanSelectFields.indexOf(key) !== -1;
+const isCheckboxArray = key => arrayCheckboxFormFields.indexOf(key) !== -1;
+const isCheckboxObject = key => objectCheckboxFormFields.indexOf(key) !== -1;
+const isReferenceField = key => referenceFields.indexOf(key) !== -1;
 
 const returnArrayFromCheckbox = values => {
   if (typeof values === 'string') {
@@ -29,12 +29,33 @@ const returnArrayFromCheckbox = values => {
   return values;
 };
 
+const returnArrayFromTextField = str => {
+  const arr = str.split(',');
+  const results = [];
+
+  arr.forEach(item => {
+    results.push(decodeURI(item.trim()));
+  });
+
+  return arr;
+};
+
+const returnBooleanFromCheckbox = value => !!value;
+
 const returnBooleanFromSelect = values => {
-  if (values === false) {
+  if (values === 'false') {
     return false;
   } else {
     return true;
   }
+};
+
+const returnCertificationObjectFromCheckbox = values => {
+  const certificationMarkTermsValues = {};
+  Object.keys(certificationMarkTerms).forEach(term => {
+    certificationMarkTermsValues[term] = { agreement: values.indexOf(term) !== -1 };
+  });
+  return certificationMarkTermsValues;
 };
 
 const returnReferences = referenceIDs => {
@@ -49,19 +70,7 @@ const returnReferences = referenceIDs => {
       references.push({ sys: { type: 'Link', linkType: 'Entry', id } });
     });
   }
-
   return references;
-};
-
-const returnArrayFromTextField = str => {
-  const arr = str.split(',');
-  const results = [];
-
-  arr.forEach(item => {
-    results.push(decodeURI(item.trim()));
-  });
-
-  return arr;
 };
 
 const returnUrlToObj = urls => {
@@ -74,29 +83,21 @@ const returnUrlToObj = urls => {
   return urlsArr;
 };
 
-const returnCertificationObjectFromCheckbox = values => {
-  const certificationMarkTermsValues = {};
-  Object.keys(certificationMarkTerms).map(term => {
-    certificationMarkTermsValues[term] = { agreement: values.indexOf(term) !== -1 };
-  });
-  return certificationMarkTermsValues;
-};
-
 module.exports = {
   certificationMarkTerms,
   citationsKeyRegex,
   isAddUrlField,
-  returnUrlToObj,
-  isReferenceField,
-  returnReferences,
   isArrayField,
-  returnArrayFromTextField,
-  isCheckboxArray,
-  returnArrayFromCheckbox,
-  isCheckboxObject,
-  returnCertificationObjectFromCheckbox,
   isBoolean,
-  returnBooleanFromCheckbox,
   isBooleanSelect,
-  returnBooleanFromSelect
+  isCheckboxArray,
+  isCheckboxObject,
+  isReferenceField,
+  returnArrayFromTextField,
+  returnArrayFromCheckbox,
+  returnBooleanFromCheckbox,
+  returnBooleanFromSelect,
+  returnCertificationObjectFromCheckbox,
+  returnReferences,
+  returnUrlToObj
 };

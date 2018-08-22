@@ -57,14 +57,14 @@ const DynamicForm = {
     });
   },
   openExample() {
-    $('.open-example-control').on('click', function() {
-      const examplesTarget = $(this).attr('data-target');
+    $('.open-example-control').on('click', e => {
+      const examplesTarget = $(e.currentTarget).attr('data-target');
       const examplesContainer = $(`[data-modal-value="${examplesTarget}"]`);
-      if ($(this).hasClass('open')) {
-        $(this).removeClass('open');
+      if ($(e.currentTarget).hasClass('open')) {
+        $(e.currentTarget).removeClass('open');
         examplesContainer.addClass('hide');
       } else {
-        $(this).addClass('open');
+        $(e.currentTarget).addClass('open');
         examplesContainer.removeClass('hide');
       }
     });
