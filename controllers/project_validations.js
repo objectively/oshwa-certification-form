@@ -244,17 +244,34 @@ const validateProjectFields = [
   check('explanationCertificationTerms')
     .custom((value, { req }) => {
       const certificationMarkTermsCount = 5;
-      if (!req.body.certificationMarkTerms) {
-        return false;
-      } else if (req.body.certificationMarkTerms.length < certificationMarkTermsCount && value.length <= 0) {
-        return false;
-      } else if (req.body.certificationMarkTerms.length < certificationMarkTermsCount && value.length > 0) {
+      if (req.body.certificationMarkTerms === undefined) {
+        if (value.length === 0) {
+          return false;
+        }
         return true;
-      } else if (req.body.certificationMarkTerms.length === certificationMarkTermsCount) {
-        return true;
-      } else {
-        return false;
       }
+
+      if (req.body.certificationMarkTerms.length === certificationMarkTermsCount) {
+        return true;
+      }
+
+      if (value.length <= 0) {
+        switch (typeof value) {
+          case 'string':
+            if (req.body.certificationMarkTerms.split(' ').length < certificationMarkTermsCount) {
+              return false;
+            }
+            break;
+          case 'object':
+            if (req.body.certificationMarkTerms.length < certificationMarkTermsCount) {
+              return false;
+            }
+            break;
+          default:
+            return true;
+        }
+      }
+      return true;
     })
     .withMessage(
       'certificationMarkTerms: This explanation is required if you did not agree to one or more of the certification mark terms.'

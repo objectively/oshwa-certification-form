@@ -217,7 +217,7 @@ const Validations = {
         relationship: {},
         agreementTerms: {
           required:
-            'You must agree to the terms of the OSHWA Open Source Hardware Certification Mark LIcense Agreement.'
+            'You must agree to the terms of the OSHWA Open Source Hardware Certification Mark License Agreement.'
         },
         parentName: {},
         certificationDate: { required: '' }
