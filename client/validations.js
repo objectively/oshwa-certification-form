@@ -289,7 +289,7 @@ const Validations = {
         $(e.currentTarget)
           .parent()
           .find('.textarea-message')
-          .text(`${textLength} characters over suggested length`)
+          .text(`${textLength - maxLength} characters over suggested length`)
           .addClass('error-message');
       } else {
         const chars = maxLength - textLength;
