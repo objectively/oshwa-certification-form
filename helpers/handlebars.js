@@ -309,6 +309,10 @@ const createCertificationMarkTerms = content => {
   `;
 };
 
+const toLowerCase = str => {
+  return str.toLowerCase();
+};
+
 module.exports = {
   createBooleanDropdown,
   createCertificationMarkTerms,
@@ -323,5 +327,6 @@ module.exports = {
   createUrlInputs,
   getCitationValues,
   getCheckedTypes,
+  toLowerCase,
   markdownify
 };
