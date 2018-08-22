@@ -31,8 +31,20 @@ body {
   font-family: 'Montserrat', sans-serif; }
 
 .main-menu {
-  box-shadow: none;
-  overflow-y: hidden; }
+  box-shadow: none; }
+  .main-menu .process--header-link {
+    border-bottom: none; }
+  .main-menu .process--link {
+    border-bottom: none;
+    font-size: 0.95rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem; }
+    .main-menu .process--link--last {
+      padding-bottom: 1.2rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+
+#overlay {
+  z-index: 2; }
 
 .hide {
   left: -9999px !important;
@@ -43,12 +55,18 @@ body {
   background-color: rgba(0, 0, 0, 0.1);
   position: relative;
   z-index: 3; }
-  .top-bar__button {
-    background-color: #9255bf !important; }
-    .top-bar__button--purple {
-      color: #fff; }
-      .top-bar__button--purple:hover {
-        background-color: #783ea3; }
+  .top-bar__button--right {
+    background-color: #ffeb80;
+    color: #4d4d4d;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    position: absolute; }
+    .top-bar__button--right:hover {
+      background-color: #ffe34d; }
+    @media (min-width: 64em) {
+      .top-bar__button--right {
+        display: none; } }
 
 .top-section {
   margin-top: -50px;
@@ -183,14 +201,15 @@ body {
   color: #4d4d4d; }
   #certify .page-section h2,
   #apply .page-section h2 {
-    font-size: 1.6rem;
+    font-size: 1.7rem;
     font-weight: 700;
     color: #9255bf;
     display: inline-block; }
-    @media (max-width: 39.9375em) {
+    @media (max-width: 63.9375em) {
       #certify .page-section h2,
       #apply .page-section h2 {
-        display: block; } }
+        display: block;
+        font-size: 1.5rem; } }
   #certify .page-section h3,
   #apply .page-section h3 {
     font-size: 1rem;
@@ -198,26 +217,34 @@ body {
     color: #9255bf; }
   #certify .page-section p,
   #apply .page-section p {
-    font-size: 0.9rem; }
+    font-size: 1rem; }
   #certify .page-section .section-header,
   #apply .page-section .section-header {
     margin: 1.3rem 0;
     color: #9255bf;
-    font-size: 1.6rem;
+    font-size: 1.7rem;
     font-weight: 700;
     float: right;
     text-transform: uppercase; }
+    @media (max-width: 63.9375em) {
+      #certify .page-section .section-header,
+      #apply .page-section .section-header {
+        display: block;
+        float: none;
+        font-size: 1.3rem; } }
     @media (max-width: 39.9375em) {
       #certify .page-section .section-header,
       #apply .page-section .section-header {
         display: block;
-        float: none; } }
+        float: none;
+        font-size: 1.3rem; } }
   #certify .page-section .button-container,
   #apply .page-section .button-container {
     text-align: right; }
   #certify .page-section .button,
   #apply .page-section .button {
-    padding: 0.9rem 2rem; }
+    padding: 0.6rem 2.2rem;
+    margin: 1.2rem auto; }
     #certify .page-section .button--purple,
     #apply .page-section .button--purple {
       background-color: #9255bf;
@@ -251,13 +278,12 @@ body {
 
 .page-section .modals-container h3 {
   color: #4d4d4d !important;
-  margin-left: -0.5rem;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   text-transform: none;
   display: inline-block; }
   @media (max-width: 39.9375em) {
     .page-section .modals-container h3 {
-      font-size: 0.8rem !important; } }
+      font-size: 1rem !important; } }
 
 .page-section .modals-container .open-example-control {
   padding-left: 0.5rem; }
@@ -287,16 +313,16 @@ body {
   text-transform: uppercase; }
   .page-section .modal-container__title {
     color: #9255bf;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     letter-spacing: 0;
     padding: 0; }
   .page-section .modal-container__tags {
-    padding: 0.5rem 0; }
+    padding: 0.7rem 0; }
     .page-section .modal-container__tags .tag {
       background-color: #9255bf;
       color: #fff;
-      font-size: 0.65rem;
-      padding: 0.3rem;
+      font-size: 0.7rem;
+      padding: 0.5rem 0.7rem;
       margin: 0.1rem 0;
       display: inline-block; }
   .page-section .modal-container__meta .license-header {
@@ -312,7 +338,7 @@ body {
     bottom: 0;
     font-weight: 300;
     font-style: italic;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     position: absolute; }
 
 .page-section .modal {
@@ -343,20 +369,20 @@ body {
       color: #fff;
       margin: 0.5rem 0; }
     .page-section .modal__content p {
-      font-size: 0.8rem;
+      font-size: 0.9rem;
       font-weight: 300;
       margin-top: 0;
       text-transform: none; }
     .page-section .modal__content .license-header,
     .page-section .modal__content .license-name {
       color: #fff;
-      font-size: 0.7rem;
+      font-size: 1rem;
       font-weight: 700;
       margin: 1px;
       text-transform: uppercase; }
     .page-section .modal__content .license-why {
       color: #fff;
-      font-size: 0.7rem;
+      font-size: 1rem;
       font-weight: 700;
       padding-top: 1rem;
       text-transform: uppercase; }
@@ -364,17 +390,20 @@ body {
       padding: 1rem;
       text-align: right; }
     .page-section .modal__content .learn-more {
-      font-size: 0.7rem;
+      font-size: 1rem;
       font-weight: 700;
       text-transform: uppercase;
       text-decoration: none; }
+
+.js-body-modal-active {
+  overflow: visible; }
 
 .row {
   padding: 1rem 0; }
 
 form {
   font-weight: 500;
-  font-size: 0.9rem; }
+  font-size: 1rem; }
   form textarea {
     min-height: 9rem; }
   form input[type='text'] {
@@ -402,7 +431,7 @@ form {
     margin-bottom: 0;
     padding: 0; }
     form .checkbox label {
-      font-size: 0.9rem;
+      font-size: 1rem;
       margin: 0;
       padding: 0 0 0 20px;
       text-indent: -20px; }
@@ -414,7 +443,7 @@ form {
       padding-left: 2rem; } }
   .additional-project-types .checkbox label {
     display: block;
-    font-size: 0.9rem;
+    font-size: 1rem;
     margin: 0;
     padding: 0 0 0 20px;
     text-indent: -20px; }
@@ -426,7 +455,7 @@ form {
       padding-left: 2rem; } }
   .certificate-mark .checkbox label {
     display: block;
-    font-size: 0.9rem;
+    font-size: 1rem;
     margin: 0;
     padding: 0 0 0 20px;
     text-indent: -20px; }
@@ -445,7 +474,7 @@ form {
 
 .js-add-url-inputs-field {
   display: block;
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 700;
   margin-left: 1rem !important;
   text-transform: uppercase; }
@@ -487,7 +516,7 @@ form {
 .single-checkbox-field .checkbox {
   display: inline-block; }
   .single-checkbox-field .checkbox label {
-    font-size: 0.9rem;
+    font-size: 1rem;
     margin: 0;
     padding: 0 0 0 20px;
     text-indent: -20px; }
@@ -503,7 +532,7 @@ form {
 
 .single_checkbox_label {
   font-weight: 500;
-  font-size: 0.9rem !important; }
+  font-size: 1rem !important; }
 
 .select {
   appearance: none;

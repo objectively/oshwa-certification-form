@@ -14,12 +14,12 @@
   .modals-container {
     h3 {
       color: $gray !important;
-      margin-left: -0.5rem;
-      font-size: 1.2rem;
+      // margin-left: -0.5rem;
+      font-size: 1.5rem;
       text-transform: none;
       display: inline-block;
       @include breakpoint($small-only) {
-        font-size: 0.8rem !important;
+        font-size: 1rem !important;
       }
     }
     .open-example-control {
@@ -57,17 +57,17 @@
     text-transform: uppercase;
     &__title {
       color: $purple;
-      font-size: 0.8rem;
+      font-size: 0.9rem;
       letter-spacing: 0;
       padding: 0;
     }
     &__tags {
-      padding: 0.5rem 0;
+      padding: 0.7rem 0;
       .tag {
         background-color: $purple;
         color: $white;
-        font-size: 0.65rem;
-        padding: 0.3rem;
+        font-size: 0.7rem;
+        padding: 0.5rem 0.7rem;
         margin: 0.1rem 0;
         display: inline-block;
       }
@@ -89,7 +89,7 @@
       bottom: 0;
       font-weight: 300;
       font-style: italic;
-      font-size: 0.7rem;
+      font-size: 0.8rem;
       position: absolute;
     }
   }
@@ -125,7 +125,7 @@
         margin: 0.5rem 0;
       }
       p {
-        font-size: 0.8rem;
+        font-size: 0.9rem;
         font-weight: 300;
         margin-top: 0;
         text-transform: none;
@@ -133,7 +133,7 @@
       .license-header,
       .license-name {
         color: $white;
-        font-size: 0.7rem;
+        font-size: 1rem;
         font-weight: 700;
         margin: 1px;
         text-transform: uppercase;
@@ -141,7 +141,7 @@
 
       .license-why {
         color: $white;
-        font-size: 0.7rem;
+        font-size: 1rem;
         font-weight: 700;
         padding-top: 1rem;
         text-transform: uppercase;
@@ -151,7 +151,7 @@
         text-align: right;
       }
       .learn-more {
-        font-size: 0.7rem;
+        font-size: 1rem;
         font-weight: 700;
         text-transform: uppercase;
         text-decoration: none;
@@ -159,3 +159,8 @@
     }
   }
 }
+
+.js-body-modal-active {
+  overflow: visible;
+}
+

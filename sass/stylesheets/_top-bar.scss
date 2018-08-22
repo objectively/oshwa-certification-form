@@ -2,12 +2,20 @@
   background-color: rgba(0, 0, 0, 0.1);
   position: relative;
   z-index: 3;
+
   &__button {
-    background-color: $purple !important;
-    &--purple {
-      color: $white;
+    &--right {
+      background-color: $yellow;
+      color: $gray;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      position: absolute;
       &:hover {
-        background-color: darken($purple, 10);
+        background-color: darken($yellow, 10);
+      }
+      @include breakpoint($large) {
+        display: none;
       }
     }
   }

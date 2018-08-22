@@ -8,13 +8,14 @@
 
     color: $gray;
     h2 {
-      font-size: 1.6rem;
+      font-size: 1.7rem;
       font-weight: 700;
       color: $purple;
 
       display: inline-block;
-      @include breakpoint($small-only) {
+      @include breakpoint($medium-only) {
         display: block;
+        font-size: 1.5rem;
       }
     }
     h3 {
@@ -23,17 +24,23 @@
       color: $purple;
     }
     p {
-      font-size: 0.9rem;
+      font-size: 1rem;
     }
     .section-header {
       margin: 1.3rem 0;
       color: $purple;
-      font-size: 1.6rem;
+      font-size: 1.7rem;
       font-weight: 700;
       float: right;
+      @include breakpoint($medium-only) {
+        display: block;
+        float: none;
+        font-size: 1.3rem;
+      }
       @include breakpoint($small-only) {
         display: block;
         float: none;
+        font-size: 1.3rem;
       }
       text-transform: uppercase;
     }
@@ -41,7 +48,8 @@
       text-align: right;
     }
     .button {
-      padding: 0.9rem 2rem;
+      padding: 0.6rem 2.2rem;
+      margin: 1.2rem auto;
       &--purple {
         background-color: $purple;
         color: #fff;

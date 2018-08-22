@@ -7,7 +7,26 @@ body {
 
 .main-menu {
   box-shadow: none;
-  overflow-y: hidden;
+  // overflow-y: hidden;
+  .process {
+    &--header-link {
+      border-bottom: none;
+    }
+    &--link {
+      border-bottom: none;
+      font-size: 0.95rem;
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+      &--last {
+        padding-bottom: 1.2rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+    }
+  }
+}
+
+#overlay {
+  z-index: 2;
 }
 
 .hide {

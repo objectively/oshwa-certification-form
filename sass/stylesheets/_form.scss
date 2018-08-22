@@ -12,7 +12,7 @@ form {
   .row {
   }
   font-weight: 500;
-  font-size: 0.9rem;
+  font-size: 1rem;
   textarea {
     min-height: 9rem;
   }
@@ -45,7 +45,7 @@ form {
     margin-bottom: 0;
     padding: 0;
     label {
-      font-size: 0.9rem;
+      font-size: 1rem;
       margin: 0;
       padding: 0 0 0 20px;
       text-indent: -20px;
@@ -61,7 +61,7 @@ form {
     }
     label {
       display: block;
-      font-size: 0.9rem;
+      font-size: 1rem;
       margin: 0;
       padding: 0 0 0 20px;
       text-indent: -20px;
@@ -76,7 +76,7 @@ form {
     }
     label {
       display: block;
-      font-size: 0.9rem;
+      font-size: 1rem;
       margin: 0;
       padding: 0 0 0 20px;
       text-indent: -20px;
@@ -102,7 +102,7 @@ form {
 
 .js-add-url-inputs-field {
   display: block;
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 700;
   margin-left: 1rem !important;
   @include breakpoint($medium-only) {
@@ -155,7 +155,7 @@ form {
   .checkbox {
     display: inline-block;
     label {
-      font-size: 0.9rem;
+      font-size: 1rem;
       margin: 0;
       padding: 0 0 0 20px;
       text-indent: -20px;
@@ -170,11 +170,6 @@ form {
   }
 }
 
-// .url_title,
-// .url_address {
-//   width: 50px;
-// }
-
 .instructions {
   font-style: italic;
   font-size: 0.9rem;
@@ -182,5 +177,5 @@ form {
 
 .single_checkbox_label {
   font-weight: 500;
-  font-size: 0.9rem !important;
+  font-size: 1rem !important;
 }
