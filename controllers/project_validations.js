@@ -250,11 +250,9 @@ const validateProjectFields = [
         }
         return true;
       }
-
       if (req.body.certificationMarkTerms.length === certificationMarkTermsCount) {
         return true;
       }
-
       if (value.length <= 0) {
         switch (typeof value) {
           case 'string':

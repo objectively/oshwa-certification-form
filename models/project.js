@@ -69,8 +69,18 @@ function Project(data) {
   // this.parentalAgreement = data.parentalAgreement;
 }
 
+const removeElFromArray = (array, element) => {
+  const index = array.indexOf(element);
+  if (index !== -1) {
+    array.splice(index, 1);
+  }
+  return array;
+};
 Project.prototype.mapFieldsToContentful = function mapFieldsToContentful() {
-  const keys = Object.keys(this);
+  let keys = Object.keys(this);
+  // remove recaptcha fields from contentful response
+  keys = removeElFromArray(keys, 'hiddenRecaptcha');
+  keys = removeElFromArray(keys, 'g-recaptcha-response');
   const fields = {};
   let citations = [];
   keys.forEach(key => {
@@ -103,6 +113,7 @@ Project.prototype.mapFieldsToContentful = function mapFieldsToContentful() {
   });
   // add citations input values to contentful field name
   fields.citations = { 'en-US': returnUrlToObj(citations) };
+
   return fields;
 };
 
