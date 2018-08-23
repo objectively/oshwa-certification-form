@@ -12,7 +12,6 @@ const DynamicForm = {
               name="citations[${count}]"
               placeholder="Enter citation title"
             />
-            <div class="columns citation-error"></div>
           </div>
           <div class="columns small-offset-1 small-11 large-5 medium-5">
             <label for="citations[${count}]--url_address">Citation URL</label>
@@ -24,9 +23,8 @@ const DynamicForm = {
               placeholder="Enter a URL including the protocol (e.g https://example.com)"
             />
             <div class="instructions">Include the protocol to your URL (e.g. http:// or https://)</div>
-            <div class="columns citation-error"></div>
           </div>
-        </div>
+        <div class="columns large-offset-1 citation-error"></div>
       </div>
     `;
   },

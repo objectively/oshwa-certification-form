@@ -11,12 +11,11 @@ const Validations = {
         const elName = element.name;
         const urlPair = $(`input[name="${elName}"]`);
         const titleIsValid = urlPair[0].value.length > 0;
-        console.log('titleIsValid', titleIsValid);
         const urlIsValid =
           !Validations.scriptsRegex.test(urlPair[1].value) && Validations.urlRegex.test(urlPair[1].value);
-        console.log('urlIsValid', urlIsValid);
-        console.log('not a script', !Validations.scriptsRegex.test(urlPair[1].value));
-        console.log('is valid url', Validations.urlRegex.test(urlPair[1].value));
+        if (urlPair[0].value.length === 0 && urlPair[1].value.length === 0) {
+          return true;
+        }
         if (titleIsValid && urlIsValid) {
           return true;
         }
@@ -234,7 +233,17 @@ const Validations = {
         } else if (element.attr('name') === 'agreementTerms') {
           error.insertAfter(element.parent().parent());
         } else if (element.hasClass('url_create')) {
-          error.appendTo(element.parent().find('.citation-error'));
+          element
+            .parent()
+            .parent()
+            .find('.citation-error')
+            .text('');
+          error.appendTo(
+            element
+              .parent()
+              .parent()
+              .find('.citation-error')
+          );
         } else {
           error.insertAfter(element);
         }

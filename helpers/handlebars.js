@@ -213,7 +213,6 @@ const generateUrlCitationFields = (fieldName, placeholder, count = 1, addedCitat
         placeholder="Enter citation title"
         ${addedCitations ? `value=${addedCitations[count][0]}` : `value=""`}
         />
-        <div class="columns citation-error"></div>
       </div>
       <div class="columns small-offset-1 small-11 large-5 medium-5">
         <label for="${fieldName}[${count}]--url_address">Citation URL</label>
@@ -226,8 +225,8 @@ const generateUrlCitationFields = (fieldName, placeholder, count = 1, addedCitat
         ${addedCitations ? `value=${addedCitations[count][1]}` : `value=""`}
         />
         <div class="instructions">Include the protocol to your URL (e.g. http:// or https://)</div>
-        <div class="columns citation-error"></div>
       </div>
+      <div class="columns large-offset-1 citation-error"></div>
     </div>
   `;
   return citationInputs;
