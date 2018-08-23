@@ -210,7 +210,7 @@ const generateUrlCitationFields = (fieldName, placeholder, count = 1, addedCitat
         type="text"
         class="url_create url_title"
         name="${fieldName}[${count}]"
-        placeholder="Enter url title"
+        placeholder="Enter citation title"
         ${addedCitations ? `value=${addedCitations[count][0]}` : `value=""`}
         />
         <div class="columns citation-error"></div>

@@ -10,7 +10,7 @@ const DynamicForm = {
               type="text"
               class="url_create url_title"
               name="citations[${count}]"
-              placeholder="Enter url title"
+              placeholder="Enter citation title"
             />
             <div class="columns citation-error"></div>
           </div>
