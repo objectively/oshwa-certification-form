@@ -1,6 +1,6 @@
 const Validations = {
   scriptsRegex: /[\s<>]/,
-  urlRegex: /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([/\w@.-]*).*?\/?$/,
+  urlRegex: /^(http|https):\/\/?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w\@ \.-]*).*?\/?$/,
   setupDOMElements() {
     this.$form = $('form');
   },
@@ -11,8 +11,12 @@ const Validations = {
         const elName = element.name;
         const urlPair = $(`input[name="${elName}"]`);
         const titleIsValid = urlPair[0].value.length > 0;
+        console.log('titleIsValid', titleIsValid);
         const urlIsValid =
           !Validations.scriptsRegex.test(urlPair[1].value) && Validations.urlRegex.test(urlPair[1].value);
+        console.log('urlIsValid', urlIsValid);
+        console.log('not a script', !Validations.scriptsRegex.test(urlPair[1].value));
+        console.log('is valid url', Validations.urlRegex.test(urlPair[1].value));
         if (titleIsValid && urlIsValid) {
           return true;
         }
@@ -67,6 +71,8 @@ const Validations = {
         availableFileFormat: {},
         'citations[]': {
           checkCreatedUrls: true,
+          url: true,
+          validUrl: true,
           required: false
         },
         hardwareLicense: { required: true },
