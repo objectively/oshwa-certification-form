@@ -31,7 +31,7 @@ const DynamicForm = {
     `;
   },
   addFormField() {
-    $('.js-add-url-inputs-field').on('click', e => {
+    $('.js-add-url-inputs-field > .material-icons').on('click', e => {
       const count = $('.form-field-wrapper ').length;
       e.preventDefault();
       const newFormField = DynamicForm.generateUrlField(count + 1);

@@ -484,7 +484,7 @@ form {
   @media (max-width: 39.9375em) {
     .js-add-url-inputs-field {
       margin-left: 0 !important; } }
-  .js-add-url-inputs-field:hover {
+  .js-add-url-inputs-field i:hover {
     color: rgba(77, 77, 77, 0.85);
     cursor: pointer; }
   .js-add-url-inputs-field::after {

@@ -111,9 +111,11 @@ form {
   @include breakpoint($small-only) {
     margin-left: 0 !important;
   }
-  &:hover {
-    color: rgba($gray, 0.85);
-    cursor: pointer;
+  i {
+    &:hover {
+      color: rgba($gray, 0.85);
+      cursor: pointer;
+    }
   }
   @extend .u-transition;
   text-transform: uppercase;
