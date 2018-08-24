@@ -27,7 +27,7 @@ describe('Nav', function() {
     body.innerHTML = '';
   });
   it('should make Nav menu active', function() {
-    assert.equal(nav.classList.contains('js-active-menu'), true);
+    assert.equal(nav.classList.contains('active-menu'), true);
   });
   it('should make Overlay active', function() {
     assert.equal(overlay.classList.contains('js-active'), true);
