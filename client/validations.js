@@ -3,6 +3,7 @@ const Validations = {
   urlRegex: /^(http|https):\/\/?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w\@ \.-]*).*?\/?$/,
   setupDOMElements() {
     this.$form = $('form');
+    $.validator.setDefaults({ ignore: '' });
   },
   validateForm() {
     $.validator.addMethod(
@@ -25,7 +26,6 @@ const Validations = {
     );
     this.$form.validate({
       rules: {
-        ignore: ['.ignore'],
         responsiblePartyType: { required: true },
         oshwaUid: { required: true },
         responsibleParty: { required: true },
@@ -162,7 +162,16 @@ const Validations = {
         relationship: {},
         agreementTerms: { required: true },
         parentName: {},
-        certificationDate: { required: true }
+        certificationDate: { required: true },
+        hiddenRecaptcha: {
+          required: function() {
+            if (grecaptcha.getResponse() == '') {
+              return true;
+            } else {
+              return false;
+            }
+          }
+        }
       },
       messages: {
         responsiblePartyType: { required: 'Please select the responsible party type' },
@@ -225,7 +234,8 @@ const Validations = {
             'You must agree to the terms of the OSHWA Open Source Hardware Certification Mark License Agreement.'
         },
         parentName: {},
-        certificationDate: { required: '' }
+        certificationDate: { required: '' },
+        hiddenRecaptcha: { required: 'Please verify you are not a robot.' }
       },
       errorPlacement: (error, element) => {
         if (element[0].tagName === 'SELECT') {

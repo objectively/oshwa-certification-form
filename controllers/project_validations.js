@@ -250,11 +250,9 @@ const validateProjectFields = [
         }
         return true;
       }
-
       if (req.body.certificationMarkTerms.length === certificationMarkTermsCount) {
         return true;
       }
-
       if (value.length <= 0) {
         switch (typeof value) {
           case 'string':
@@ -287,7 +285,10 @@ const validateProjectFields = [
   sanitizeBody('agreementTerms').toBoolean(),
   check('parentName')
     .trim()
-    .escape()
+    .escape(),
+  check('g-recaptcha-response')
+    .isLength({ min: 1 })
+    .withMessage('Please verify you are not a robot.')
 ];
 
 module.exports = validateProjectFields;
