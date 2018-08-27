@@ -77,6 +77,17 @@ const removeElFromArray = (array, element) => {
   return array;
 };
 Project.prototype.mapFieldsToContentful = function mapFieldsToContentful() {
+  const defaultLicenseFields = [
+    'creatorContribution',
+    'noComponentRestriction',
+    'noDocumentationRestriction',
+    'noSpecificProduct',
+    'noUseRestriction',
+    'openHardwareComponents',
+    'redistributedWork',
+    'technologyNeutral'
+  ];
+
   let keys = Object.keys(this);
   // remove recaptcha fields from contentful response
   keys = removeElFromArray(keys, 'hiddenRecaptcha');
@@ -113,6 +124,13 @@ Project.prototype.mapFieldsToContentful = function mapFieldsToContentful() {
   });
   // add citations input values to contentful field name
   fields.citations = { 'en-US': returnUrlToObj(citations) };
+
+  // add default true for license fields where user has not submitted an answer
+  defaultLicenseFields.forEach(licenseField => {
+    if (Object.keys(fields).indexOf(licenseField) === -1) {
+      fields[licenseField] = { 'en-US': true };
+    }
+  });
 
   return fields;
 };
