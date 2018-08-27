@@ -13,7 +13,7 @@ const createBooleanDropdown = content => {
   } else if (selection === false) {
     renderedOptions = `
       <option value="true">Yes</option>
-      <option value="false" selected>No</option>
+      <option value="false" selected="selected">No</option>
     `;
   }
 

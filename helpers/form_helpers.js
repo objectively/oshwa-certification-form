@@ -30,10 +30,11 @@ const returnArrayFromCheckbox = values => {
 };
 
 const returnBooleanFromSelect = values => {
-  if (values === 'false') {
+  if (values === false) {
     return false;
+  } else {
+    return true;
   }
-  return true;
 };
 
 const returnReferences = referenceIDs => {
