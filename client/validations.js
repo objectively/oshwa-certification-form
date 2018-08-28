@@ -1,6 +1,6 @@
 const Validations = {
   scriptsRegex: /[\s<>]/,
-  urlRegex: /^(http|https):\/\/?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w\@ \.-]*).*?\/?$/,
+  urlRegex: /^(http|https):\/\/?([\da-z.-]+)\.([a-z.]{2,6})([w@.-]*).*?\/?$/,
   setupDOMElements() {
     this.$form = $('form');
     $.validator.setDefaults({ ignore: '' });
@@ -164,12 +164,11 @@ const Validations = {
         parentName: {},
         certificationDate: { required: true },
         hiddenRecaptcha: {
-          required: function() {
-            if (grecaptcha.getResponse() == '') {
+          required() {
+            if (grecaptcha.getResponse() === '') {
               return true;
-            } else {
-              return false;
             }
+            return false;
           }
         }
       },
@@ -263,7 +262,7 @@ const Validations = {
   addUrlValidation() {
     $.validator.addMethod(
       'validUrl',
-      function(value, element) {
+      function validateUrl(value, element) {
         if (value.length === 0) {
           return true;
         }
@@ -276,8 +275,8 @@ const Validations = {
     return this.$form.valid();
   },
   selectErrorMessages() {
-    $('select').on('change', function() {
-      $(this).valid();
+    $('select').on('change', e => {
+      $(e.currentTarget).valid();
     });
 
     $('select[name="responsiblePartyType"]').on('change', () => {
@@ -299,8 +298,8 @@ const Validations = {
     });
   },
   dependentSelectMessages() {
-    $('.explanation-wrapper').on('change', function() {
-      $(this)
+    $('.explanation-wrapper').on('change', e => {
+      $(e.currentTarget)
         .find('.explanation-field')
         .find('textarea')
         .valid();
