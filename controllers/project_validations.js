@@ -1,6 +1,41 @@
 const { check } = require('express-validator/check');
 const { sanitizeBody } = require('express-validator/filter');
 
+const returnBindingPartyDependency = (value, req) => {
+  if (req.body.responsiblePartyType !== 'Individual' && value.length <= 0) {
+    return false;
+  } else if (req.body.responsiblePartyType !== 'Individual' && value.length > 0) {
+    return true;
+  }
+  return true;
+};
+
+const returnExplanationDependency = (value, req, dependentField) => {
+  // boolean dropdowns send a string
+  if (req.body[dependentField] === 'false' && value.length <= 0) {
+    return false;
+  }
+  return true;
+};
+
+const returnCertificationExplanationDependency = (value, req) => {
+  const certificationMarkTermsCount = 5;
+  const checkedTerms = req.body.certificationMarkTerms;
+  if (value <= 0) {
+    switch (typeof checkedTerms) {
+      case 'object':
+        if (checkedTerms.length >= certificationMarkTermsCount) {
+          return true;
+        }
+        return false;
+      default:
+        // if undefined or string
+        return false;
+    }
+  }
+  return true;
+};
+/* istanbul ignore next */
 const validateProjectFields = [
   check('oshwaUid')
     .trim()
@@ -21,12 +56,7 @@ const validateProjectFields = [
     .escape(),
   check('bindingParty')
     .custom((value, { req }) => {
-      if (req.body.responsiblePartyType !== 'Individual' && value.length <= 0) {
-        return false;
-      } else if (req.body.responsiblePartyType !== 'Individual' && value.length > 0) {
-        return true;
-      }
-      return true;
+      return returnBindingPartyDependency(value, req);
     })
     .withMessage('Name of the binding party is required if responsible party type is not an individual')
     .trim()
@@ -150,10 +180,7 @@ const validateProjectFields = [
     .escape(),
   check('explanationNcr')
     .custom((value, { req }) => {
-      if (req.body.noCommercialRestriction === false && value.length <= 0) {
-        return false;
-      }
-      return true;
+      return returnExplanationDependency(value, req, 'noCommercialRestriction');
     })
     .withMessage('noCommercialRestriction: This explanation is required if you answered no.')
     .trim()
@@ -163,10 +190,7 @@ const validateProjectFields = [
     .escape(),
   check('explanationNdr')
     .custom((value, { req }) => {
-      if (req.body.noDocumentationRestriction === false && value.length <= 0) {
-        return false;
-      }
-      return true;
+      return returnExplanationDependency(value, req, 'noDocumentationRestriction');
     })
     .withMessage('noDocumentationRestriction: This explanation is required if you answered no.')
     .trim()
@@ -176,10 +200,7 @@ const validateProjectFields = [
     .escape(),
   check('explanationOhwc')
     .custom((value, { req }) => {
-      if (req.body.openHardwareComponents === false && value.length <= 0) {
-        return false;
-      }
-      return true;
+      return returnExplanationDependency(value, req, 'openHardwareComponents');
     })
     .withMessage('openHardwareComponents: This explanation is required if you answered no.')
     .trim()
@@ -189,10 +210,7 @@ const validateProjectFields = [
     .escape(),
   check('explanationCcr')
     .custom((value, { req }) => {
-      if (req.body.creatorContribution === false && value.length <= 0) {
-        return false;
-      }
-      return true;
+      return returnExplanationDependency(value, req, 'creatorContribution');
     })
     .withMessage('creatorContribution: This explanation is required if you answered no.')
     .trim()
@@ -202,10 +220,7 @@ const validateProjectFields = [
     .escape(),
   check('explanationNur')
     .custom((value, { req }) => {
-      if (req.body.noUseRestriction === false && value.length <= 0) {
-        return false;
-      }
-      return true;
+      return returnExplanationDependency(value, req, 'noUseRestriction');
     })
     .withMessage('noUseRestriction: This explanation is required if you answered no.')
     .trim()
@@ -215,10 +230,7 @@ const validateProjectFields = [
     .escape(),
   check('explanationRwr')
     .custom((value, { req }) => {
-      if (req.body.redistributedWork === false && value.length <= 0) {
-        return false;
-      }
-      return true;
+      return returnExplanationDependency(value, req, 'redistributedWork');
     })
     .withMessage('redistributedWork: This explanation is required if you answered no.')
     .trim()
@@ -228,10 +240,7 @@ const validateProjectFields = [
     .escape(),
   check('explanationNsp')
     .custom((value, { req }) => {
-      if (req.body.noSpecificProduct === false && value.length <= 0) {
-        return false;
-      }
-      return true;
+      return returnExplanationDependency(value, req, 'noSpecificProduct');
     })
     .withMessage('noSpecificProduct: This explanation is required if you answered no.')
     .trim()
@@ -241,10 +250,7 @@ const validateProjectFields = [
     .escape(),
   check('explanationNor')
     .custom((value, { req }) => {
-      if (req.body.noComponentRestriction === false && value.length <= 0) {
-        return false;
-      }
-      return true;
+      return returnExplanationDependency(value, req, 'noComponentRestriction');
     })
     .withMessage('noComponentRestriction: This explanation is required if you answered no.')
     .trim()
@@ -254,42 +260,13 @@ const validateProjectFields = [
     .escape(),
   check('explanationTn')
     .custom((value, { req }) => {
-      if (req.body.noComponentRestriction === false && value.length <= 0) {
-        return false;
-      }
-      return true;
+      return returnExplanationDependency(value, req, 'technologyNeutral');
     })
     .withMessage('noComponentRestriction: This explanation is required if you answered no.'),
   check('certificationMarkTerms'),
   check('explanationCertificationTerms')
     .custom((value, { req }) => {
-      const certificationMarkTermsCount = 5;
-      if (req.body.certificationMarkTerms === undefined) {
-        if (value.length === 0) {
-          return false;
-        }
-        return true;
-      }
-      if (req.body.certificationMarkTerms.length === certificationMarkTermsCount) {
-        return true;
-      }
-      if (value.length <= 0) {
-        switch (typeof value) {
-          case 'string':
-            if (req.body.certificationMarkTerms.split(' ').length < certificationMarkTermsCount) {
-              return false;
-            }
-            break;
-          case 'object':
-            if (req.body.certificationMarkTerms.length < certificationMarkTermsCount) {
-              return false;
-            }
-            break;
-          default:
-            return true;
-        }
-      }
-      return true;
+      return returnCertificationExplanationDependency(value, req);
     })
     .withMessage(
       'certificationMarkTerms: This explanation is required if you did not agree to one or more of the certification mark terms.'
@@ -313,4 +290,9 @@ const validateProjectFields = [
     .withMessage('Please verify you are not a robot.')
 ];
 
-module.exports = validateProjectFields;
+module.exports = {
+  validateProjectFields,
+  returnBindingPartyDependency,
+  returnExplanationDependency,
+  returnCertificationExplanationDependency
+};

@@ -15,6 +15,8 @@ const {
   returnArrayFromTextField
 } = require('../helpers/form_helpers.js');
 
+const { removeElFromArray } = require('../helpers/utils');
+
 function Project(data) {
   Object.assign(this, data);
   // this.oshwaUid = data.oshwaUid;
@@ -69,24 +71,17 @@ function Project(data) {
   // this.parentalAgreement = data.parentalAgreement;
 }
 
-const removeElFromArray = (array, element) => {
-  const index = array.indexOf(element);
-  if (index !== -1) {
-    array.splice(index, 1);
-  }
-  return array;
-};
 Project.prototype.mapFieldsToContentful = function mapFieldsToContentful() {
-  const defaultLicenseFields = [
-    'creatorContribution',
-    'noComponentRestriction',
-    'noDocumentationRestriction',
-    'noSpecificProduct',
-    'noUseRestriction',
-    'openHardwareComponents',
-    'redistributedWork',
-    'technologyNeutral'
-  ];
+  // const defaultLicenseFields = [
+  //   'creatorContribution',
+  //   'noComponentRestriction',
+  //   'noDocumentationRestriction',
+  //   'noSpecificProduct',
+  //   'noUseRestriction',
+  //   'openHardwareComponents',
+  //   'redistributedWork',
+  //   'technologyNeutral'
+  // ];
 
   let keys = Object.keys(this);
   // remove recaptcha fields from contentful response
@@ -111,8 +106,6 @@ Project.prototype.mapFieldsToContentful = function mapFieldsToContentful() {
       keyValue = returnReferences(this[key]);
     } else if (isArrayField(key)) {
       keyValue = returnArrayFromTextField(this[key]);
-    } else if (isReferenceField(key)) {
-      keyValue = returnReferences();
     } else {
       keyValue = this[key] || '';
     }
@@ -124,13 +117,13 @@ Project.prototype.mapFieldsToContentful = function mapFieldsToContentful() {
   });
   // add citations input values to contentful field name
   fields.citations = { 'en-US': returnUrlToObj(citations) };
-
+  // don't need this anymore, removed forced boolean in validation
   // add default true for license fields where user has not submitted an answer
-  defaultLicenseFields.forEach(licenseField => {
-    if (Object.keys(fields).indexOf(licenseField) === -1) {
-      fields[licenseField] = { 'en-US': true };
-    }
-  });
+  // defaultLicenseFields.forEach(licenseField => {
+  //   if (Object.keys(fields).indexOf(licenseField) === -1) {
+  //     fields[licenseField] = { 'en-US': true };
+  //   }
+  // });
 
   return fields;
 };

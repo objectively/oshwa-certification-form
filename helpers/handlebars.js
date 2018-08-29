@@ -1,22 +1,25 @@
 const md = require('marked');
-const { certificationMarkTerms, citationsKeyRegex } = require('./form_helpers');
+const { citationsKeyRegex } = require('./form_helpers');
+
+const renderInstructions = instructions => {
+  return `${instructions ? `${instructions}` : ``}`;
+};
 
 const createBooleanDropdown = content => {
   const { hash: { formValues, selection } } = content;
-  const { instructions } = formValues || '';
+  const { instructions } = formValues;
   let renderedOptions;
-  if (selection === undefined || selection === true) {
+  if (selection === undefined || selection === 'true') {
     renderedOptions = `
       <option value="true" selected="selected">Yes</option>
       <option value="false">No</option>
     `;
-  } else if (selection === false) {
+  } else {
     renderedOptions = `
       <option value="true">Yes</option>
       <option value="false" selected="selected">No</option>
     `;
   }
-
   return `
     <div class="select">
       <select id="${formValues.contentfulFieldName}" type="text" name="${
@@ -26,14 +29,14 @@ const createBooleanDropdown = content => {
       </select>
     </div>
     <div class="instructions">
-      ${instructions}
+      ${renderInstructions(instructions)}
     </div>
   `;
 };
 
 const createCheckbox = content => {
   const { hash: { formValues, checked } } = content;
-  const { instructions } = formValues || '';
+  const { instructions } = formValues;
   const isChecked = checked || false;
   return `
   <div class="checkbox">
@@ -41,20 +44,19 @@ const createCheckbox = content => {
       type="checkbox"
       id="${formValues.contentfulFieldName}"
       name="${formValues.contentfulFieldName}"
-      value="${isChecked}"
       ${isChecked ? `checked=checked` : ``}
     />
     <label class="single_checkbox_label" for="${formValues.contentfulFieldName}">${formValues.title}</label>
-    <div class="instructions">
-      ${instructions}
-    </div>
+      <div class="instructions">
+        ${renderInstructions(instructions)}
+      </div>
   </div>
 `;
 };
 
 const createCheckboxes = content => {
   const { hash: { formValues, projectTypes, checkedTypes } } = content;
-  const { instructions } = formValues || '';
+  const { instructions } = formValues;
   let allCheckboxes = '';
   projectTypes.forEach(option => {
     allCheckboxes += `
@@ -70,7 +72,7 @@ const createCheckboxes = content => {
   return `
 
       <fieldset>
-        <legend>${instructions}</legend>
+        <legend>${renderInstructions(instructions)}</legend>
         <div class="row">
           ${allCheckboxes}
         </div>
@@ -81,7 +83,7 @@ const createCheckboxes = content => {
 
 const createDropdownSelect = content => {
   const { hash: { formValues, options, selection } } = content;
-  const { instructions } = formValues || '';
+  const { instructions } = formValues;
 
   let allOptions = '';
   options.forEach(option => {
@@ -97,7 +99,7 @@ const createDropdownSelect = content => {
       </select>
     </div>
     <div class="instructions">
-      ${instructions}
+      ${renderInstructions(instructions)}
     </div>
   `;
 };
@@ -126,7 +128,7 @@ const createPreviousVersionsDropdown = content => {
       </div>
       <label for="select2-search__field">Previous versions</label>
       <div class="instructions">
-        ${instructions}
+        ${renderInstructions(instructions)}
       </div>
   `;
 };
@@ -134,7 +136,7 @@ const createPreviousVersionsDropdown = content => {
 const createInput = content => {
   const { hash: { formValues } } = content;
   const inputValue = content.hash.inputValue || '';
-  const { instructions } = formValues || '';
+  const { instructions } = formValues;
   return `
     <input type="text"
       id="${formValues.contentfulFieldName}"
@@ -158,7 +160,7 @@ const createLabel = content => {
 const createTextArea = content => {
   const { hash: { formValues, hide } } = content;
   const inputValue = content.hash.inputValue || '';
-  const { instructions } = formValues || '';
+  const { instructions } = formValues;
 
   return `
     <textarea id="${formValues.contentfulFieldName}"
@@ -168,14 +170,14 @@ const createTextArea = content => {
     >${inputValue}</textarea>
     <div class="textarea-message"></div>
     <div class="instructions">
-      ${instructions}
+      ${renderInstructions(instructions)}
     </div>
   `;
 };
 
 const createExplanationTextArea = content => {
   const { hash: { formValues, hide } } = content;
-  const { instructions } = formValues || '';
+  const { instructions } = formValues;
   const inputValue = content.hash.inputValue || '';
   let isHidden;
   if (hide === undefined || hide === true) {
@@ -193,13 +195,13 @@ const createExplanationTextArea = content => {
     formValues.contentfulFieldName
   }" placeholder="${formValues.formPlaceholder}">${inputValue}</textarea>
       <div class="textarea-message"></div>
-        ${instructions}
+        ${renderInstructions(instructions)}
       </div>
     </div>
 `;
 };
 
-const generateUrlCitationFields = (fieldName, placeholder, count = 1, addedCitations) => {
+const generateUrlCitationFields = (fieldName, placeholder, count, addedCitations = []) => {
   const citationInputs = `
     <div data-template-value="url-inputs" class="form-field-wrapper row">
       <div class="columns small-1"><i class="js-remove-field material-icons">remove_circle</i></div>
@@ -211,7 +213,7 @@ const generateUrlCitationFields = (fieldName, placeholder, count = 1, addedCitat
         class="url_create url_title"
         name="${fieldName}[${count}]"
         placeholder="Enter citation title"
-        ${addedCitations ? `value=${addedCitations[count][0]}` : `value=""`}
+        ${addedCitations.length > 0 ? `value="${addedCitations[count][0]}"` : `value=""`}
         />
       </div>
       <div class="columns small-offset-1 small-11 large-5 medium-5">
@@ -222,19 +224,20 @@ const generateUrlCitationFields = (fieldName, placeholder, count = 1, addedCitat
         class="url_create url_address"
         name="${fieldName}[${count}]"
         placeholder="${placeholder}"
-        ${addedCitations ? `value=${addedCitations[count][1]}` : `value=""`}
+        ${addedCitations.length > 0 ? `value="${addedCitations[count][1]}"` : `value=""`}
         />
         <div class="instructions">Include the protocol to your URL (e.g. http:// or https://)</div>
       </div>
       <div class="columns large-offset-1 citation-error"></div>
     </div>
   `;
+
   return citationInputs;
 };
 
 const createUrlInputs = content => {
   const { hash: { formValues, citationValues } } = content;
-  const { instructions } = formValues || '';
+  const { instructions } = formValues;
   let urlFields = '';
   if (citationValues.length === 0) {
     urlFields = generateUrlCitationFields(formValues.contentfulFieldName, formValues.formPlaceholder, 1);
@@ -259,11 +262,10 @@ const createUrlInputs = content => {
 const getCitationValues = project => {
   const citationElements = [];
   if (project) {
-    Object.keys(project).forEach(key => {
-      if (citationsKeyRegex.test(key)) {
-        citationElements.push(project[key]);
-      }
-    });
+    const citations = Object.keys(project).filter(key => citationsKeyRegex.test(key));
+    citations.forEach(citation => citationElements.push(project[citation]));
+  } else {
+    return '';
   }
   return citationElements;
 };
@@ -272,19 +274,16 @@ const getCheckedTypes = project => {
   if (project && project.additionalType) {
     return project.additionalType;
   }
+  return '';
 };
 
-const markdownify = str => {
-  if (str) {
-    return md(str);
-  }
-};
+const markdownify = str => (str ? md(str) : '');
 
 const createCertificationMarkTerms = content => {
   const { hash: { formValues, checkedOptions } } = content;
-  const { instructions } = formValues || '';
+  const certificationMarkTerms = formValues.terms;
+  const { instructions } = formValues;
   let allCheckboxes = '';
-
   Object.keys(certificationMarkTerms).map(option => {
     allCheckboxes += `<div class="columns small-12 checkbox">
       <input
@@ -295,7 +294,6 @@ const createCertificationMarkTerms = content => {
       <label for="${option}">${certificationMarkTerms[option].term}</label>
     </div>`;
   });
-
   return `
     <div class="row">
       <fieldset>
@@ -309,7 +307,10 @@ const createCertificationMarkTerms = content => {
 };
 
 const toLowerCase = str => {
-  return str.toLowerCase();
+  if (str) {
+    return str.toLowerCase();
+  }
+  return '';
 };
 
 module.exports = {
@@ -324,8 +325,10 @@ module.exports = {
   createExplanationTextArea,
   createTextArea,
   createUrlInputs,
+  generateUrlCitationFields,
   getCitationValues,
   getCheckedTypes,
   toLowerCase,
-  markdownify
+  markdownify,
+  renderInstructions
 };

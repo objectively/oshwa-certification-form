@@ -1,98 +1,105 @@
-const contentfulDelivery = require('contentful');
-const contentfulManagement = require('contentful-management');
+const reCAPTCHA = require('recaptcha2');
+const { validationResult } = require('express-validator/check');
 
-const contentfulDeliveryApiKey = process.env.OSHWA_CONTENTFUL_DELIVERY_KEY;
+const {
+  getFormOptions,
+  getFormValuesFromContentful,
+  getIndexFromContentful,
+  submitFormToContentful
+} = require('../services/contentful');
 
-const spaceID = process.env.OSHWA_CONTENTFUL_SPACE_ID;
-const environmentID = process.env.OSHWA_CONTENTFUL_ENVIRONMENT_ID;
-const contentModelType = 'project';
+const Project = require('../models/project');
 
-const contentfulClient = contentfulManagement.createClient({
-  accessToken: process.env.OSHWA_CONTENTFUL_MANAGEMENT_KEY
+const { markdownify } = require('../helpers/handlebars');
+
+// set up recaptcha2
+/*  eslint-disable-next-line */
+const recaptcha = new reCAPTCHA({
+  siteKey: process.env.RECAPTCHA_SITEKEY,
+  secretKey: process.env.RECAPTCHA_SECRET
 });
 
-const contentfulDeliveryClient = contentfulDelivery.createClient({
-  space: spaceID,
-  accessToken: contentfulDeliveryApiKey,
-  environment: process.env.OSHWA_CONTENTFUL_ENVIRONMENT_ID
-});
-
-const getValidationDropdownItems = (contentType, id) =>
-  contentType.fields.filter(item => item.id === id)[0].validations[0].in;
-const getValidationCheckboxItems = (contentType, id) =>
-  contentType.fields.filter(item => item.id === id)[0].items.validations[0].in;
-
-const getProjectsList = () =>
-  contentfulDeliveryClient
-    .getEntries({
-      content_type: 'project',
-      select: ['fields.oshwaUid', 'fields.responsibleParty', 'fields.projectName']
+/* istanbul ignore next */
+const getApplyPage = (req, res, next) => {
+  getFormValuesFromContentful()
+    .then(contentfulValues => {
+      const formOptions = getFormOptions(contentfulValues);
+      res.render('apply', formOptions);
     })
-    .then(response => response.items)
-    .catch(console.error);
+    .catch(next);
+};
 
-const getIndexFromContentful = () =>
-  contentfulDeliveryClient
-    .getEntries({
-      content_type: 'certificationPage'
-    })
-    .then(response => response.items)
-    .catch(console.error);
+/* istanbul ignore next */
+const getConfirmationPage = (req, res) => {
+  res.render('confirmation', { title: 'Confirmation', message: 'Your application has been received.' });
+};
 
-const getExamplesFromLearningModules = () =>
-  contentfulDeliveryClient
-    .getEntries({ content_type: 'learningModule', select: ['fields.moduleTitle', 'fields.examples'], include: 2 })
-    .then(response => {
-      const examples = {};
-      const softwareExamples = response.items.filter(item => item.fields.moduleTitle === 'Software');
-      examples.softwareExamples = softwareExamples[0].fields.examples;
-      const hardwareExamples = response.items.filter(item => item.fields.moduleTitle === 'Hardware');
-      examples.hardwareExamples = hardwareExamples[0].fields.examples;
-      const documentationExamples = response.items.filter(item => item.fields.moduleTitle === 'Documentation');
-      examples.documentationExamples = documentationExamples[0].fields.examples;
-      return examples;
-    })
-    .catch(console.error);
+const getLandingPage = (req, res) => {
+  getIndexFromContentful().then(indexContent => {
+    const { pageTitle, headerCopy, descriptionHeader, description } = indexContent[0].fields;
+    res.render('index', {
+      pageTitle,
+      headerCopy,
+      descriptionHeader,
+      description,
+      helpers: {
+        markdownify
+      }
+    });
+  });
+};
 
-const getValidations = () =>
-  contentfulClient
-    .getSpace(spaceID)
-    .then(space => space.getEnvironment(environmentID))
-    .then(environment =>
-      environment.getContentType(contentModelType).then(contentType => {
-        const countryOptions = getValidationDropdownItems(contentType, 'country');
-        const responsiblePartyTypeOptions = getValidationDropdownItems(contentType, 'responsiblePartyType');
-        const primaryProjectTypes = getValidationDropdownItems(contentType, 'primaryType');
-        const additionalProjectTypes = getValidationCheckboxItems(contentType, 'additionalType');
-        const hardwareLicenses = getValidationDropdownItems(contentType, 'hardwareLicense');
-        const softwareLicenses = getValidationDropdownItems(contentType, 'softwareLicense');
-        const documentationLicenses = getValidationDropdownItems(contentType, 'documentationLicense');
-        return [
+/* POST /apply. */
+/* istanbul ignore next */
+const postApplyPage = (req, res, next) => {
+  const project = new Project(req.body);
+  // server side validations
+  const errors = validationResult(req);
+
+  if (!errors.isEmpty()) {
+    // if there are errors, rerender the form with errors
+    getFormValuesFromContentful()
+      .then(contentfulValues => {
+        const formOptions = getFormOptions(contentfulValues, errors.array(), project);
+        res.render('apply', formOptions);
+      })
+      .catch(next);
+  } else {
+    // form passes server side validations, check recaptcha server-side
+    recaptcha
+      .validateRequest(req)
+      .then(() => {
+        // validated and secure, submit the form to contentful
+        const fields = project.mapFieldsToContentful();
+        submitFormToContentful(fields)
+          .then(data => {
+            if (data.name === 'InvalidEntry') {
+              throw new Error('Invalid Entry');
+            } else {
+              res.redirect('/confirmation');
+            }
+          })
+          .catch(next);
+      })
+      .catch(() => {
+        // if recaptcha fails, create a recaptcha error and rerender the form with this error
+        const recaptchaError = [
           {
-            countryOptions,
-            responsiblePartyTypeOptions,
-            primaryProjectTypes,
-            additionalProjectTypes,
-            hardwareLicenses,
-            softwareLicenses,
-            documentationLicenses
+            location: 'body',
+            param: 'g-recaptcha-response',
+            value: undefined,
+            msg: 'Please verify you are not a robot.'
           }
         ];
-      })
-    )
-    .catch(console.error);
-
-const submitFormToContentful = fields =>
-  contentfulClient
-    .getSpace(spaceID)
-    .then(space => space.getEnvironment(environmentID))
-    .then(environment => environment.createEntry(contentModelType, { fields }))
-    .catch(console.error);
-
-module.exports = {
-  getValidations,
-  submitFormToContentful,
-  getIndexFromContentful,
-  getProjectsList,
-  getExamplesFromLearningModules
+        getFormValuesFromContentful()
+          .then(contentfulValues => {
+            // invalid, re-render form
+            const formOptions = getFormOptions(contentfulValues, recaptchaError);
+            res.render('apply', formOptions);
+          })
+          .catch(next);
+      });
+  }
 };
+
+module.exports = { getApplyPage, getConfirmationPage, getLandingPage, postApplyPage };
