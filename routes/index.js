@@ -28,7 +28,19 @@ const recaptcha = new reCAPTCHA({
 
 /* GET home page. */
 router.get('/', auth, (req, res) => {
-  res.render('index', { ...index });
+  projectController.getIndexFromContentful().then(indexContent => {
+    const { pageTitle, headerCopy, descriptionHeader, description } = indexContent[0].fields;
+    res.render('index', {
+      ...index,
+      pageTitle,
+      headerCopy,
+      descriptionHeader,
+      description,
+      helpers: {
+        markdownify: helpers.markdownify
+      }
+    });
+  });
 });
 
 /* GET /apply. */
