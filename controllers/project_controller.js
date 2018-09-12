@@ -31,6 +31,14 @@ const getProjectsList = () =>
     .then(response => response.items)
     .catch(console.error);
 
+const getIndexFromContentful = () =>
+  contentfulDeliveryClient
+    .getEntries({
+      content_type: 'certificationPage'
+    })
+    .then(response => response.items)
+    .catch(console.error);
+
 const getExamplesFromLearningModules = () =>
   contentfulDeliveryClient
     .getEntries({ content_type: 'learningModule', select: ['fields.moduleTitle', 'fields.examples'], include: 2 })
@@ -84,6 +92,7 @@ const submitFormToContentful = fields =>
 module.exports = {
   getValidations,
   submitFormToContentful,
+  getIndexFromContentful,
   getProjectsList,
   getExamplesFromLearningModules
 };
