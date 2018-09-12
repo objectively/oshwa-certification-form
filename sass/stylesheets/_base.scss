@@ -14,3 +14,10 @@ body {
   position: absolute !important;
   top: -9999px !important;
 }
+
+label > a {
+  text-decoration: underline;
+  &:hover {
+    text-decoration: none;
+  }
+}

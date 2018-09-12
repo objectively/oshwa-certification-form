@@ -68,7 +68,7 @@
       "formSection": "4",
       "formOrder": "48",
       "title":
-        "I agree to the terms of the OSHWA Open Source Hardware Certification Mark License Agreement, including the Requirements for Certification and Usage Guidelines incorporated by reference and including license terms that are not present in or conflict with this web form. I acknowledge that by agreeing to the terms of the OSHWA Open Source Hardware Certification Mark License Agreement that I am binding the entity listed to the License Agreement. I recognize that I will receive my unique indentification number that allows me to promote my project as OSHWA Open Source Hardware Certified in compliance with the <a href=\"https://github.com/oshwa/certification-mark\">user guidelines</a> via the email provided to OSHWA after submitting this form.",
+        "I agree to the terms of the <a href='http://certificate.oshwa.org/license-agreement/' target='_blank'>OSHWA Open Source Hardware Certification Mark License Agreement</a>, including the Requirements for Certification and Usage Guidelines incorporated by reference and including license terms that are not present in or conflict with this web form. I acknowledge that by agreeing to the terms of the OSHWA Open Source Hardware Certification Mark License Agreement that I am binding the entity listed to the License Agreement. I recognize that I will receive my unique identification number that allows me to promote my project as OSHWA Open Source Hardware Certified in compliance with the <a target='_blank' href=\"https://github.com/oshwa/certification-mark\">user guidelines</a> via the email provided to OSHWA after submitting this form.",
       "contentfulFieldName": "agreementTerms",
       "hidden": "",
       "formPlaceholder": "",
