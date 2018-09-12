@@ -155,7 +155,7 @@
       "title": "Project Keywords",
       "contentfulFieldName": "projectKeywords",
       "hidden": "",
-      "formPlaceholder": "If you would like your project to be searchable by specific keywords, add them here",
+      "formPlaceholder": "Separate keywords using commas",
       "type": "array",
       "fieldType": "string_array",
       "unique": "",
@@ -168,7 +168,7 @@
       "urlErrorMessage": "",
       "email": "",
       "emailErrorMessage": "",
-      "instructions": "Separate keywords using commas"
+      "instructions": "If you would like your project to be searchable by specific keywords, add them here"
     },
     "documentationUrl": {
       "formSection": "2",

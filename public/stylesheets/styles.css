@@ -38,6 +38,11 @@ body {
   position: absolute !important;
   top: -9999px !important; }
 
+label > a {
+  text-decoration: underline; }
+  label > a:hover {
+    text-decoration: none; }
+
 .top-bar {
   background-color: rgba(0, 0, 0, 0.1);
   position: relative;
