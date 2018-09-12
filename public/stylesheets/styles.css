@@ -697,3 +697,86 @@ label[id^='citations['] {
 
 .active-menu {
   display: block; }
+
+.footer__nav {
+  font-size: 0.85rem;
+  font-weight: 600; }
+  @media (min-width: 64em) {
+    .footer__nav {
+      padding-left: 3rem; } }
+  @media (max-width: 63.9375em) {
+    .footer__nav {
+      padding: 2rem; } }
+  @media (max-width: 39.9375em) {
+    .footer__nav {
+      padding-top: 3rem;
+      text-align: center; } }
+  .footer__nav a {
+    display: block;
+    padding-bottom: 0.2rem; }
+    .footer__nav a:hover {
+      color: white; }
+
+.footer__description p {
+  font-size: 0.95rem;
+  margin: 0; }
+  @media (max-width: 63.9375em) {
+    .footer__description p {
+      font-size: 0.9rem;
+      margin-bottom: 2rem; } }
+  @media (max-width: 39.9375em) {
+    .footer__description p {
+      margin-bottom: 0; } }
+
+@media (max-width: 63.9375em) {
+  .footer__description {
+    padding-top: 2rem; } }
+
+@media (max-width: 39.9375em) {
+  .footer__description {
+    padding-top: 0;
+    padding-bottom: 2rem; } }
+
+.footer__partners {
+  text-align: center;
+  margin: 0 auto; }
+  @media (min-width: 64em) {
+    .footer__partners {
+      width: 45%;
+      margin-bottom: 3rem; } }
+  @media (max-width: 63.9375em) {
+    .footer__partners {
+      width: 60%;
+      padding-top: 2rem;
+      margin-bottom: 2rem; } }
+  @media (max-width: 39.9375em) {
+    .footer__partners {
+      width: 50%;
+      margin-bottom: 2rem; } }
+  .footer__partners a img {
+    margin-bottom: 1rem;
+    opacity: 0.85;
+    border: dashed;
+    border-color: transparent; }
+    .footer__partners a img:hover {
+      opacity: 1; }
+
+.copyright {
+  padding: 0;
+  background-color: #4d4d4d; }
+  @media (min-width: 64em) {
+    .copyright .large-1 {
+      text-align: left;
+      padding-right: 0;
+      margin-left: 1.8rem; } }
+  .copyright img {
+    width: 6.5rem; }
+  .copyright p {
+    font-size: 0.8rem; }
+    @media (max-width: 63.9375em) {
+      .copyright p {
+        margin-bottom: 0; } }
+    .copyright p a {
+      text-decoration: none; }
+      .copyright p a:hover {
+        text-decoration: underline; }
