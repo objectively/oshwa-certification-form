@@ -77,9 +77,14 @@ body {
   .top-section .intro {
     z-index: 2; }
   .top-section--certify, .top-section--apply {
-    background: linear-gradient(rgba(146, 85, 191, 0.85), rgba(146, 85, 191, 0.85)), url("/images/patent-line-transpo.png") no-repeat right;
     background-color: #9255bf;
-    background-size: 50%;
+    background-image: url("/images/patent-line.png");
+    background-size: 40%;
+    background-position: 90% 0%;
+    background-repeat: no-repeat;
+    padding: 8rem 0 4rem 0;
+    color: #fff;
+    text-align: left;
     color: #fff;
     font-size: 0.9rem;
     font-weight: 500;
@@ -108,12 +113,13 @@ body {
       text-transform: uppercase; }
     .top-section--certify p, .top-section--apply p {
       padding-left: 10px; }
+    @media (max-width: 63.9375em) {
+      .top-section--certify, .top-section--apply {
+        background-size: 55%;
+        background-position: 100% 60%; } }
     @media (max-width: 39.9375em) {
       .top-section--certify, .top-section--apply {
         background-image: none; } }
-    @media (max-width: 63.9375em) {
-      .top-section--certify, .top-section--apply {
-        background-size: 70%; } }
     .top-section--certify .button, .top-section--apply .button {
       margin-left: 10px; }
       .top-section--certify .button--purple, .top-section--apply .button--purple {

@@ -20,7 +20,6 @@
   }
 
   &--apply {
-    // padding: 0 !important;
   }
   &--certify,
   &--apply {
@@ -53,17 +52,21 @@
       padding-left: 10px;
     }
 
-    background: linear-gradient(rgba($purple, 0.85), rgba($purple, 0.85)),
-      url('/images/patent-line-transpo.png') no-repeat right;
-
     background-color: $purple;
-    background-size: 50%;
+    background-image: url('/images/patent-line.png');
+    background-size: 40%;
+    background-position: 90% 0%;
+    background-repeat: no-repeat;
+    padding: 8rem 0 4rem 0;
+    color: #fff;
+    text-align: left;
 
+    @include breakpoint($medium-only) {
+      background-size: 55%;
+      background-position: 100% 60%;
+    }
     @include breakpoint($small-only) {
       background-image: none;
-    }
-    @include breakpoint($medium-only) {
-      background-size: 70%;
     }
 
     color: $white;
