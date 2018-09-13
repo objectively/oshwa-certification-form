@@ -7,7 +7,8 @@ const {
   referenceFields
 } = require('./form_parsers');
 
-const certificationMarkTerms = require('../config/form_fields/certification_mark_terms');
+const certificationMarkTerms = require('../config/form_fields/section-4-questions.json').field.certificationMarkTerms
+  .terms;
 
 const citationsKeyRegex = /^citations\[\d+\]$/;
 

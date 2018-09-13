@@ -1,5 +1,5 @@
 const basicAuth = require('basic-auth');
-
+/* istanbul ignore next */
 const auth = function(req, res, next) {
   function unauthorized(res) {
     res.set('WWW-Authenticate', 'Basic realm=Authorization Required');
