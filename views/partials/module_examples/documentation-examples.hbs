@@ -1,11 +1,13 @@
-<div id="documentation-examples" class="row expanded module-examples">
-  <div class="page-content-wrapper">
+<div class="modals-wrapper">
+  <div id="documentation-examples" class="row expanded module-examples">
     <div class="column small-12 large-12 modals-container">
       <h3>Examples of Documentation Licensing</h3><span class="open-example-control" data-target="documentationExamples"><i class="material-icons">arrow_drop_down_circle</span>
     </div>
-    <div class="row hide" data-modal-value="documentationExamples">
+    <div class="column large-12">
+      <div class="row hide" data-modal-value="documentationExamples">
       {{#each learningModuleExamples.documentationExamples}}
         <div class="columns large-3 medium-6 small-12 modal-container js-open-modal">
+
           <span class="modal-container__title">{{this.fields.projectOwner}} {{this.fields.projectName}}</span>
           <div class="modal-container__tags">
             {{#each this.fields.projectTypes}}
@@ -23,6 +25,7 @@
               <i class="modal__close material-icons js-close-modal">close</i>
             </div>
             <div class="modal__content">
+              <h3>{{this.fields.projectOwner}} {{this.fields.projectName}}</h3>
               <p class="license-header">Documentation License:</p>
               <p class="license-name">{{this.fields.documentationLicense.fields.licenseName}}</p>
               <p class="license-why">Why this license?</p>
@@ -35,9 +38,9 @@
             </div>
           </div>
           {{!-- end modal body --}}
-
         </div>
       {{/each}}
+      </div>
     </div>
   </div>
 </div>

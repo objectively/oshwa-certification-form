@@ -38,3 +38,7 @@ $error: #cc0000;
 @import 'messages';
 @import 'menu';
 @import 'footer';
+
+.hidden {
+  display: none;
+}
