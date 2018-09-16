@@ -1,42 +1,46 @@
+<div class="modals-wrapper">
+  <div id="software-examples" class="row expanded module-examples">
+    <div class="column small-12 large-12 modals-container">
+      <h3>Examples of Software Licensing</h3><span class="open-example-control" data-target="softwareExamples"><i class="material-icons">arrow_drop_down_circle</span>
+    </div>
+    <div class="column large-12">
+      <div class="row hide" data-modal-value="softwareExamples">
+      {{#each learningModuleExamples.softwareExamples}}
+        <div class="columns large-3 medium-6 small-12 modal-container js-open-modal">
 
-      <div id="software-examples" class="row expanded module-examples">
-        <div class="page-content-wrapper">
-          <div class="column small-12 large-12 modals-container">
-            <h3>Examples of Software Licensing</h3><span class="open-example-control" data-target="softwareExamples"><i class="material-icons">arrow_drop_down_circle</span>
-          </div>
-          <div class="row hide" data-modal-value="softwareExamples">
-            {{#each learningModuleExamples.softwareExamples}}
-              <div class="columns large-3 medium-6 small-12 modal-container js-open-modal">
-                <span class="modal-container__title">{{this.fields.projectOwner}} {{this.fields.projectName}}</span>
-                <div class="modal-container__tags">
-                  {{#each this.fields.projectTypes}}
-                    <span class="tag">{{this}}</span>
-                  {{/each}}
-                </div>
-                <div class="modal-container__meta">
-                  <span class="license-header">License</span>
-                  <span class="license-name">{{this.fields.softwareLicense.fields.licenseName}}</span>
-                </div>
-                <span class="learn-why">Learn why</span>
-                {{!-- modal body --}}
-                <div class="modal js-target-modal">
-                  <div class="modal__header modal--top-section">
-                    <i class="modal__close material-icons js-close-modal">close</i>
-                  </div>
-                  <div class="modal__content">
-                    <p class="license-header">Software License:</p>
-                    <p class="license-name">{{this.fields.softwareLicense.fields.licenseName}}</p>
-                    <p class="license-why">Why this license?</p>
-                    {{{markdownify this.fields.softwareLicenseExplanation}}}
-                    <div class="button-container">
-                      <a target="_blank" href="https://objectively.is/oshwa/exemplar/{{toLowerCase this.fields.projectUid }}.html" class="learn-more">Learn more about this project's licensing</a>
-                    </div>
-                  </div>
-                </div>
-                {{!-- end modal body --}}
-
-              </div>
+          <span class="modal-container__title">{{this.fields.projectOwner}} {{this.fields.projectName}}</span>
+          <div class="modal-container__tags">
+            {{#each this.fields.projectTypes}}
+              <span class="tag">{{this}}</span>
             {{/each}}
           </div>
+          <div class="modal-container__meta">
+            <span class="license-header">License</span>
+            <span class="license-name">{{this.fields.softwareLicense.fields.licenseName}}</span>
+          </div>
+          <span class="learn-why">Learn why</span>
+          {{!-- modal body --}}
+          <div class="modal js-target-modal">
+            <div class="modal__header modal--top-section">
+              <i class="modal__close material-icons js-close-modal">close</i>
+            </div>
+            <div class="modal__content">
+              <h3>{{this.fields.projectOwner}} {{this.fields.projectName}}</h3>
+              <p class="license-header">Software License:</p>
+              <p class="license-name">{{this.fields.softwareLicense.fields.licenseName}}</p>
+              <p class="license-why">Why this license?</p>
+              {{{markdownify this.fields.softwareLicenseExplanation}}}
+              <div class="button-container">
+
+                <a target="_blank" href="https://objectively.is/oshwa/exemplar/{{toLowerCase this.fields.projectUid }}.html" class="learn-more">Learn more about this project's licensing</a>
+
+              </div>
+            </div>
+          </div>
+          {{!-- end modal body --}}
         </div>
+      {{/each}}
       </div>
+    </div>
+  </div>
+</div>

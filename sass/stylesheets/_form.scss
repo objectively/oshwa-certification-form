@@ -40,9 +40,11 @@ form {
     margin-bottom: 0;
   }
   .checkbox {
-    display: block;
+    display: initial;
     margin-bottom: 0;
-    padding: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+
     label {
       font-size: 1rem;
       margin: 0;
@@ -54,10 +56,6 @@ form {
 
 .additional-project-types {
   .checkbox {
-    padding-left: 4rem;
-    @include breakpoint($small-only) {
-      padding-left: 2rem;
-    }
     label {
       display: block;
       font-size: 1rem;
@@ -68,18 +66,32 @@ form {
   }
 }
 .certificate-mark {
+  margin-left: 1rem;
+  margin-right: 1rem;
   .checkbox {
-    padding-left: 4rem;
-    @include breakpoint($small-only) {
-      padding-left: 2rem;
-    }
     label {
       display: block;
+      padding-left: 3rem;
       font-size: 1rem;
-      margin: 0;
-      padding: 0 0 0 20px;
-      text-indent: -20px;
     }
+  }
+}
+
+fieldset {
+  padding: inherit;
+}
+legend {
+  border: 0;
+}
+
+#agreementTerms-error {
+  padding: 0 1rem;
+}
+
+.address-row {
+  .column,
+  .columns {
+    margin-bottom: 2rem;
   }
 }
 
@@ -154,13 +166,7 @@ form {
 
 .single-checkbox-field {
   .checkbox {
-    display: inline-block;
-    label {
-      font-size: 1rem;
-      margin: 0;
-      padding: 0 0 0 20px;
-      text-indent: -20px;
-    }
+    padding: 0;
   }
 }
 
@@ -176,7 +182,4 @@ form {
   font-size: 0.9rem;
 }
 
-.single_checkbox_label {
-  font-weight: 500;
-  font-size: 1rem !important;
-}
+

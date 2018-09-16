@@ -83,7 +83,8 @@ const getValidations = () =>
 const getLearningModulesFromContentful = () =>
   contentfulDeliveryClient.getEntries({
     content_type: 'learningModule',
-    select: ['fields.moduleTitle', 'fields.examples']
+    select: ['fields.moduleTitle', 'fields.examples'],
+    include: 2
   });
 
 const getExamplesFromData = contentfulData => {

@@ -60,7 +60,7 @@ const createCheckboxes = content => {
   let allCheckboxes = '';
   projectTypes.forEach(option => {
     allCheckboxes += `
-        <div class="columns large-3 medium-4 small-6 checkbox">
+        <div class="columns large-3 medium-4 small-12 checkbox">
           <input
             type="checkbox" id="${option}" name="${formValues.contentfulFieldName}" value="${option}"
             ${checkedTypes && checkedTypes.indexOf(option) !== -1 ? `checked=checked` : ``}
@@ -72,7 +72,7 @@ const createCheckboxes = content => {
   return `
 
       <fieldset>
-        <legend>${renderInstructions(instructions)}</legend>
+        <legend class="instructions">${renderInstructions(instructions)}</legend>
         <div class="row">
           ${allCheckboxes}
         </div>

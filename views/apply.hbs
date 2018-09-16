@@ -3,7 +3,7 @@
   <section class="top-section top-section--apply">
     <div class="img-overlay"></div>
     <div class="row">
-      <div class="column large-5 medium-5 intro">
+      <div class="column large-5 medium-8 intro">
         <h1>{{title}}</h1>
       </div>
     </div>
@@ -15,6 +15,7 @@
       {{#if errors}}
         {{> errors errors=errors}}
       {{/if}}
+
         <form autocomplete="off" method="POST" action="/apply">
         {{> form_sections/section_one sectionOne=sectionOne project=project}}
         {{> form_sections/section_two sectionTwo=sectionTwo project=project}}

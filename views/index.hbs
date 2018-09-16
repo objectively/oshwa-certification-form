@@ -3,7 +3,7 @@
   <section class="top-section top-section--certify">
     <div class="img-overlay"></div>
     <div class="row">
-      <div class="column large-5 medium-5 intro markdown">
+      <div class="column large-5 medium-8 intro markdown">
         <h1>{{ pageTitle }}</h1>
         {{{ markdownify headerCopy}}}
       </div>
@@ -13,14 +13,18 @@
   <section class="page-section">
     <div class="row expanded">
       <div class="column large-12">
-        <h2>{{ descriptionHeader }}</h2>
-      <div class="row align-right markdown">
-        {{{ markdownify description}}}
+        <h2>{{descriptionHeader}}</h2>
       </div>
+    </div>
+    <div class="row expanded">
+      <div class="column large-12">
+        {{{markdownify description}}}
+      </div>
+    </div>
+    <div class="row expanded">
       <div class="columns button-container">
         <a class="button button--purple" href="/apply">Get Started</a>
       </div>
     </div>
   </section>
-
 </main>
