@@ -112,6 +112,8 @@ const validateProjectFields = [
     .trim()
     .escape(),
   check('projectName')
+    .isLength({ min: 1 })
+    .withMessage('Project name is required')
     .isLength({ max: 256 })
     .withMessage('Maximum length is 256 characters')
     .trim()
