@@ -617,7 +617,7 @@ label[id^='citations['] {
 .citation-error {
   display: block;
   width: 100%;
-  padding: 0; }
+  padding: 0 1rem; }
 
 .error-messages {
   border-left: 0.5rem #cc0000 solid;

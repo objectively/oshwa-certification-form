@@ -2,6 +2,7 @@ const dotenv = require('dotenv');
 const express = require('express');
 const expressValidator = require('express-validator');
 const exphbs = require('express-handlebars');
+const babelify = require('babelify');
 const sassMiddleware = require('node-sass-middleware');
 const browserify = require('browserify-middleware');
 const helmet = require('helmet');
@@ -37,7 +38,11 @@ app.use(
   })
 );
 
-// browserify
+// browserify and babelify
+browserify.settings({
+  transform: [[babelify, { presets: ['@babel/preset-env'] }]]
+});
+
 app.get('/javascripts/bundle.js', browserify('./client/script.js'));
 
 // security
