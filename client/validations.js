@@ -50,7 +50,7 @@ const Validations = {
           required: false,
           email: true
         },
-        projectName: {},
+        projectName: { required: true },
         projectVersion: {},
         previousVersions: {},
         projectDescription: {},
@@ -185,7 +185,7 @@ const Validations = {
         postalCode: {},
         privateContact: {},
         publicContact: {},
-        projectName: {},
+        projectName: { required: 'Please add a project name' },
         projectVersion: {},
         previousVersions: {},
         projectDescription: {},
