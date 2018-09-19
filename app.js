@@ -1,6 +1,5 @@
 const dotenv = require('dotenv');
 const express = require('express');
-const expressValidator = require('express-validator');
 const exphbs = require('express-handlebars');
 const babelify = require('babelify');
 const sassMiddleware = require('node-sass-middleware');

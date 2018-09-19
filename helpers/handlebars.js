@@ -1,12 +1,12 @@
 const md = require('marked');
 const { citationsKeyRegex } = require('./form_helpers');
 
-const renderInstructions = instructions => {
-  return `${instructions ? `${instructions}` : ``}`;
-};
+const renderInstructions = instructions => `${instructions ? `${instructions}` : ``}`;
 
 const createBooleanDropdown = content => {
-  const { hash: { formValues, selection } } = content;
+  const {
+    hash: { formValues, selection }
+  } = content;
   const { instructions } = formValues;
   let renderedOptions;
   if (selection === undefined || selection === 'true') {
@@ -35,7 +35,9 @@ const createBooleanDropdown = content => {
 };
 
 const createCheckbox = content => {
-  const { hash: { formValues, checked } } = content;
+  const {
+    hash: { formValues, checked }
+  } = content;
   const { instructions } = formValues;
   const isChecked = checked || false;
   return `
@@ -55,7 +57,9 @@ const createCheckbox = content => {
 };
 
 const createCheckboxes = content => {
-  const { hash: { formValues, projectTypes, checkedTypes } } = content;
+  const {
+    hash: { formValues, projectTypes, checkedTypes }
+  } = content;
   const { instructions } = formValues;
   let allCheckboxes = '';
   projectTypes.forEach(option => {
@@ -82,13 +86,15 @@ const createCheckboxes = content => {
 };
 
 const createDropdownSelect = content => {
-  const { hash: { formValues, options, selection } } = content;
+  const {
+    hash: { formValues, options, selection }
+  } = content;
   const { instructions } = formValues;
 
   let allOptions = '';
   options.forEach(option => {
     allOptions += `
-    <option value="${option}" ${option == selection ? `selected` : ``}>${option}</option>
+    <option value="${option}" ${option === selection ? `selected` : ``}>${option}</option>
     `;
   });
   return `
@@ -105,7 +111,9 @@ const createDropdownSelect = content => {
 };
 
 const createPreviousVersionsDropdown = content => {
-  const { hash: { formValues, projectsList, selectedProjects } } = content;
+  const {
+    hash: { formValues, projectsList, selectedProjects }
+  } = content;
   const { instructions } = formValues;
 
   let allProjects = '';
@@ -134,7 +142,9 @@ const createPreviousVersionsDropdown = content => {
 };
 
 const createInput = content => {
-  const { hash: { formValues } } = content;
+  const {
+    hash: { formValues }
+  } = content;
   const inputValue = content.hash.inputValue || '';
   const { instructions } = formValues;
   return `
@@ -151,14 +161,18 @@ const createInput = content => {
 };
 
 const createLabel = content => {
-  const { hash: { formValues } } = content;
+  const {
+    hash: { formValues }
+  } = content;
   return `
   <label for="${formValues.contentfulFieldName}">${formValues.title}</label>
 `;
 };
 
 const createTextArea = content => {
-  const { hash: { formValues, hide } } = content;
+  const {
+    hash: { formValues }
+  } = content;
   const inputValue = content.hash.inputValue || '';
   const { instructions } = formValues;
 
@@ -176,7 +190,9 @@ const createTextArea = content => {
 };
 
 const createExplanationTextArea = content => {
-  const { hash: { formValues, hide } } = content;
+  const {
+    hash: { formValues, hide }
+  } = content;
   const { instructions } = formValues;
   const inputValue = content.hash.inputValue || '';
   let isHidden;
@@ -236,13 +252,14 @@ const generateUrlCitationFields = (fieldName, placeholder, count, addedCitations
 };
 
 const createUrlInputs = content => {
-  const { hash: { formValues, citationValues } } = content;
-  const { instructions } = formValues;
+  const {
+    hash: { formValues, citationValues }
+  } = content;
   let urlFields = '';
   if (citationValues.length === 0) {
     urlFields = generateUrlCitationFields(formValues.contentfulFieldName, formValues.formPlaceholder, 1);
   } else {
-    for (let i = 0; i < citationValues.length; i++) {
+    for (let i = 0; i < citationValues.length; i += 1) {
       urlFields += generateUrlCitationFields(
         formValues.contentfulFieldName,
         formValues.formPlaceholder,
@@ -280,11 +297,12 @@ const getCheckedTypes = project => {
 const markdownify = str => (str ? md(str) : '');
 
 const createCertificationMarkTerms = content => {
-  const { hash: { formValues, checkedOptions } } = content;
+  const {
+    hash: { formValues, checkedOptions }
+  } = content;
   const certificationMarkTerms = formValues.terms;
-  const { instructions } = formValues;
   let allCheckboxes = '';
-  Object.keys(certificationMarkTerms).map(option => {
+  Object.keys(certificationMarkTerms).forEach(option => {
     allCheckboxes += `<div class="columns small-12 checkbox">
       <input
         type="checkbox" id="${option}" name="${formValues.contentfulFieldName}" value="${option}" ${
