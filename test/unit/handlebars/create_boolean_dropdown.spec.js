@@ -15,7 +15,7 @@ describe('Handlebars Helpers', () => {
       content.hash.selection = selection;
       const expectedRender = `
         <div class="select">
-          <select id="LoremIpsum." type="text" name="LoremIpsum." data-target="LoremIpsum.">
+          <select id="LoremIpsum" type="text" name="LoremIpsum" data-target="LoremIpsum">
           <option value="true" selected="selected">Yes</option>
           <option value="false">No</option>
           </select>
@@ -31,7 +31,7 @@ describe('Handlebars Helpers', () => {
       content.hash.selection = selection;
       const expectedRender = `
         <div class="select">
-          <select id="LoremIpsum." type="text" name="LoremIpsum." data-target="LoremIpsum.">
+          <select id="LoremIpsum" type="text" name="LoremIpsum" data-target="LoremIpsum">
           <option value="true" selected="selected">Yes</option>
           <option value="false">No</option>
           </select>
@@ -49,7 +49,7 @@ describe('Handlebars Helpers', () => {
 
       const expectedRender = `
         <div class="select">
-          <select id="LoremIpsum." type="text" name="LoremIpsum." data-target="LoremIpsum.">
+          <select id="LoremIpsum" type="text" name="LoremIpsum" data-target="LoremIpsum">
           <option value="true">Yes</option>
           <option value="false" selected="selected">No</option>
           </select>
