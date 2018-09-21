@@ -1,4 +1,13 @@
 #certify,
+#confirmation {
+  .page-section {
+    @include breakpoint($large) {
+      padding-left: 50px;
+      padding-right: 50px;
+    }
+  }
+}
+#certify,
 #apply {
   .page-content-wrapper {
   }
@@ -43,6 +52,9 @@
         font-size: 1.3rem;
       }
       text-transform: uppercase;
+    }
+    .confirmation--button {
+      text-align: center;
     }
     .button-container {
       text-align: right;

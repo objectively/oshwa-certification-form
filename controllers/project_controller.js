@@ -12,6 +12,7 @@ const Project = require('../models/project');
 
 const { markdownify } = require('../helpers/handlebars');
 
+const siteCopy = require('../config/site_metadata');
 // set up recaptcha2
 /*  eslint-disable-next-line */
 const recaptcha = new reCAPTCHA({
@@ -31,7 +32,11 @@ const getApplyPage = (req, res, next) => {
 
 /* istanbul ignore next */
 const getConfirmationPage = (req, res) => {
-  res.render('confirmation', { title: 'Confirmation', message: 'Your application has been received.' });
+  res.render('confirmation', {
+    title: siteCopy.confirmation.title,
+    message: siteCopy.confirmation.mainCopy,
+    markdownify
+  });
 };
 
 const getLandingPage = (req, res) => {

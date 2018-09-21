@@ -196,6 +196,12 @@ label > a {
       #index .page-section--projects .button-container .button:hover {
         background-color: #343434; }
 
+@media (min-width: 64em) {
+  #certify .page-section,
+  #confirmation .page-section {
+    padding-left: 50px;
+    padding-right: 50px; } }
+
 #certify .page-section,
 #apply .page-section {
   padding-top: 0;
@@ -240,6 +246,9 @@ label > a {
         display: block;
         float: none;
         font-size: 1.3rem; } }
+  #certify .page-section .confirmation--button,
+  #apply .page-section .confirmation--button {
+    text-align: center; }
   #certify .page-section .button-container,
   #apply .page-section .button-container {
     text-align: right; }
@@ -405,7 +414,6 @@ label > a {
   padding: 1rem 0; }
 
 form {
-  font-weight: 500;
   font-size: 1rem; }
   form textarea {
     min-height: 9rem; }
