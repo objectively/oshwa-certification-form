@@ -36,6 +36,7 @@ const getProjectsList = () =>
   contentfulDeliveryClient
     .getEntries({
       content_type: 'project',
+      limit: 1000,
       select: ['fields.oshwaUid', 'fields.responsibleParty', 'fields.projectName']
     })
     .then(response => response.items)
