@@ -1,4 +1,10 @@
 .footer {
+  @include breakpoint($large) {
+    padding-top: 3.5rem;
+  }
+  @include breakpoint($medium-only) {
+    padding-top: 1rem;
+  }
   &__nav {
     font-size: 0.85rem;
     font-weight: 600;
@@ -7,6 +13,7 @@
     }
     @include breakpoint($medium-only) {
       padding: 2rem;
+      text-align: center;
     }
     @include breakpoint($small-only) {
       padding-top: 3rem;
@@ -20,8 +27,12 @@
       }
     }
   }
-
-  &__description {
+  &__logo {
+    img {
+      margin: 0 auto;
+      max-width: 20rem;
+    }
+    text-align: center;
     p {
       font-size: 0.95rem;
       margin: 0;
@@ -31,6 +42,9 @@
       }
       @include breakpoint($small-only) {
         margin-bottom: 0;
+        border: red solid 1px;
+        > a {
+        }
       }
     }
     @include breakpoint($medium-only) {
@@ -38,23 +52,27 @@
     }
     @include breakpoint($small-only) {
       padding-top: 0;
-      padding-bottom: 2rem;
+      padding-bottom: 1rem;
     }
   }
   &__partners {
-    text-align: center;
+    // text-align: center;
+    text-align: left;
     margin: 0 auto;
-    @include breakpoint($large) {
-      width: 45%;
-      margin-bottom: 3rem;
-    }
+    max-width: 14rem;
+    // @include breakpoint($large) {
+    //   width: 45%;
+    //   margin-bottom: 3rem;
+    // }
     @include breakpoint($medium-only) {
-      width: 60%;
-      padding-top: 2rem;
-      margin-bottom: 2rem;
+      // width: 50%;
+      // padding-top: 2rem;
+      // margin-bottom: 2rem;
+      text-align: center;
     }
     @include breakpoint($small-only) {
-      width: 50%;
+      text-align: center;
+      max-width: 14rem;
       margin-bottom: 2rem;
     }
     a {
@@ -72,7 +90,6 @@
 }
 
 .copyright {
-  padding: 0;
   background-color: $gray;
   .large-1 {
     @include breakpoint($large) {
