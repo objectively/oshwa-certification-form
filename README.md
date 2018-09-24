@@ -33,22 +33,26 @@ public/stylesheets
 bundles everything into a single bundle.js file. It is linked in the layout: `<script
 src='/javascripts/bundle.js'></script>`. Add modules to the **client** folder and require them in **script.js**.
 
+### Contentful
+This project uses Contentful's [Content Delivery API SDK](https://github.com/contentful/contentful.js) and [Content Management API] SDK(https://github.com/contentful/contentful-management.js) to retrieve and manage data.
+
 ### Testing
 
 #### Unit tests
 
-Test use [Mocha](https://mochajs.org/) as the test framework and [Chai](http://www.chaijs.com/) as the assertions
-library. [JSDOM](https://github.com/jsdom/jsdom) sets up a browser environment for our tests. All tests are can be found
-in the **spec** folder. Run tests with `npm test`.
+Tests use [Mocha](https://mochajs.org/) as the test framework, [Chai](http://www.chaijs.com/) as the assertions
+library, and [Istanbul](https://istanbul.js.org/) to check test coverage. [JSDOM](https://github.com/jsdom/jsdom) sets up a browser environment for our tests. All tests are can be found in the **test** folder. Run tests with `npm test`. You can watch tests with `npm run test -- --watch`.
 
 #### ESLint and Prettier
 
-Run `npm run lint` to lint javascript with [ESLint](https://eslint.org/). Run `npm run prettier` to auto format client
-side javascript.
+- `npm run lint` to lints client side javascript with [ESLint](https://eslint.org/). 
+- ` npm run lint-server` lints server side javascript.
+- `npm run prettier` to auto formats client side javascript.
+
 
 ### Environment Variables
 
-[Dotenv](https://www.npmjs.com/package/dotenv) will load environment variables from a .env file into process.env.
+[Dotenv](https://www.npmjs.com/package/dotenv) will load environment variables from a .env file into process.env. Make sure you add your .env file to .gitignore.
 
 ### Deployment
 
