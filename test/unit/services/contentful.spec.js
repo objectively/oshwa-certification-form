@@ -6,9 +6,23 @@ const sinon = require('sinon');
 
 const { expect } = require('chai');
 
-const { getFormOptions } = require('../../../services/contentful');
+const {
+  // getFormValuesFromContentful,
+  getFormOptions,
+  getExamplesFromData
+  // getExamplesFromLearningModules,
+  // getIndexFromContentful,
+  // getLearningModulesFromContentful,
+  // getProjectsList,
+  // getValidationDropdownItems,
+  // getValidationCheckboxItems,
+  // getValidationsFromContentful,
+  // getValidations,
+  // submitFormToContentful
+} = require('../../../services/contentful');
 
 const contentfulValues = require('../../fixtures/services_contentful_values');
+const learningModules = require('../../fixtures/learning_modules');
 
 describe('Services: Contentful', () => {
   it('getFormOptions should return an object with a given error property and value', () => {
@@ -24,5 +38,14 @@ describe('Services: Contentful', () => {
     const formValues = getFormOptions(contentfulValues, error, project);
     expect(formValues.errors).to.equal(error);
     expect(formValues.project).to.equal(project);
+  });
+
+  it('getExamplesFromData pulls data from contentful learning module', () => {
+    const contentfulExamples = getExamplesFromData(learningModules);
+    expect(Object.keys(contentfulExamples)).to.deep.equal([
+      'softwareExamples',
+      'hardwareExamples',
+      'documentationExamples'
+    ]);
   });
 });

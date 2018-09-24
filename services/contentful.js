@@ -17,8 +17,6 @@ const contentfulDeliveryClient = contentfulDelivery.createClient({
   environment: process.env.OSHWA_CONTENTFUL_ENVIRONMENT_ID
 });
 
-// const projectController = require('../controllers/project_controller');
-
 const siteMetadata = require('../config/site_metadata');
 
 const helpers = require('../helpers/handlebars');
@@ -31,7 +29,7 @@ const sectionThree = require('../config/form_fields/section-3-questions.json');
 const sectionFour = require('../config/form_fields/section-4-questions.json');
 
 // Get Projects List
-
+/* istanbul ignore next */
 const getProjectsList = () =>
   contentfulDeliveryClient
     .getEntries({

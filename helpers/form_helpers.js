@@ -46,9 +46,8 @@ const returnBooleanFromCheckbox = value => !!value;
 const returnBooleanFromSelect = values => {
   if (values === 'false') {
     return false;
-  } else {
-    return true;
   }
+  return true;
 };
 
 const returnCertificationObjectFromCheckbox = values => {
