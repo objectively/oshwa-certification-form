@@ -10,9 +10,7 @@
 
           <span class="modal-container__title">{{this.fields.projectOwner}} {{this.fields.projectName}}</span>
           <div class="modal-container__tags">
-            {{#each this.fields.projectTypes}}
-              <span class="tag">{{this}}</span>
-            {{/each}}
+            <span class="tag">{{joinArrWithCommas this.fields.projectTypes}}</span>
           </div>
           <div class="modal-container__meta">
             <span class="license-header">License</span>
