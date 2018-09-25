@@ -62,13 +62,14 @@
       padding: 0;
     }
     &__tags {
+      padding: 0.5rem 0;
       .tag {
-        background-color: $purple;
-        color: $white;
-        font-size: 0.7rem;
-        padding: 0.5rem 0.7rem;
-        margin: 0.1rem 0;
+        color: $gray;
         display: inline-block;
+        font-size: 0.7rem;
+        font-style: italic;
+        font-weight: 600;
+        margin-top: 5px;
       }
     }
     &__meta {

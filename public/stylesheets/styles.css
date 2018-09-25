@@ -328,13 +328,15 @@ label > a {
     font-size: 0.9rem;
     letter-spacing: 0;
     padding: 0; }
-  .page-section .modal-container__tags .tag {
-    background-color: #9255bf;
-    color: #fff;
-    font-size: 0.7rem;
-    padding: 0.5rem 0.7rem;
-    margin: 0.1rem 0;
-    display: inline-block; }
+  .page-section .modal-container__tags {
+    padding: 0.5rem 0; }
+    .page-section .modal-container__tags .tag {
+      color: #4d4d4d;
+      display: inline-block;
+      font-size: 0.7rem;
+      font-style: italic;
+      font-weight: 600;
+      margin-top: 5px; }
   .page-section .modal-container__meta .license-header {
     color: #9255bf;
     display: block;

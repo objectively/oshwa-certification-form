@@ -1,7 +1,7 @@
 const { expect } = require('chai');
 const helpers = require('../../../helpers/handlebars.js');
 
-const { toLowerCase, markdownify, getCheckedTypes, getCitationValues, renderInstructions } = helpers;
+const { toLowerCase, markdownify, getCheckedTypes, getCitationValues, renderInstructions, joinArrWithCommas } = helpers;
 const stripSpaces = str => str.replace(/\s+/g, '');
 
 describe('Handlebars Utils', () => {
@@ -62,5 +62,8 @@ describe('Handlebars Utils', () => {
   it('renderInstructions should render empty string when instructions are not given', () => {
     const instructions = undefined;
     expect(renderInstructions(instructions)).to.equal('');
+  });
+  it('joinArrWithCommas takes an array and returns a string of comma separated items', () => {
+    expect(joinArrWithCommas(['cat', 'dog', 'fish'])).to.equal('cat, dog, fish');
   });
 });
