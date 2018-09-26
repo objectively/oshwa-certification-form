@@ -664,6 +664,8 @@ label[id^='citations['] {
           margin-top: 2rem; } }
       .menu__title-link h1:hover {
         color: #1a1a1a; }
+    .menu__title-link--disable h1:hover {
+      color: white !important; }
   .menu__icon {
     cursor: pointer;
     font-size: 2.1rem !important;
