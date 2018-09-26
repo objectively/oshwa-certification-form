@@ -115,7 +115,7 @@
       "formSection": "3",
       "formOrder": "33",
       "title":
-        "I understand and comply with the \"Creator Contribution requirement,\" explained in the Requirements for Certification.",
+        "I understand and comply with the \"Creator Contribution requirement,\" explained in the <a href='https://certification.oshwa.org/requirements.html' target='blank'>Requirements for Certification.</a>",
       "contentfulFieldName": "creatorContribution",
       "formPlaceholder": "",
       "type": "boolean",
