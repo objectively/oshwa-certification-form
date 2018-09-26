@@ -34,7 +34,7 @@ bundles everything into a single bundle.js file. It is linked in the layout: `<s
 src='/javascripts/bundle.js'></script>`. Add modules to the **client** folder and require them in **script.js**.
 
 ### Contentful
-This project uses Contentful's [Content Delivery API SDK](https://github.com/contentful/contentful.js) and [Content Management API] SDK(https://github.com/contentful/contentful-management.js) to retrieve and manage data.
+This project uses Contentful's [Content Delivery API SDK](https://github.com/contentful/contentful.js) and [Content Management API SDK](https://github.com/contentful/contentful-management.js) to retrieve and manage data.
 
 ### Testing
 
