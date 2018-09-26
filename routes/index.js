@@ -1,5 +1,4 @@
 const express = require('express');
-const auth = require('../auth');
 
 const router = express.Router();
 
@@ -14,15 +13,15 @@ const {
 
 /* GET home page. */
 
-router.get('/', auth, getLandingPage);
+router.get('/', getLandingPage);
 
 /* GET /apply. */
-router.get('/apply', auth, getApplyPage);
+router.get('/apply', getApplyPage);
 
 /* POST /apply. */
-router.post('/apply', auth, validateProjectFields, postApplyPage);
+router.post('/apply', validateProjectFields, postApplyPage);
 
 /* GET /confirmation. */
-router.get('/confirmation', auth, getConfirmationPage);
+router.get('/confirmation', getConfirmationPage);
 
 module.exports = router;
