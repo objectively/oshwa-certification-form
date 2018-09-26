@@ -15,6 +15,7 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const browserSync = require('browser-sync');
 const connectBrowserSync = require('connect-browser-sync');
+const expressSanitizer = require('express-sanitizer');
 
 dotenv.config();
 
@@ -70,6 +71,8 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+// Mount express-sanitizer here
+app.use(expressSanitizer());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 

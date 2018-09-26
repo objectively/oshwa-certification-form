@@ -121,8 +121,7 @@ const validateProjectFields = [
   check('projectWebsite')
     .isLength({ max: 256 })
     .withMessage('Maximum length is 256 characters')
-    .trim()
-    .escape(),
+    .trim(),
   check('projectVersion')
     .isLength({ max: 256 })
     .withMessage('Maximum length is 256 characters')
@@ -152,8 +151,7 @@ const validateProjectFields = [
   check('documentationUrl')
     .isLength({ max: 256 })
     .withMessage('Maximum length is 256 characters')
-    .trim()
-    .escape(),
+    .trim(),
   check('availableFileFormat')
     .trim()
     .escape(),

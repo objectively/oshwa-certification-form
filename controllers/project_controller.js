@@ -57,6 +57,11 @@ const getLandingPage = (req, res) => {
 /* POST /apply. */
 /* istanbul ignore next */
 const postApplyPage = (req, res, next) => {
+  const inputs = req.body;
+  // custom sanitization for url fields
+  req.body.documentationUrl = req.sanitize(req.body.documentationUrl);
+  req.body.projectWebsite = req.sanitize(req.body.projectWebsite);
+
   const project = new Project(req.body);
   // server side validations
   const errors = validationResult(req);
