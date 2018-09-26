@@ -29,6 +29,13 @@
         color: darken($gray, 20);
       }
     }
+    &--disable {
+      h1 {
+        &:hover {
+          color: white !important;
+        }
+      }
+    }
   }
 
   &__icon {
