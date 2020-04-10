@@ -97,7 +97,10 @@ Project.prototype.mapFieldsToContentful = function mapFieldsToContentful() {
     } else if (isBoolean(key)) {
       keyValue = returnBooleanFromCheckbox(this[key]);
     } else if (isCheckboxArray(key)) {
-      keyValue = returnArrayFromCheckbox(this[key]);
+      const checkedValues = returnArrayFromCheckbox(this[key]);
+      if (checkedValues.length !== 0) {
+        keyValue = checkedValues;
+      }
     } else if (isCheckboxObject(key)) {
       keyValue = returnCertificationObjectFromCheckbox(this[key]);
     } else if (isBooleanSelect(key)) {
