@@ -142,9 +142,7 @@ const validateProjectFields = [
     )
     .trim()
     .escape(),
-  check('additionalType')
-    .trim()
-    .escape(),
+  check('additionalType'),
   check('projectKeywords')
     .trim()
     .escape(),

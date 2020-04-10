@@ -20,6 +20,12 @@ const recaptcha = new reCAPTCHA({
   secretKey: process.env.RECAPTCHA_SECRET
 });
 
+// recaptcha config for testing 
+// const recaptcha = new reCAPTCHA({
+//   siteKey: process.env.RECAPTCHA_TEST_SITE_KEY,
+//   secretKey: process.env.RECAPTCHA_TEST_SECRET_KEY
+// });
+
 /* istanbul ignore next */
 const getApplyPage = (req, res, next) => {
   getFormValuesFromContentful()
