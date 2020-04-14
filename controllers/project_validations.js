@@ -39,60 +39,60 @@ const returnCertificationExplanationDependency = (value, req) => {
 const validateProjectFields = [
   check('oshwaUid')
     .trim()
-    .escape(),
+    .blacklist("><"),
   check('responsiblePartyType')
     .isLength({ min: 1 })
     .withMessage('Responsible Party Type is required')
     .isLength({ max: 256 })
     .withMessage('Maximum length is 256 characters')
     .trim()
-    .escape(),
+    .blacklist("><"),
   check('responsibleParty')
     .isLength({ min: 1 })
     .withMessage('Responsible Party is required')
     .isLength({ max: 256 })
     .withMessage('Maximum length is 256 characters')
     .trim()
-    .escape(),
+    .blacklist("><"),
   check('bindingParty')
     .custom((value, { req }) => {
       return returnBindingPartyDependency(value, req);
     })
     .withMessage('Name of the binding party is required if responsible party type is not an individual')
     .trim()
-    .escape(),
+    .blacklist("><"),
   check('country')
     .isLength({ min: 1 })
     .withMessage('Country is required')
     .isLength({ max: 256 })
     .withMessage('Maximum length is 256 characters')
     .trim()
-    .escape(),
+    .blacklist("><"),
   check('streetAddress1')
     .isLength({ max: 256 })
     .withMessage('Maximum length is 256 characters')
     .trim()
-    .escape(),
+    .blacklist("><"),
   check('streetAddress2')
     .isLength({ max: 256 })
     .withMessage('Maximum length is 256 characters')
     .trim()
-    .escape(),
+    .blacklist("><"),
   check('city')
     .isLength({ max: 256 })
     .withMessage('Maximum length is 256 characters')
     .trim()
-    .escape(),
+    .blacklist("><"),
   check('state')
     .isLength({ max: 256 })
     .withMessage('Maximum length is 256 characters')
     .trim()
-    .escape(),
+    .blacklist("><"),
   check('postalCode')
     .isLength({ max: 256 })
     .withMessage('Maximum length is 256 characters')
     .trim()
-    .escape(),
+    .blacklist("><"),
   check('privateContact')
     .optional({ checkFalsy: true })
     .isEmail()
@@ -101,7 +101,7 @@ const validateProjectFields = [
     .isLength({ max: 256 })
     .withMessage('Maximum length is 256 characters')
     .trim()
-    .escape(),
+    .blacklist("><"),
   check('publicContact')
     .optional({ checkFalsy: true })
     .isEmail()
@@ -110,14 +110,14 @@ const validateProjectFields = [
     .isLength({ max: 256 })
     .withMessage('Maximum length is 256 characters')
     .trim()
-    .escape(),
+    .blacklist("><"),
   check('projectName')
     .isLength({ min: 1 })
     .withMessage('Project name is required')
     .isLength({ max: 256 })
     .withMessage('Maximum length is 256 characters')
     .trim()
-    .escape(),
+    .blacklist("><"),
   check('projectWebsite')
     .isLength({ max: 256 })
     .withMessage('Maximum length is 256 characters')
@@ -126,136 +126,136 @@ const validateProjectFields = [
     .isLength({ max: 256 })
     .withMessage('Maximum length is 256 characters')
     .trim()
-    .escape(),
+    .blacklist("><"),
   check('previousVersions')
     .isLength({ max: 256 })
     .withMessage('Maximum length is 256 characters')
     .trim()
-    .escape(),
+    .blacklist("><"),
   check('projectDescription')
     .trim()
-    .escape(),
+    .blacklist("><"),
   check('primaryType')
     .isLength({ min: 1 })
     .withMessage(
       'Primary Type: You must select a project type. If your project doesn\'t fall into any of these types, select "Other".'
     )
     .trim()
-    .escape(),
+    .blacklist("><"),
   check('additionalType'),
   check('projectKeywords')
     .trim()
-    .escape(),
+    .blacklist("><"),
   check('documentationUrl')
     .isLength({ max: 256 })
     .withMessage('Maximum length is 256 characters')
     .trim(),
   check('availableFileFormat')
     .trim()
-    .escape(),
+    .blacklist("><"),
   check('citations')
     .trim()
-    .escape(),
+    .blacklist("><"),
   check('hardwareLicense')
     .isLength({ min: 1 })
     .withMessage('Hardware license: You must select a license. If your license is not listed, select "Other"')
     .trim()
-    .escape(),
+    .blacklist("><"),
   check('softwareLicense')
     .isLength({ min: 1 })
     .withMessage(
       'Software license: You must select a license. If your license is not listed, select "Other". If your project doesn\'t use software, select "No software".'
     )
     .trim()
-    .escape(),
+    .blacklist("><"),
   check('documentationLicense')
     .isLength({ min: 1 })
     .withMessage('Documentation License: You must select a license. If your license is not listed, select "Other"')
     .trim()
-    .escape(),
+    .blacklist("><"),
   check('noCommercialRestriction')
     .trim()
-    .escape(),
+    .blacklist("><"),
   check('explanationNcr')
     .custom((value, { req }) => {
       return returnExplanationDependency(value, req, 'noCommercialRestriction');
     })
     .withMessage('noCommercialRestriction: This explanation is required if you answered no.')
     .trim()
-    .escape(),
+    .blacklist("><"),
   check('noDocumentationRestriction')
     .trim()
-    .escape(),
+    .blacklist("><"),
   check('explanationNdr')
     .custom((value, { req }) => {
       return returnExplanationDependency(value, req, 'noDocumentationRestriction');
     })
     .withMessage('noDocumentationRestriction: This explanation is required if you answered no.')
     .trim()
-    .escape(),
+    .blacklist("><"),
   check('openHardwareComponents')
     .trim()
-    .escape(),
+    .blacklist("><"),
   check('explanationOhwc')
     .custom((value, { req }) => {
       return returnExplanationDependency(value, req, 'openHardwareComponents');
     })
     .withMessage('openHardwareComponents: This explanation is required if you answered no.')
     .trim()
-    .escape(),
+    .blacklist("><"),
   check('creatorContribution')
     .trim()
-    .escape(),
+    .blacklist("><"),
   check('explanationCcr')
     .custom((value, { req }) => {
       return returnExplanationDependency(value, req, 'creatorContribution');
     })
     .withMessage('creatorContribution: This explanation is required if you answered no.')
     .trim()
-    .escape(),
+    .blacklist("><"),
   check('noUseRestriction')
     .trim()
-    .escape(),
+    .blacklist("><"),
   check('explanationNur')
     .custom((value, { req }) => {
       return returnExplanationDependency(value, req, 'noUseRestriction');
     })
     .withMessage('noUseRestriction: This explanation is required if you answered no.')
     .trim()
-    .escape(),
+    .blacklist("><"),
   check('redistributedWork')
     .trim()
-    .escape(),
+    .blacklist("><"),
   check('explanationRwr')
     .custom((value, { req }) => {
       return returnExplanationDependency(value, req, 'redistributedWork');
     })
     .withMessage('redistributedWork: This explanation is required if you answered no.')
     .trim()
-    .escape(),
+    .blacklist("><"),
   check('noSpecificProduct')
     .trim()
-    .escape(),
+    .blacklist("><"),
   check('explanationNsp')
     .custom((value, { req }) => {
       return returnExplanationDependency(value, req, 'noSpecificProduct');
     })
     .withMessage('noSpecificProduct: This explanation is required if you answered no.')
     .trim()
-    .escape(),
+    .blacklist("><"),
   check('noComponentRestriction')
     .trim()
-    .escape(),
+    .blacklist("><"),
   check('explanationNor')
     .custom((value, { req }) => {
       return returnExplanationDependency(value, req, 'noComponentRestriction');
     })
     .withMessage('noComponentRestriction: This explanation is required if you answered no.')
     .trim()
-    .escape(),
+    .blacklist("><"),
   check('technologyNeutral')
     .trim()
-    .escape(),
+    .blacklist("><"),
   check('explanationTn')
     .custom((value, { req }) => {
       return returnExplanationDependency(value, req, 'technologyNeutral');
@@ -270,19 +270,19 @@ const validateProjectFields = [
       'certificationMarkTerms: This explanation is required if you did not agree to one or more of the certification mark terms.'
     )
     .trim()
-    .escape(),
+    .blacklist("><"),
   check('relationship')
     .trim()
-    .escape(),
+    .blacklist("><"),
   check('agreementTerms')
     .isLength({ min: 1 })
     .withMessage('You must agree to the terms of the OSHWA Open Source Hardware Certification Mark License Agreement.'),
   check('agreementTerms')
     .trim()
-    .escape(),
+    .blacklist("><"),
   check('parentName')
     .trim()
-    .escape(),
+    .blacklist("><"),
   check('g-recaptcha-response')
     .isLength({ min: 1 })
     .withMessage('Please verify you are not a robot.')
