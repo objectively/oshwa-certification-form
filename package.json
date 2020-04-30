@@ -33,7 +33,7 @@
         "express-sanitizer": "^1.0.5",
         "express-validator": "^6.1.1",
         "helmet": "^3.22.0",
-        "jquery": "^3.4.1",
+        "jquery": "^3.5.0",
         "marked": "^0.7.0",
         "morgan": "~1.9.1",
         "node-sass-middleware": "^0.11.0",
