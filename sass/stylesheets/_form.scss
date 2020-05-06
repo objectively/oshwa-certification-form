@@ -24,7 +24,6 @@ form {
   }
   input[type='checkbox'] {
     display: initial;
-    visibility: hidden;
     width: 0;
   }
   .radio {
@@ -51,8 +50,9 @@ form {
     label {
       display: block;
       font-size: 1rem;
-      margin: 0;
-      padding: 0 0 0 20px;
+      padding-left: 39px;
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
       text-indent: -20px;
     }
   }
@@ -161,6 +161,9 @@ legend {
     padding: 0;
   }
 }
+.single_checkbox_label {
+  padding: 3px 0 3px 20px !important;
+}
 
 .select-previous-versions {
   background: none !important;
@@ -172,4 +175,54 @@ legend {
 .instructions {
   font-style: italic;
   font-size: 0.9rem;
+}
+
+// // make checkboxes tabbable
+// // https://css-tricks.com/the-checkbox-hack/
+// /* Base for label styling */
+[type='checkbox']:not(:checked),
+[type='checkbox']:checked {
+  display: inline;
+  position: absolute;
+  left: -9999px;
+}
+[type='checkbox']:not(:checked) + label,
+[type='checkbox']:checked + label {
+  position: relative;
+  cursor: pointer;
+}
+
+// /* unchecked checkbox */
+[type='checkbox']:not(:checked) + label:before,
+[type='checkbox']:checked + label:before {
+  @extend .u-material-icons;
+  content: 'check_box_outline_blank';
+  position: relative;
+  left: 0;
+  top: 0;
+}
+// /* checked checkbox*/
+[type='checkbox']:checked + label:before {
+  @extend .u-material-icons;
+  content: 'check_box';
+  // position: absolute;
+  // left: 2rem;
+  // top:0;
+}
+
+// /* accessibility */
+[type='checkbox']:checked:focus + label,
+[type='checkbox']:not(:checked):focus + label {
+  outline: -webkit-focus-ring-color auto 5px;
+}
+
+.select {
+  padding: 0;
+}
+
+select {
+  padding: 0.5rem;
+  &:focus {
+    outline: -webkit-focus-ring-color auto 5px;
+  }
 }

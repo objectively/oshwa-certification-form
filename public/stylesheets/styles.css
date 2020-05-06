@@ -1,7 +1,8 @@
 * {
   box-sizing: border-box; }
 
-.u-material-icons, .select2-selection__choice__remove::before {
+.u-material-icons, [type='checkbox']:not(:checked) + label:before,
+[type='checkbox']:checked + label:before, .select2-selection__choice__remove::before {
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
@@ -434,7 +435,6 @@ form {
       font-weight: 500; }
   form input[type='checkbox'] {
     display: initial;
-    visibility: hidden;
     width: 0; }
   form .radio {
     padding: 7px 10px;
@@ -453,8 +453,9 @@ form {
 .additional-project-types .checkbox label {
   display: block;
   font-size: 1rem;
-  margin: 0;
-  padding: 0 0 0 20px;
+  padding-left: 39px;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
   text-indent: -20px; }
 
 .certificate-mark {
@@ -534,6 +535,9 @@ legend {
 .single-checkbox-field .checkbox {
   padding: 0; }
 
+.single_checkbox_label {
+  padding: 3px 0 3px 20px !important; }
+
 .select-previous-versions {
   background: none !important; }
   .select-previous-versions::before {
@@ -542,6 +546,39 @@ legend {
 .instructions {
   font-style: italic;
   font-size: 0.9rem; }
+
+[type='checkbox']:not(:checked),
+[type='checkbox']:checked {
+  display: inline;
+  position: absolute;
+  left: -9999px; }
+
+[type='checkbox']:not(:checked) + label,
+[type='checkbox']:checked + label {
+  position: relative;
+  cursor: pointer; }
+
+[type='checkbox']:not(:checked) + label:before,
+[type='checkbox']:checked + label:before {
+  content: 'check_box_outline_blank';
+  position: relative;
+  left: 0;
+  top: 0; }
+
+[type='checkbox']:checked + label:before {
+  content: 'check_box'; }
+
+[type='checkbox']:checked:focus + label,
+[type='checkbox']:not(:checked):focus + label {
+  outline: -webkit-focus-ring-color auto 5px; }
+
+.select {
+  padding: 0; }
+
+select {
+  padding: 0.5rem; }
+  select:focus {
+    outline: -webkit-focus-ring-color auto 5px; }
 
 .select {
   appearance: none;

@@ -373,7 +373,7 @@ textarea {
 }
 input[type='checkbox'],
 input[type='radio'] {
-  display: none;
+  /* display: none; */
 }
 input:disabled + label {
   opacity: 0.4;
@@ -505,11 +505,11 @@ form--negative input[type='submit']:hover,
 }
 .checkbox input[type='checkbox'] + label:before,
 .radio input[type='checkbox'] + label:before {
-  content: 'check_box_outline_blank';
+  /* content: 'check_box_outline_blank'; */
 }
 .checkbox input[type='checkbox']:checked + label:before,
 .radio input[type='checkbox']:checked + label:before {
-  content: 'check_box';
+  /* content: 'check_box'; */
 }
 .checkbox input[type='radio'] + label:before,
 .radio input[type='radio'] + label:before {
