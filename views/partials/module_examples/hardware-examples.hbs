@@ -1,7 +1,7 @@
 <div class="modals-wrapper">
   <div id="hardware-examples" class="row expanded module-examples">
     <div class="column small-12 large-12 modals-container">
-      <h3>Examples of Hardware Licensing</h3><span class="open-example-control" data-target="hardwareExamples"><i class="material-icons">arrow_drop_down_circle</span>
+      <h3>Examples of Hardware Licensing</h3><button class="open-example-control" data-target="hardwareExamples"></button>
     </div>
     <div class="column large-12">
       <div class="row hide" data-modal-value="hardwareExamples">
@@ -22,7 +22,7 @@
           {{!-- modal body --}}
           <div class="modal js-target-modal">
             <div class="modal__header modal--top-section">
-              <i class="modal__close material-icons js-close-modal">close</i>
+              <button class="modal__close js-close-modal"></button>
             </div>
             <div class="modal__content">
               <h3>{{this.fields.projectOwner}} {{this.fields.projectName}}</h3>

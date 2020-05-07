@@ -30,13 +30,12 @@
 
 .select2-selection__choice__remove {
   color: transparent !important;
-  &::before {
-    content: 'remove_circle';
-    @extend .u-material-icons;
-    display: inline-block;
-    color: $gray;
-    font-size: 0.9rem;
-  }
+  background-image: url('/images/remove_circle-24px.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 1rem;
+  font-size: 0.9rem;
+  width: .9rem;
 }
 
 .select2-search,

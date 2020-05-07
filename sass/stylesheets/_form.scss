@@ -40,7 +40,6 @@ form {
       font-size: 1rem;
       margin: 0;
       padding: 0 0 0 20px;
-      text-indent: -20px;
     }
   }
 }
@@ -53,7 +52,6 @@ form {
       padding-left: 39px;
       margin-top: 0.5rem;
       margin-bottom: 0.5rem;
-      text-indent: -20px;
     }
   }
 }
@@ -162,7 +160,7 @@ legend {
   }
 }
 .single_checkbox_label {
-  padding: 3px 0 3px 20px !important;
+  padding: 3px 0 3px 40px !important;
 }
 
 .select-previous-versions {
@@ -193,21 +191,16 @@ legend {
 }
 
 // /* unchecked checkbox */
-[type='checkbox']:not(:checked) + label:before,
-[type='checkbox']:checked + label:before {
-  @extend .u-material-icons;
-  content: 'check_box_outline_blank';
-  position: relative;
-  left: 0;
-  top: 0;
+[type='checkbox']:not(:checked) + label,
+[type='checkbox']:checked + label {
+  background-image: url('/images/check_box_outline_blank-24px.svg');
+  background-repeat: no-repeat;
 }
+
 // /* checked checkbox*/
-[type='checkbox']:checked + label:before {
-  @extend .u-material-icons;
-  content: 'check_box';
-  // position: absolute;
-  // left: 2rem;
-  // top:0;
+[type='checkbox']:checked + label {
+  background-image: url('/images/check_box-24px.svg');
+  background-repeat: no-repeat;
 }
 
 // /* accessibility */
@@ -225,4 +218,42 @@ select {
   &:focus {
     outline: -webkit-focus-ring-color auto 5px;
   }
+}
+button {
+  &:focus {
+    outline: -webkit-focus-ring-color auto 5px;
+  }
+}
+
+.js-remove-field {
+  background-image: url('/images/remove_circle-24px.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 1.1rem;
+  width: 1.3rem;
+  height: 1.3rem;
+  display: inline-block;
+}
+
+.js-add-url-inputs-field {
+  .js-add-url {
+    background-image: url(/images/add_circle-24px.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 1.1rem;
+    width: 1.3rem;
+    height: 1.3rem;
+    display: inline-block;
+  }
+}
+
+.open-example-control {
+  background-image: url('/images/baseline-arrow_drop_down_circle-24px.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 1.2rem;
+  height: 1.4rem;
+  width: 1.4rem;
+  vertical-align: middle;
+  margin-left: .5rem;
 }
