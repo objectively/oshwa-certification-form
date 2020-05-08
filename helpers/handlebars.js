@@ -220,7 +220,7 @@ const createExplanationTextArea = content => {
 const generateUrlCitationFields = (fieldName, placeholder, count, addedCitations = []) => {
   const citationInputs = `
     <div data-template-value="url-inputs" class="form-field-wrapper row">
-      <div class="columns small-1"><i class="js-remove-field material-icons">remove_circle</i></div>
+      <div class="columns small-1"><button class="js-remove-field"></button></div>
       <div class="columns small-11 large-5 medium-5">
         <label for="${fieldName}[${count}]--url_title">Citation Title</label>
         <input
@@ -271,7 +271,7 @@ const createUrlInputs = content => {
   return `
     <div class="url_fields field-wrapper" data-template-target="url-inputs">
       ${urlFields}
-      <div class="row columns js-add-url-inputs-field"><i class="material-icons">add_circle</i></div>
+      <div class="row columns js-add-url-inputs-field"><button class="material-icons js-add-url"></button></div>
     </div>
 `;
 };

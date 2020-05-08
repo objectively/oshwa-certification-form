@@ -1,6 +1,7 @@
 const Modal = {
   openModal: () => {
     $('.js-open-modal').click(e => {
+      e.preventDefault();
       $(e.currentTarget)
         .find('.js-target-modal')
         .addClass('js-active');

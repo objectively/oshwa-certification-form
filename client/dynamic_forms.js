@@ -2,7 +2,7 @@ const DynamicForm = {
   generateUrlField(count) {
     return `
         <div data-template-value="url-inputs" class="form-field-wrapper row">
-          <div class="columns small-1"><i class="js-remove-field material-icons">remove_circle</i></div>
+          <div class="columns small-1"><button class="js-remove-field"></button></div>
           <div class="columns small-11 large-5 medium-5">
             <label for="citations[${count}]--url_title">Citation Title</label>
             <input
@@ -29,7 +29,7 @@ const DynamicForm = {
     `;
   },
   addFormField() {
-    $('.js-add-url-inputs-field > .material-icons').on('click', e => {
+    $('.js-add-url-inputs-field > .js-add-url').on('click', e => {
       const count = $('.form-field-wrapper ').length;
       e.preventDefault();
       const newFormField = DynamicForm.generateUrlField(count + 1);
@@ -58,6 +58,7 @@ const DynamicForm = {
   },
   openExample() {
     $('.open-example-control').on('click', e => {
+      e.preventDefault();
       const examplesTarget = $(e.currentTarget).attr('data-target');
       const examplesContainer = $(`[data-modal-value="${examplesTarget}"]`);
       if ($(e.currentTarget).hasClass('open')) {

@@ -110,6 +110,12 @@
       font-weight: 700;
       margin: 1rem;
       padding: 0;
+      background-image: url('/images/close-24px.svg');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 2.2rem;
+      padding: 1.5rem;
+
     }
     &__content {
       &::-webkit-scrollbar {
