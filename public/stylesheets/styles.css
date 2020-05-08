@@ -456,7 +456,8 @@ form {
     form .checkbox label {
       font-size: 1rem;
       margin: 0;
-      padding: 0 0 0 20px; }
+      padding: 0 0 0 20px;
+      display: block; }
 
 .additional-project-types .checkbox label {
   display: block;
@@ -543,7 +544,9 @@ legend {
   padding: 0; }
 
 .single_checkbox_label {
-  padding: 3px 0 3px 40px !important; }
+  padding-left: 40px !important; }
+  .single_checkbox_label + .instructions {
+    padding-left: 40px; }
 
 .select-previous-versions {
   background: none !important; }

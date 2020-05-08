@@ -40,6 +40,7 @@ form {
       font-size: 1rem;
       margin: 0;
       padding: 0 0 0 20px;
+      display: block;
     }
   }
 }
@@ -160,7 +161,8 @@ legend {
   }
 }
 .single_checkbox_label {
-  padding: 3px 0 3px 40px !important;
+  padding-left: 40px !important;
+  + .instructions { padding-left: 40px;}
 }
 
 .select-previous-versions {
