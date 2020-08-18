@@ -51,7 +51,7 @@ label > a {
     background-image: url("/images/menu-24px.svg");
     background-position: center;
     background-repeat: no-repeat;
-    padding: 1.5rem; }
+    padding: 1.5rem 1.7rem; }
     .top-bar__button--right {
       background-color: #ffeb80;
       color: #4d4d4d;
@@ -723,68 +723,54 @@ label[id^='citations['] {
   top: 0;
   right: 0;
   left: 0;
-  padding: 2rem 7rem 4rem 3rem;
-  text-align: left;
-  margin-top: 50px; }
+  padding: 2.5rem 2rem 3rem 4rem;
+  text-align: left; }
+  @media (max-width: 63.9375em) {
+    .menu {
+      padding-top: 1.5rem; } }
   @media (max-width: 39.9375em) {
     .menu {
-      padding: 2rem 2rem 4rem 2rem; } }
+      padding-top: 1.5rem; } }
   .menu__title-link {
     text-decoration: none !important; }
-    .menu__title-link h1 {
+    .menu__title-link span {
+      display: inline-block;
       font-size: 0.9rem;
       font-weight: 600;
       text-transform: uppercase;
       border-bottom: 3px solid #737373;
       padding-bottom: 0.2rem; }
-      @media (max-width: 39.9375em) {
-        .menu__title-link h1 {
+      @media (max-width: 63.9375em) {
+        .menu__title-link span {
           margin-top: 2rem; } }
-      .menu__title-link h1:hover {
+      @media (max-width: 39.9375em) {
+        .menu__title-link span {
+          margin-top: 2rem; } }
+      .menu__title-link span:hover {
         color: #1a1a1a; }
-    .menu__title-link--disable h1:hover {
-      color: white !important; }
   .menu__icon {
     cursor: pointer;
-    font-size: 2.1rem !important;
+    font-size: 1.9rem !important;
     font-weight: 700 !important;
     position: absolute;
-    right: 2.4rem;
-    top: 2.4rem; }
-    @media (max-width: 63.9375em) {
-      .menu__icon {
-        right: 2rem;
-        top: 1rem; } }
-    @media (max-width: 39.9375em) {
-      .menu__icon {
-        font-size: 2rem !important;
-        right: 1rem;
-        top: 1rem; } }
+    left: 0.7rem;
+    top: 0.7rem; }
     .menu__icon:hover {
       color: #1a1a1a; }
     .menu__icon--home {
-      top: 5rem; }
-      @media (max-width: 63.9375em) {
-        .menu__icon--home {
-          right: 5rem;
-          top: 1rem; } }
-      @media (max-width: 39.9375em) {
-        .menu__icon--home {
-          font-size: 2rem !important;
-          right: 4rem;
-          top: 1rem; } }
+      top: 3.6rem; }
     .menu__icon.close-menu {
       background-image: url("/images/close-24px.svg");
       background-position: center;
       background-repeat: no-repeat;
-      background-size: 2.2rem;
-      padding: 1.5rem; }
+      background-size: 2rem;
+      padding: 1rem; }
     .menu__icon.menu__icon--home {
       background-image: url("/images/home-24px.svg");
       background-position: center;
       background-repeat: no-repeat;
-      background-size: 2.2rem;
-      padding: 1.5rem; }
+      background-size: 2rem;
+      padding: 1rem; }
   .menu__link-container {
     border-left: 1px solid #737373;
     margin-top: 1rem; }
@@ -799,7 +785,14 @@ label[id^='citations['] {
         background-color: #404040; }
 
 .active-menu {
-  display: block; }
+  display: block;
+  z-index: 2; }
+
+.menu-button {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0; }
 
 @media (min-width: 64em) {
   .footer {
