@@ -29,3 +29,18 @@
   background-color: $gray !important;
   color: white !important;
 }
+
+.api-link {
+  text-decoration: none !important;
+  color: white;
+  line-height: 1.25;
+  border-bottom: 1px solid white;
+  font-weight: 600;
+  position: absolute;
+  right: 3rem;
+  top: 14px;
+  &:hover {
+    color: darken($gray, 15%);
+    border-bottom: 1px solid darken($gray, 15%);
+  }
+}
