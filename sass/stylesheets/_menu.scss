@@ -55,6 +55,9 @@
       background-repeat: no-repeat;
       background-size: 2rem;
       padding: 1rem;
+      &:hover {
+        filter: invert(100%);
+      }
     }
     &.menu__icon--home {
       background-image: url('/images/home-24px.svg');
@@ -62,6 +65,9 @@
       background-repeat: no-repeat;
       background-size: 2rem;
       padding: 1rem;
+      &:hover {
+        filter: invert(100%);
+      }
     }
   }
 

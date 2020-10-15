@@ -51,7 +51,7 @@ label > a {
     background-image: url("/images/menu-24px.svg");
     background-position: center;
     background-repeat: no-repeat;
-    padding: 1.5rem 1.7rem; }
+    padding: 1.5rem; }
     .top-bar__button--right {
       background-color: #ffeb80;
       color: #4d4d4d;
@@ -68,6 +68,19 @@ label > a {
 .active-menu-button {
   background-color: #4d4d4d !important;
   color: white !important; }
+
+.api-link {
+  text-decoration: none !important;
+  color: white;
+  line-height: 1.25;
+  border-bottom: 1px solid white;
+  font-weight: 600;
+  position: absolute;
+  right: 3rem;
+  top: 14px; }
+  .api-link:hover {
+    color: #272727;
+    border-bottom: 1px solid #272727; }
 
 .top-section {
   margin-top: -50px;
@@ -200,6 +213,9 @@ label > a {
       padding: 10px 25px; }
       #index .page-section--projects .button-container .button:hover {
         background-color: #343434; }
+
+.desc-header {
+  margin-top: 3rem; }
 
 @media (min-width: 64em) {
   #certify .page-section,
@@ -765,12 +781,16 @@ label[id^='citations['] {
       background-repeat: no-repeat;
       background-size: 2rem;
       padding: 1rem; }
+      .menu__icon.close-menu:hover {
+        filter: invert(100%); }
     .menu__icon.menu__icon--home {
       background-image: url("/images/home-24px.svg");
       background-position: center;
       background-repeat: no-repeat;
       background-size: 2rem;
       padding: 1rem; }
+      .menu__icon.menu__icon--home:hover {
+        filter: invert(100%); }
   .menu__link-container {
     border-left: 1px solid #737373;
     margin-top: 1rem; }
