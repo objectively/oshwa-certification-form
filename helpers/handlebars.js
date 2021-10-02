@@ -331,7 +331,13 @@ const toLowerCase = str => {
   return '';
 };
 
-const joinArrWithCommas = arr => arr.join(', ');
+const joinArrWithCommas = arr => {
+  if (!arr) {
+    return;
+  } else {
+    return arr === 'string' ? arr : arr.join(',');
+  }
+};
 
 module.exports = {
   createBooleanDropdown,
