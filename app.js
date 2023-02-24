@@ -2,7 +2,6 @@ const dotenv = require('dotenv');
 const express = require('express');
 const exphbs = require('express-handlebars');
 const babelify = require('babelify');
-const sassMiddleware = require('node-sass-middleware');
 const browserify = require('browserify-middleware');
 const helmet = require('helmet');
 const compression = require('compression');
@@ -28,15 +27,6 @@ const port = process.env.PORT || 3000;
 // view engine setup
 app.engine('hbs', exphbs({ extname: '.hbs', defaultLayout: 'layout' }));
 app.set('view engine', 'hbs');
-
-// Use sass
-app.use(
-  sassMiddleware({
-    src: path.join(__dirname, '/sass'),
-    dest: path.join(__dirname, '/public'),
-    debug: true
-  })
-);
 
 // browserify and babelify
 browserify.settings({
