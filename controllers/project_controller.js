@@ -46,6 +46,7 @@ const getConfirmationPage = (req, res) => {
 };
 
 const getLandingPage = (req, res) => {
+  
   getIndexFromContentful().then(indexContent => {
     const { pageTitle, headerCopy, descriptionHeader, description } = indexContent[0].fields;
     res.render('index', {

@@ -294,7 +294,8 @@ const getCheckedTypes = project => {
   return '';
 };
 
-const markdownify = str => (str ? md(str) : '');
+const markdownify = str => (str ? md.parse(str) : '');
+
 
 const createCertificationMarkTerms = content => {
   const {
