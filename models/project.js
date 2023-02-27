@@ -19,6 +19,7 @@ const { removeElFromArray } = require('../helpers/utils');
 
 function Project(data) {
   Object.assign(this, data);
+
   // this.oshwaUid = data.oshwaUid;
   // this.responsiblePartyType = data.responsiblePartyType;
   // this.responsibleParty = data.responsibleParty;
@@ -34,7 +35,7 @@ function Project(data) {
   // this.projectName = data.projectName;
   // this.projectWebsite = data.projectWebsite;
   // this.projectVersion = data.projectVersion;
-  // this.previousVersions = data.previousVersions;
+  // this.previousVersions[] = data.previousVersions[];
   // this.projectDescription = data.projectDescription;
   // this.primaryType = data.primaryType;
   // this.additionalType = data.additionalType;
@@ -87,6 +88,12 @@ Project.prototype.mapFieldsToContentful = function mapFieldsToContentful() {
   // remove recaptcha fields from contentful response
   keys = removeElFromArray(keys, 'hiddenRecaptcha');
   keys = removeElFromArray(keys, 'g-recaptcha-response');
+  // remove array from multiselect previousVersions field
+  if (keys.indexOf('previousVersions[]') !== -1) {
+    delete keys[keys.indexOf('previousVersions[]')];
+  }
+  keys.push('previousVersions')
+  console.log(keys)
   const fields = {};
   let citations = [];
   keys.forEach(key => {
