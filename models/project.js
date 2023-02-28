@@ -19,6 +19,7 @@ const { removeElFromArray } = require('../helpers/utils');
 
 function Project(data) {
   Object.assign(this, data);
+  this.previousVersions = data['previousVersions[]'];
 
   // this.oshwaUid = data.oshwaUid;
   // this.responsiblePartyType = data.responsiblePartyType;
@@ -35,7 +36,7 @@ function Project(data) {
   // this.projectName = data.projectName;
   // this.projectWebsite = data.projectWebsite;
   // this.projectVersion = data.projectVersion;
-  // this.previousVersions[] = data.previousVersions[];
+  // this['previousVersions[]'] = data['previousVersions[]'];
   // this.projectDescription = data.projectDescription;
   // this.primaryType = data.primaryType;
   // this.additionalType = data.additionalType;
@@ -88,12 +89,7 @@ Project.prototype.mapFieldsToContentful = function mapFieldsToContentful() {
   // remove recaptcha fields from contentful response
   keys = removeElFromArray(keys, 'hiddenRecaptcha');
   keys = removeElFromArray(keys, 'g-recaptcha-response');
-  // remove array from multiselect previousVersions field
-  if (keys.indexOf('previousVersions[]') !== -1) {
-    delete keys[keys.indexOf('previousVersions[]')];
-  }
-  keys.push('previousVersions')
-  console.log(keys)
+
   const fields = {};
   let citations = [];
   keys.forEach(key => {
@@ -127,14 +123,8 @@ Project.prototype.mapFieldsToContentful = function mapFieldsToContentful() {
   });
   // add citations input values to contentful field name
   fields.citations = { 'en-US': returnUrlToObj(citations) };
-  // don't need this anymore, removed forced boolean in validation
-  // add default true for license fields where user has not submitted an answer
-  // defaultLicenseFields.forEach(licenseField => {
-  //   if (Object.keys(fields).indexOf(licenseField) === -1) {
-  //     fields[licenseField] = { 'en-US': true };
-  //   }
-  // });
 
+  delete fields['previousVersions[]'];
   return fields;
 };
 
