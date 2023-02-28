@@ -129,7 +129,7 @@ const createPreviousVersionsDropdown = content => {
       <div class="select select-previous-versions" >
         <select id="${formValues.contentfulFieldName}" multiple="multiple" class="${
     formValues.contentfulFieldName
-  }" type="text" name="${formValues.contentfulFieldName}">
+  }" type="text" name="${formValues.contentfulFieldName}[]">
           <option></option>
           ${allProjects}
         </select>

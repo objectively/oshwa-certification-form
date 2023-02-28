@@ -28,17 +28,33 @@ const sectionTwo = require('../config/form_fields/section-2-questions.json');
 const sectionThree = require('../config/form_fields/section-3-questions.json');
 const sectionFour = require('../config/form_fields/section-4-questions.json');
 
-// Get Projects List
-/* istanbul ignore next */
-const getProjectsList = () =>
-  contentfulDeliveryClient
+const getAllProjects = (limitOption = 1000, skipOption = 0, allData) => {
+  let limit = limitOption;
+  let skip = skipOption;
+  allData = allData || [];
+  return contentfulDeliveryClient
     .getEntries({
       content_type: 'project',
-      limit: 1000,
+      skip,
+      limit,
+      order: 'fields.oshwaUid',
       select: ['fields.oshwaUid', 'fields.responsibleParty', 'fields.projectName']
     })
-    .then(response => response.items)
+    .then(response => {
+      allData = allData.concat(response.items);
+      if (response.items.length == limit) {
+        return getAllProjects(limit, limit + skip, allData);
+      }
+      return allData;
+    })
     .catch(console.error);
+};
+
+// Get Projects List
+/* istanbul ignore next */
+const getProjectsList = () => {
+  return getAllProjects();
+};
 
 // GET Validations
 const getValidationDropdownItems = (contentType, id) =>
