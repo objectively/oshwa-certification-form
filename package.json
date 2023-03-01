@@ -8,7 +8,7 @@
     },
     "scripts": {
         "build": "webpack & npm run scss",
-        "start": "node ./bin/www & npm run build",
+        "start": "node ./bin/www",
         "dev": "nodemon ./bin/www & npm run build",
         "test": "nyc --reporter=html --reporter=text mocha $(find test -name '*.js')",
         "lint": "eslint ./client/**/*.js",
@@ -17,6 +17,7 @@
         "scss": "sass ./sass/stylesheets/styles.scss ./public/stylesheets/styles.css"
     },
     "dependencies": {
+        "babel-loader": "^9.1.2",
         "babelify": "^10.0.0",
         "basic-auth": "^2.0.1",
         "body-parser": "~1.19.0",
@@ -50,7 +51,6 @@
     "devDependencies": {
         "@babel/core": "^7.21.0",
         "@babel/preset-env": "^7.20.2",
-        "babel-loader": "^9.1.2",
         "chai": "^4.3.4",
         "jsdom": "^16.5.3",
         "jshint": "^2.12.0",
