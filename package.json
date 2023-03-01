@@ -43,7 +43,9 @@
         "sass": "^1.58.3",
         "serve-favicon": "^2.5.0",
         "sinon": "^7.3.2",
-        "supertest": "^4.0.2"
+        "supertest": "^4.0.2",
+        "webpack": "^5.75.0",
+        "webpack-cli": "^5.0.1"
     },
     "devDependencies": {
         "@babel/core": "^7.21.0",
@@ -56,8 +58,6 @@
         "nodemon": "^1.19.1",
         "nyc": "^14.1.1",
         "prettier": "^1.18.2",
-        "source-map-support": "^0.5.12",
-        "webpack": "^5.75.0",
-        "webpack-cli": "^5.0.1"
+        "source-map-support": "^0.5.12"
     }
 }
