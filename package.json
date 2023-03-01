@@ -14,7 +14,7 @@
         "lint": "eslint ./client/**/*.js",
         "lint-server": "eslint ./app.js ./services/*.js ./controllers/*.js ./models/*.js ./helpers/*.js ./routes/*.js",
         "prettier": "prettier --config ./.prettierrc --write ./client/**/*.js",
-        "scss": "sass --watch ./sass/stylesheets/styles.scss ./public/stylesheets/styles.css"
+        "scss": "sass ./sass/stylesheets/styles.scss ./public/stylesheets/styles.css"
     },
     "dependencies": {
         "babelify": "^10.0.0",
