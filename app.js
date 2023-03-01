@@ -28,13 +28,6 @@ const port = process.env.PORT || 3000;
 app.engine('hbs', exphbs({ extname: '.hbs', defaultLayout: 'layout' }));
 app.set('view engine', 'hbs');
 
-// browserify and babelify
-browserify.settings({
-  transform: [[babelify, { presets: ['@babel/preset-env'] }]]
-});
-
-app.get('/javascripts/bundle.js', browserify('./client/script.js'));
-
 // security
 app.use(helmet());
 

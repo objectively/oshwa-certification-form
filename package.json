@@ -7,8 +7,9 @@
         "npm": "8.3.1"
     },
     "scripts": {
-        "start": "node ./bin/www & npm run scss",
-        "dev": "nodemon ./bin/www & npm run scss",
+        "build": "webpack & npm run scss",
+        "start": "node ./bin/www & npm run build",
+        "dev": "nodemon ./bin/www & npm run build",
         "test": "nyc --reporter=html --reporter=text mocha $(find test -name '*.js')",
         "lint": "eslint ./client/**/*.js",
         "lint-server": "eslint ./app.js ./services/*.js ./controllers/*.js ./models/*.js ./helpers/*.js ./routes/*.js",
@@ -45,8 +46,9 @@
         "supertest": "^4.0.2"
     },
     "devDependencies": {
-        "@babel/core": "^7.14.3",
-        "@babel/preset-env": "^7.14.2",
+        "@babel/core": "^7.21.0",
+        "@babel/preset-env": "^7.20.2",
+        "babel-loader": "^9.1.2",
         "chai": "^4.3.4",
         "jsdom": "^16.5.3",
         "jshint": "^2.12.0",
@@ -54,6 +56,8 @@
         "nodemon": "^1.19.1",
         "nyc": "^14.1.1",
         "prettier": "^1.18.2",
-        "source-map-support": "^0.5.12"
+        "source-map-support": "^0.5.12",
+        "webpack": "^5.75.0",
+        "webpack-cli": "^5.0.1"
     }
 }
