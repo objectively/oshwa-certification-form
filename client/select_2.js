@@ -8,6 +8,10 @@ const Select2 = {
   },
   init() {
     this.previousVersions();
+    // allow select on enter 
+    $('select2-search-field > input.select2-input').on('keyup', function(e) {
+      if (e.keyCode === 13) addToList($(this).val());
+    });
   }
 };
 
